@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1357,27 +1370,27 @@
 <h4 id="1212">12.1.2 &#x4F7F;&#x7528;&#x8303;&#x4F8B;</h4>
 
 <p>  <strong>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x9996;&#x5148;&#x5229;&#x7528;&#x8FC7;&#x6EE4;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BFB;&#x53D6;&#x539F;&#x59CB;&#x6570;&#x636E;</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-core_data &lt;- data_filter(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                         min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>)
-<span class="hljs-comment"># &#x9009;&#x62E9;&#x51FA;&#x81EA;&#x5DF1;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x6570;&#x636E;</span>
+<pre class="language-"><code class="lang-R"># &#x9996;&#x5148;&#x5229;&#x7528;&#x8FC7;&#x6EE4;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BFB;&#x53D6;&#x539F;&#x59CB;&#x6570;&#x636E;
+library(EasyMicroPlot) # &#x52A0;&#x8F7D;&#x5305;
+core_data &lt;- data_filter(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                         min_relative = 0.001,min_ratio = 0.7)
+# &#x9009;&#x62E9;&#x51FA;&#x81EA;&#x5DF1;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x6570;&#x636E;
 RF_data &lt;- core_data$filter_data$species
-<span class="hljs-comment">## &#x8FDB;&#x884C;&#x968F;&#x673A;&#x68EE;&#x6797;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x6A21;&#x578B;&#x8BA1;&#x7B97;</span>
+## &#x8FDB;&#x884C;&#x968F;&#x673A;&#x68EE;&#x6797;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x6A21;&#x578B;&#x8BA1;&#x7B97;
 RF_re &lt;- RFCV(RF_data)
 
-RF_re$RFCV_data <span class="hljs-comment"># &#x8F93;&#x5165;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;</span>
-RF_re$RFCV_result <span class="hljs-comment">#&#x968F;&#x673A;&#x68EE;&#x6797;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7684;&#x57FA;&#x672C;&#x7ED3;&#x679C;</span>
-RF_re$RFCV_result_plot <span class="hljs-comment">#&#x673A;&#x68EE;&#x6797;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7684;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
+RF_re$RFCV_data # &#x8F93;&#x5165;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;
+RF_re$RFCV_result #&#x968F;&#x673A;&#x68EE;&#x6797;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7684;&#x57FA;&#x672C;&#x7ED3;&#x679C;
+RF_re$RFCV_result_plot #&#x673A;&#x68EE;&#x6797;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7684;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x8F93;&#x5165;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x91CC;&#x9ED8;&#x8BA4;&#x91C7;&#x7528;&#x6700;&#x5E38;&#x7528;&#x7684;&#x79CD;&#x7EA7;&#x522B;&#x6570;&#x636E;&#x4F5C;&#x4E3A;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x9700;&#x8981;&#x7684;&#x7EA7;&#x522B;</span>
+<pre class="language-"><code class="lang-R"># &#x8F93;&#x5165;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x91CC;&#x9ED8;&#x8BA4;&#x91C7;&#x7528;&#x6700;&#x5E38;&#x7528;&#x7684;&#x79CD;&#x7EA7;&#x522B;&#x6570;&#x636E;&#x4F5C;&#x4E3A;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x9700;&#x8981;&#x7684;&#x7EA7;&#x522B;
 RF_re$RFCV_data
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x8BFB;&#x53D6;&#x6A21;&#x578B;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x51C6;&#x786E;&#x7387;&#x53D8;&#x5316;&#x8D8B;&#x52BF;</span>
-RF_var_dataframe &lt;- data.frame(matrix(unlist(RF_re$RFCV_result$CV_accuracy),nrow = c(ncol(RF_data)-<span class="hljs-number">2</span>)))
-seed_name=RF_re$RFCV_result$Seed_num <span class="hljs-comment"># &#x83B7;&#x5F97;&#x6A21;&#x578B;&#x8BA1;&#x7B97;&#x65F6;&#x7684;&#x79CD;&#x5B50;</span>
-colnames(RF_var_dataframe)=paste( <span class="hljs-string">&quot;Seed_&quot;</span>, seed_name, sep=<span class="hljs-string">&quot;&quot;</span>) <span class="hljs-comment"># &#x4FEE;&#x6539;&#x5217;&#x540D;</span>
+<pre class="language-"><code class="lang-R"># &#x8BFB;&#x53D6;&#x6A21;&#x578B;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x51C6;&#x786E;&#x7387;&#x53D8;&#x5316;&#x8D8B;&#x52BF;
+RF_var_dataframe &lt;- data.frame(matrix(unlist(RF_re$RFCV_result$CV_accuracy),nrow = c(ncol(RF_data)-2)))
+seed_name=RF_re$RFCV_result$Seed_num # &#x83B7;&#x5F97;&#x6A21;&#x578B;&#x8BA1;&#x7B97;&#x65F6;&#x7684;&#x79CD;&#x5B50;
+colnames(RF_var_dataframe)=paste( &quot;Seed_&quot;, seed_name, sep=&quot;&quot;) # &#x4FEE;&#x6539;&#x5217;&#x540D;
 RF_var_dataframe
 </code></pre>
 <table>
@@ -1498,32 +1511,32 @@ RF_var_dataframe
 </table>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
 <p>Tips 1: &#x4E0B;&#x56FE;&#x6240;&#x793A;&#x622A;&#x7EBF;&#x4F9D;&#x636E;10&#x6B21;&#x968F;&#x673A;&#x6570;&#x79CD;&#x5B50;&#x4E0B;&#x5E73;&#x5747;&#x9519;&#x8BEF;&#x7387;&#x548C;&#x9519;&#x8BEF;&#x7387;&#x6807;&#x51C6;&#x5DEE;&#x6700;&#x5C0F;&#x7684;&#x6807;&#x51C6;&#x800C;&#x9009;&#x53D6;&#xFF0C;&#x5373;&#x610F;&#x5473;&#x7740;&#x5728;&#x8FD9;&#x4E2A;&#x622A;&#x7EBF;&#x4E0B;&#x7684;&#x7279;&#x5F81;&#x6570;&#x76EE;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;10&#x6B21;&#x968F;&#x673A;&#x68EE;&#x6797;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7ED3;&#x679C;&#x7684;&#x5E73;&#x5747;&#x9519;&#x8BEF;&#x7387;&#x76F8;&#x5BF9;&#x6700;&#x4F4E;&#x4E14;&#x5728;&#x4E0D;&#x540C;&#x968F;&#x673A;&#x6570;&#x79CD;&#x5B50;&#x4E0B;&#x9519;&#x8BEF;&#x7387;&#x76F8;&#x5BF9;&#x7A33;&#x5B9A;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># RFCV&#x5E73;&#x5747;&#x9519;&#x8BEF;&#x7387;&#x4E0B;&#x964D;&#x56FE;</span>
+<pre class="language-"><code class="lang-R"># RFCV&#x5E73;&#x5747;&#x9519;&#x8BEF;&#x7387;&#x4E0B;&#x964D;&#x56FE;
 RF_re &lt;- RFCV(RF_data)
 RF_re$RFCV_result_plot$curve_plot
 </code></pre>
 <p><img src="../Image/RFCV1.png" alt="RFCV1" style="zoom:45%;">
 Tips 2: &#x6CE8;&#x610F;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x8C03;&#x6574;&#x540E;&#xFF0C;&#x6700;&#x9002;&#x7ED3;&#x679C;&#x4E5F;&#x5C06;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4FEE;&#x6539;&#x5185;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x8C03;&#x6574;&#x6A21;&#x578B;</span>
-<span class="hljs-comment"># &#x5C06;&#x6B65;&#x4F10;&#x8C03;&#x6574;&#x4E3A;2&#xFF0C;&#x6A2A;&#x5750;&#x6807;&#x8C03;&#x6574;&#x4E3A;2&#xFF0C;&#x622A;&#x7EBF;&#x8C03;&#x6574;&#x4E3A;&#x84DD;&#x8272;&#xFF0C;&#x6574;&#x4F53;&#x8272;&#x677F;&#x7EDF;&#x4E00;&#x4E3A;&#x9ED1;&#x8272;&#xFF0C;&#x6A21;&#x578B;&#x91CD;&#x590D;&#x6570;&#x4E3A;8&#xFF0C;&#x8D77;&#x59CB;&#x79CD;&#x5B50;&#x4E3A;123</span>
-RF_re2 &lt;- RFCV(RF_data,step = <span class="hljs-number">2</span>,x_break = <span class="hljs-number">2</span>,cutoff_colour = <span class="hljs-string">&apos;steelblue&apos;</span>,
-              palette = <span class="hljs-string">&apos;black&apos;</span>,rep = <span class="hljs-number">8</span>,seed=<span class="hljs-number">123</span>)
+<pre class="language-"><code class="lang-R"># &#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4FEE;&#x6539;&#x5185;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x8C03;&#x6574;&#x6A21;&#x578B;
+# &#x5C06;&#x6B65;&#x4F10;&#x8C03;&#x6574;&#x4E3A;2&#xFF0C;&#x6A2A;&#x5750;&#x6807;&#x8C03;&#x6574;&#x4E3A;2&#xFF0C;&#x622A;&#x7EBF;&#x8C03;&#x6574;&#x4E3A;&#x84DD;&#x8272;&#xFF0C;&#x6574;&#x4F53;&#x8272;&#x677F;&#x7EDF;&#x4E00;&#x4E3A;&#x9ED1;&#x8272;&#xFF0C;&#x6A21;&#x578B;&#x91CD;&#x590D;&#x6570;&#x4E3A;8&#xFF0C;&#x8D77;&#x59CB;&#x79CD;&#x5B50;&#x4E3A;123
+RF_re2 &lt;- RFCV(RF_data,step = 2,x_break = 2,cutoff_colour = &apos;steelblue&apos;,
+              palette = &apos;black&apos;,rep = 8,seed=123)
 RF_re2$RFCV_result_plot$curve_plot
 </code></pre>
 <p><img src="../Image/RFCV2.png" alt="RFCV2" style="zoom:45%;"></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7531;&#x4E8E;&#x4E0D;&#x540C;&#x968F;&#x673A;&#x6570;&#x79CD;&#x5B50;&#x7ED3;&#x679C;&#x4E0D;&#x540C;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5224;&#x65AD;&#x8BE5;&#x5982;&#x4F55;&#x9009;&#x62E9;&#x7279;&#x5F81;&#x7269;&#x79CD;</span>
-<span class="hljs-comment"># RFCV&#x63D0;&#x4F9B;&#x4E86;&#x4E0D;&#x540C;&#x968F;&#x673A;&#x6570;&#x79CD;&#x5B50;&#x4E0B;&#x6700;&#x4F18;&#x7279;&#x5F81;&#x6570;&#x7684;&#x4EA4;&#x96C6;&#x548C;&#x5E76;&#x96C6;</span>
-<span class="hljs-comment"># &#x4EA4;&#x96C6;</span>
+<pre class="language-"><code class="lang-R"># &#x7531;&#x4E8E;&#x4E0D;&#x540C;&#x968F;&#x673A;&#x6570;&#x79CD;&#x5B50;&#x7ED3;&#x679C;&#x4E0D;&#x540C;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5224;&#x65AD;&#x8BE5;&#x5982;&#x4F55;&#x9009;&#x62E9;&#x7279;&#x5F81;&#x7269;&#x79CD;
+# RFCV&#x63D0;&#x4F9B;&#x4E86;&#x4E0D;&#x540C;&#x968F;&#x673A;&#x6570;&#x79CD;&#x5B50;&#x4E0B;&#x6700;&#x4F18;&#x7279;&#x5F81;&#x6570;&#x7684;&#x4EA4;&#x96C6;&#x548C;&#x5E76;&#x96C6;
+# &#x4EA4;&#x96C6;
 RF_re$RFCV_result_plot$intersect_num
 </code></pre>
-<pre><code>[1] &quot;V19&quot;  &quot;V83&quot;  &quot;V143&quot; &quot;V63&quot;
-</code></pre><pre><code class="lang-R"><span class="hljs-comment"># &#x5E76;&#x96C6;</span>
+<pre class="language-"><code>[1] &quot;V19&quot;  &quot;V83&quot;  &quot;V143&quot; &quot;V63&quot;
+</code></pre><pre class="language-"><code class="lang-R"># &#x5E76;&#x96C6;
 RF_re$RFCV_result_plot$union_num
 </code></pre>
-<pre><code>[1] &quot;V19&quot;  &quot;V83&quot;  &quot;V143&quot; &quot;V63&quot;  &quot;V121&quot; &quot;V15&quot;  &quot;V88&quot;  &quot;V28&quot;  &quot;V67&quot;
+<pre class="language-"><code>[1] &quot;V19&quot;  &quot;V83&quot;  &quot;V143&quot; &quot;V63&quot;  &quot;V121&quot; &quot;V15&quot;  &quot;V88&quot;  &quot;V28&quot;  &quot;V67&quot;
 </code></pre><p>Tips 2: &#x7531;&#x4E8E;&#x968F;&#x673A;&#x68EE;&#x6797;&#x5224;&#x65AD;&#x7684;&#x6700;&#x4F18;&#x7279;&#x5F81;&#x4E0D;&#x4E00;&#x5B9A;&#x5177;&#x6709;&#x7EDF;&#x8BA1;&#x5B66;&#x610F;&#x4E49;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5229;&#x7528;<code>tax_plot</code>&#x51FD;&#x6570;&#x5FEB;&#x901F;&#x67E5;&#x770B;&#x5404;&#x7EC4;&#x95F4;&#x5DEE;&#x5F02;&#x7ED3;&#x679C;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x5FEB;&#x901F;&#x8BA1;&#x7B97;&#x6F5C;&#x5728;&#x5173;&#x952E;&#x83CC;&#x7684;&#x7EDF;&#x8BA1;&#x5B66;&#x5DEE;&#x5F02;</span>
-tax_re &lt;- tax_plot(RF_data,tax_select = RF_re$RFCV_result_plot$union_num,method = <span class="hljs-string">&apos;LSD&apos;</span>)
+<pre class="language-"><code class="lang-R"># &#x5FEB;&#x901F;&#x8BA1;&#x7B97;&#x6F5C;&#x5728;&#x5173;&#x952E;&#x83CC;&#x7684;&#x7EDF;&#x8BA1;&#x5B66;&#x5DEE;&#x5F02;
+tax_re &lt;- tax_plot(RF_data,tax_select = RF_re$RFCV_result_plot$union_num,method = &apos;LSD&apos;)
 tax_re$pic$total
 </code></pre>
 <div align="center">
@@ -1532,23 +1545,23 @@ tax_re$pic$total
 
 <p>Tips 3: &#x968F;&#x673A;&#x68EE;&#x6797;&#x6A21;&#x578B;&#x5728;&#x5F88;&#x591A;&#x7814;&#x7A76;&#x4E2D;&#x88AB;&#x7528;&#x4F5C;&#x75BE;&#x75C5;&#x7B5B;&#x67E5;&#x6A21;&#x578B;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x7ED3;&#x679C;&#x8BA1;&#x7B97;&#x540E;&#x9700;&#x8981;&#x91C7;&#x7528;ROC&#x6A21;&#x578B;&#x5BF9;&#x968F;&#x673A;&#x68EE;&#x6797;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x8BC4;&#x4F30;&#x3002;</p>
 <p>Tips 4: &#x5982;&#x8F93;&#x5165;&#x6570;&#x636E;&#x4E3A;&#x4E8C;&#x5206;&#x7C7B;&#x6570;&#x636E;&#xFF0C;&#x4F8B;&#x5982;&#x9AD8;&#x8840;&#x538B;&#x7EC4;&#x548C;&#x975E;&#x9AD8;&#x8840;&#x538B;&#x7EC4;&#xFF0C;&#x7CD6;&#x5C3F;&#x75C5;&#x7EC4;&#x548C;&#x975E;&#x7CD6;&#x5C3F;&#x75C5;&#x7EC4;&#x7B49;&#xFF0C;&#x5219;&#x65E0;&#x987B;&#x4E0B;&#x5217;&#x8F6C;&#x6362;&#x6B65;&#x9AA4;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7531;&#x4E8E;&#x672C;&#x793A;&#x4F8B;&#x6570;&#x636E;&#x4E3A;&#x4E09;&#x7EC4;&#xFF0C;&#x5206;&#x522B;&#x4E3A;CT&#xFF08;&#x6B63;&#x5E38;&#x9972;&#x6599;&#x7EC4;&#xFF09;&#xFF0C;IO&#xFF08;&#x94C1;&#x5242;&#x8FC7;&#x91CF;&#x9972;&#x6599;&#x7EC4;&#xFF09;&#x548C;ID&#xFF08;&#x94C1;&#x5242;&#x7F3A;&#x4E4F;&#x9972;&#x6599;&#x7EC4;&#xFF09;&#xFF0C;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4E0E;&#x4E8C;&#x5206;&#x7C7B;&#x7684;ROC&#x6A21;&#x578B;&#x8BC4;&#x4F30;</span>
-<span class="hljs-comment"># &#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5C06;&#x6570;&#x636E;&#x8F6C;&#x4E3A;&#x4E8C;&#x5206;&#x7C7B;&#x6570;&#x636E;&#xFF0C;&#x4F8B;&#x5982;CT&#x7EC4;&#x548C;&#x975E;CT&#x7EC4;</span>
-RF_data_binary &lt;- RFCV_data_binary(RF_data,rf_estimate_group = <span class="hljs-string">&apos;CT&apos;</span>,id_not = <span class="hljs-string">&apos;NOT_CT&apos;</span>)
-<span class="hljs-comment"># &#x518D;&#x6B21;&#x8FDB;&#x884C;RFCV&#x8BA1;&#x7B97;</span>
+<pre class="language-"><code class="lang-R"># &#x7531;&#x4E8E;&#x672C;&#x793A;&#x4F8B;&#x6570;&#x636E;&#x4E3A;&#x4E09;&#x7EC4;&#xFF0C;&#x5206;&#x522B;&#x4E3A;CT&#xFF08;&#x6B63;&#x5E38;&#x9972;&#x6599;&#x7EC4;&#xFF09;&#xFF0C;IO&#xFF08;&#x94C1;&#x5242;&#x8FC7;&#x91CF;&#x9972;&#x6599;&#x7EC4;&#xFF09;&#x548C;ID&#xFF08;&#x94C1;&#x5242;&#x7F3A;&#x4E4F;&#x9972;&#x6599;&#x7EC4;&#xFF09;&#xFF0C;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4E0E;&#x4E8C;&#x5206;&#x7C7B;&#x7684;ROC&#x6A21;&#x578B;&#x8BC4;&#x4F30;
+# &#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5C06;&#x6570;&#x636E;&#x8F6C;&#x4E3A;&#x4E8C;&#x5206;&#x7C7B;&#x6570;&#x636E;&#xFF0C;&#x4F8B;&#x5982;CT&#x7EC4;&#x548C;&#x975E;CT&#x7EC4;
+RF_data_binary &lt;- RFCV_data_binary(RF_data,rf_estimate_group = &apos;CT&apos;,id_not = &apos;NOT_CT&apos;)
+# &#x518D;&#x6B21;&#x8FDB;&#x884C;RFCV&#x8BA1;&#x7B97;
 RF_re &lt;- RFCV(RF_data_binary)
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x5C06;RFCV&#x7684;&#x7ED3;&#x679C;&#x76F4;&#x63A5;&#x5E26;&#x5165;&#x51FD;&#x6570;</span>
-<span class="hljs-comment"># rf_tax_select &#x4E3A;&#x9009;&#x53D6;&#x7684;&#x9009;&#x53D6;&#x6240;&#x9700;&#x8981;&#x8FDB;&#x4E00;&#x6B65;&#x8BC4;&#x4F30;&#x7684;&#x7269;&#x79CD;&#xFF0C;&#x8FD9;&#x91CC;&#x76F4;&#x63A5;&#x5E26;&#x5165;&#x4E0A;&#x5E76;&#x96C6;&#x7ED3;&#x679C;</span>
-RFCV_roc(RF_re,rf_tax_select = RF_re$RFCV_result_plot$union_num,rf_estimate_group = <span class="hljs-string">&apos;NOT_CT&apos;</span>)
+<pre class="language-"><code class="lang-R"># &#x5C06;RFCV&#x7684;&#x7ED3;&#x679C;&#x76F4;&#x63A5;&#x5E26;&#x5165;&#x51FD;&#x6570;
+# rf_tax_select &#x4E3A;&#x9009;&#x53D6;&#x7684;&#x9009;&#x53D6;&#x6240;&#x9700;&#x8981;&#x8FDB;&#x4E00;&#x6B65;&#x8BC4;&#x4F30;&#x7684;&#x7269;&#x79CD;&#xFF0C;&#x8FD9;&#x91CC;&#x76F4;&#x63A5;&#x5E26;&#x5165;&#x4E0A;&#x5E76;&#x96C6;&#x7ED3;&#x679C;
+RFCV_roc(RF_re,rf_tax_select = RF_re$RFCV_result_plot$union_num,rf_estimate_group = &apos;NOT_CT&apos;)
 </code></pre>
 <div align="center">
 <img src="../Image/RFCV4.png" alt="RFCV4" style="zoom:30%;" align="center">
 </div>
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x4E5F;&#x53EF;&#x4EE5;&#x6839;&#x636E;tax_plot&#x51FD;&#x6570;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x624B;&#x52A8;&#x6311;&#x9009;&#x5408;&#x9002;&#x7684;&#x7269;&#x79CD;&#x7EB3;&#x5165;ROC&#x8BC4;&#x4F30;</span>
-<span class="hljs-comment"># &#x4F8B;&#x5982;&#x53EF;&#x4EE5;&#x6311;&#x9009;&#x51FA;&#x5177;&#x6709;&#x7EDF;&#x8BA1;&#x5B66;&#x5DEE;&#x5F02;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;</span>
-RFCV_roc(RF_re,rf_tax_select = c(<span class="hljs-string">&apos;V83&apos;</span>,<span class="hljs-string">&apos;V121&apos;</span>,<span class="hljs-string">&apos;V143&apos;</span>),rf_estimate_group = <span class="hljs-string">&apos;NOT_CT&apos;</span>)
+<pre class="language-"><code class="lang-R"># &#x4E5F;&#x53EF;&#x4EE5;&#x6839;&#x636E;tax_plot&#x51FD;&#x6570;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x624B;&#x52A8;&#x6311;&#x9009;&#x5408;&#x9002;&#x7684;&#x7269;&#x79CD;&#x7EB3;&#x5165;ROC&#x8BC4;&#x4F30;
+# &#x4F8B;&#x5982;&#x53EF;&#x4EE5;&#x6311;&#x9009;&#x51FA;&#x5177;&#x6709;&#x7EDF;&#x8BA1;&#x5B66;&#x5DEE;&#x5F02;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;
+RFCV_roc(RF_re,rf_tax_select = c(&apos;V83&apos;,&apos;V121&apos;,&apos;V143&apos;),rf_estimate_group = &apos;NOT_CT&apos;)
 </code></pre>
 <div align="center">
 <img src="../Image/RFCV7.png" alt="RFCV7" style="zoom:70%;">
@@ -1626,7 +1639,7 @@ RFCV_roc(RF_re,rf_tax_select = c(<span class="hljs-string">&apos;V83&apos;</span
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 12 随机森林交叉验证模型","level":"1.13","depth":1,"next":{"title":"12.1 RFCV模块","level":"1.13.1","depth":2,"anchor":"#121","path":"MD/12.随机森林交叉验证模型.md","ref":"MD/12.随机森林交叉验证模型.md#121","articles":[{"title":"12.1.1 参数介绍","level":"1.13.1.1","depth":3,"anchor":"#1211","path":"MD/12.随机森林交叉验证模型.md","ref":"MD/12.随机森林交叉验证模型.md#1211","articles":[]},{"title":"12.1.2 使用范例","level":"1.13.1.2","depth":3,"anchor":"#1212","path":"MD/12.随机森林交叉验证模型.md","ref":"MD/12.随机森林交叉验证模型.md#1212","articles":[]}]},"previous":{"title":"11.1.2 使用范例","level":"1.12.1.2","depth":3,"anchor":"#1112","path":"MD/11.微生物差异箱型图.md","ref":"MD/11.微生物差异箱型图.md#1112","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/12.随机森林交叉验证模型.md","mtime":"2022-09-01T11:25:50.505Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 12 随机森林交叉验证模型","level":"1.13","depth":1,"next":{"title":"12.1 RFCV模块","level":"1.13.1","depth":2,"anchor":"#121","path":"MD/12.随机森林交叉验证模型.md","ref":"MD/12.随机森林交叉验证模型.md#121","articles":[{"title":"12.1.1 参数介绍","level":"1.13.1.1","depth":3,"anchor":"#1211","path":"MD/12.随机森林交叉验证模型.md","ref":"MD/12.随机森林交叉验证模型.md#1211","articles":[]},{"title":"12.1.2 使用范例","level":"1.13.1.2","depth":3,"anchor":"#1212","path":"MD/12.随机森林交叉验证模型.md","ref":"MD/12.随机森林交叉验证模型.md#1212","articles":[]}]},"previous":{"title":"11.1.2 使用范例","level":"1.12.1.2","depth":3,"anchor":"#1112","path":"MD/11.微生物差异箱型图.md","ref":"MD/11.微生物差异箱型图.md#1112","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/12.随机森林交叉验证模型.md","mtime":"2022-09-01T11:25:50.505Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

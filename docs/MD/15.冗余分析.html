@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1351,260 +1364,260 @@
 <h4 id="1512">15.1.2 &#x4F7F;&#x7528;&#x8303;&#x4F8B;</h4>
 
 <p><strong>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x57FA;&#x672C;&#x4EE3;&#x7801;</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-<span class="hljs-comment"># &#x52A0;&#x8F7D;&#x8868;&#x578B;&#x6570;&#x636E;</span>
+<pre class="language-"><code class="lang-R"># &#x57FA;&#x672C;&#x4EE3;&#x7801;
+library(EasyMicroPlot) # &#x52A0;&#x8F7D;&#x5305;
+# &#x52A0;&#x8F7D;&#x8868;&#x578B;&#x6570;&#x636E;
 data(EMP)
-meta_data &lt;- EMP$iron <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6CE8;&#x610F;&#x6EE1;&#x8DB3;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;</span>
-core_data &lt;- data_filter(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                         min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>) 
-core_species&lt;- core_data$filter_data$species  <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x6240;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;</span>
-RDA_re &lt;- EMP_COR_RDA(data = core_species,meta=meta_data,width = <span class="hljs-number">8</span>,height = <span class="hljs-number">8</span>)
-RDA_re$input_data <span class="hljs-comment"># RDA&#x6A21;&#x578B;&#x8F93;&#x5165;&#x7684;&#x6570;&#x636E;</span>
-RDA_re$model <span class="hljs-comment">#RDA&#x6A21;&#x578B;&#x7684;&#x57FA;&#x672C;&#x7ED3;&#x679C;</span>
-RDA_re$model_information <span class="hljs-comment">#RDA&#x6A21;&#x578B;&#x7684;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;</span>
+meta_data &lt;- EMP$iron # &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6CE8;&#x610F;&#x6EE1;&#x8DB3;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;
+core_data &lt;- data_filter(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                         min_relative = 0.001,min_ratio = 0.7) 
+core_species&lt;- core_data$filter_data$species  # &#x8FD9;&#x91CC;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x6240;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;
+RDA_re &lt;- EMP_COR_RDA(data = core_species,meta=meta_data,width = 8,height = 8)
+RDA_re$input_data # RDA&#x6A21;&#x578B;&#x8F93;&#x5165;&#x7684;&#x6570;&#x636E;
+RDA_re$model #RDA&#x6A21;&#x578B;&#x7684;&#x57FA;&#x672C;&#x7ED3;&#x679C;
+RDA_re$model_information #RDA&#x6A21;&#x578B;&#x7684;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># RDA&#x6A21;&#x578B;&#x7684;&#x57FA;&#x672C;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># RDA&#x6A21;&#x578B;&#x7684;&#x57FA;&#x672C;&#x7ED3;&#x679C;
 RDA_re$model
 </code></pre>
-<pre><code class="lang-R">Call: rda(X = data, Y = env, scale = <span class="hljs-literal">T</span>)
+<pre class="language-"><code class="lang-R">Call: rda(X = data, Y = env, scale = T)
 
               Inertia Proportion Rank
-Total         <span class="hljs-number">38.0000</span>     <span class="hljs-number">1.0000</span>     
-Constrained   <span class="hljs-number">12.5115</span>     <span class="hljs-number">0.3292</span>    <span class="hljs-number">6</span>
-Unconstrained <span class="hljs-number">25.4885</span>     <span class="hljs-number">0.6708</span>   <span class="hljs-number">20</span>
+Total         38.0000     1.0000     
+Constrained   12.5115     0.3292    6
+Unconstrained 25.4885     0.6708   20
 Inertia is correlations 
 
-Eigenvalues <span class="hljs-keyword">for</span> constrained axes:
+Eigenvalues for constrained axes:
  RDA1  RDA2  RDA3  RDA4  RDA5  RDA6 
-<span class="hljs-number">5.109</span> <span class="hljs-number">3.586</span> <span class="hljs-number">1.576</span> <span class="hljs-number">1.121</span> <span class="hljs-number">0.689</span> <span class="hljs-number">0.429</span> 
+5.109 3.586 1.576 1.121 0.689 0.429 
 
-Eigenvalues <span class="hljs-keyword">for</span> unconstrained axes:
+Eigenvalues for unconstrained axes:
   PC1   PC2   PC3   PC4   PC5   PC6   PC7   PC8 
-<span class="hljs-number">6.163</span> <span class="hljs-number">4.013</span> <span class="hljs-number">3.455</span> <span class="hljs-number">2.296</span> <span class="hljs-number">1.845</span> <span class="hljs-number">1.430</span> <span class="hljs-number">1.161</span> <span class="hljs-number">1.043</span> 
-(Showing <span class="hljs-number">8</span> of <span class="hljs-number">20</span> unconstrained eigenvalues)
+6.163 4.013 3.455 2.296 1.845 1.430 1.161 1.043 
+(Showing 8 of 20 unconstrained eigenvalues)
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># RDA&#x6A21;&#x578B;&#x7684;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># RDA&#x6A21;&#x578B;&#x7684;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;
 RDA_re$model_information$model_summary
 </code></pre>
-<pre><code class="lang-R">Call:
-rda(X = data, Y = env, scale = <span class="hljs-literal">T</span>) 
+<pre class="language-"><code class="lang-R">Call:
+rda(X = data, Y = env, scale = T) 
 
 Partitioning of correlations:
               Inertia Proportion
-Total           <span class="hljs-number">38.00</span>     <span class="hljs-number">1.0000</span>
-Constrained     <span class="hljs-number">12.51</span>     <span class="hljs-number">0.3292</span>
-Unconstrained   <span class="hljs-number">25.49</span>     <span class="hljs-number">0.6708</span>
+Total           38.00     1.0000
+Constrained     12.51     0.3292
+Unconstrained   25.49     0.6708
 
 Eigenvalues, and their contribution to the correlations 
 
 Importance of components:
                         RDA1    RDA2    RDA3    RDA4    RDA5    RDA6    PC1    PC2     PC3     PC4     PC5     PC6
-Eigenvalue            <span class="hljs-number">5.1092</span> <span class="hljs-number">3.58609</span> <span class="hljs-number">1.57613</span> <span class="hljs-number">1.12142</span> <span class="hljs-number">0.68949</span> <span class="hljs-number">0.42914</span> <span class="hljs-number">6.1627</span> <span class="hljs-number">4.0131</span> <span class="hljs-number">3.45516</span> <span class="hljs-number">2.29576</span> <span class="hljs-number">1.84545</span> <span class="hljs-number">1.43043</span>
-Proportion Explained  <span class="hljs-number">0.1345</span> <span class="hljs-number">0.09437</span> <span class="hljs-number">0.04148</span> <span class="hljs-number">0.02951</span> <span class="hljs-number">0.01814</span> <span class="hljs-number">0.01129</span> <span class="hljs-number">0.1622</span> <span class="hljs-number">0.1056</span> <span class="hljs-number">0.09093</span> <span class="hljs-number">0.06041</span> <span class="hljs-number">0.04856</span> <span class="hljs-number">0.03764</span>
-Cumulative Proportion <span class="hljs-number">0.1345</span> <span class="hljs-number">0.22882</span> <span class="hljs-number">0.27030</span> <span class="hljs-number">0.29981</span> <span class="hljs-number">0.31796</span> <span class="hljs-number">0.32925</span> <span class="hljs-number">0.4914</span> <span class="hljs-number">0.5970</span> <span class="hljs-number">0.68796</span> <span class="hljs-number">0.74838</span> <span class="hljs-number">0.79694</span> <span class="hljs-number">0.83458</span>
+Eigenvalue            5.1092 3.58609 1.57613 1.12142 0.68949 0.42914 6.1627 4.0131 3.45516 2.29576 1.84545 1.43043
+Proportion Explained  0.1345 0.09437 0.04148 0.02951 0.01814 0.01129 0.1622 0.1056 0.09093 0.06041 0.04856 0.03764
+Cumulative Proportion 0.1345 0.22882 0.27030 0.29981 0.31796 0.32925 0.4914 0.5970 0.68796 0.74838 0.79694 0.83458
                           PC7     PC8     PC9    PC10    PC11    PC12    PC13     PC14     PC15     PC16     PC17
-Eigenvalue            <span class="hljs-number">1.16095</span> <span class="hljs-number">1.04348</span> <span class="hljs-number">0.73698</span> <span class="hljs-number">0.61109</span> <span class="hljs-number">0.50384</span> <span class="hljs-number">0.45506</span> <span class="hljs-number">0.42056</span> <span class="hljs-number">0.348389</span> <span class="hljs-number">0.282187</span> <span class="hljs-number">0.213881</span> <span class="hljs-number">0.200801</span>
-Proportion Explained  <span class="hljs-number">0.03055</span> <span class="hljs-number">0.02746</span> <span class="hljs-number">0.01939</span> <span class="hljs-number">0.01608</span> <span class="hljs-number">0.01326</span> <span class="hljs-number">0.01198</span> <span class="hljs-number">0.01107</span> <span class="hljs-number">0.009168</span> <span class="hljs-number">0.007426</span> <span class="hljs-number">0.005628</span> <span class="hljs-number">0.005284</span>
-Cumulative Proportion <span class="hljs-number">0.86513</span> <span class="hljs-number">0.89259</span> <span class="hljs-number">0.91199</span> <span class="hljs-number">0.92807</span> <span class="hljs-number">0.94133</span> <span class="hljs-number">0.95330</span> <span class="hljs-number">0.96437</span> <span class="hljs-number">0.973540</span> <span class="hljs-number">0.980966</span> <span class="hljs-number">0.986594</span> <span class="hljs-number">0.991878</span>
+Eigenvalue            1.16095 1.04348 0.73698 0.61109 0.50384 0.45506 0.42056 0.348389 0.282187 0.213881 0.200801
+Proportion Explained  0.03055 0.02746 0.01939 0.01608 0.01326 0.01198 0.01107 0.009168 0.007426 0.005628 0.005284
+Cumulative Proportion 0.86513 0.89259 0.91199 0.92807 0.94133 0.95330 0.96437 0.973540 0.980966 0.986594 0.991878
                           PC18     PC19     PC20
-Eigenvalue            <span class="hljs-number">0.142234</span> <span class="hljs-number">0.110554</span> <span class="hljs-number">0.055839</span>
-Proportion Explained  <span class="hljs-number">0.003743</span> <span class="hljs-number">0.002909</span> <span class="hljs-number">0.001469</span>
-Cumulative Proportion <span class="hljs-number">0.995621</span> <span class="hljs-number">0.998531</span> <span class="hljs-number">1.000000</span>
+Eigenvalue            0.142234 0.110554 0.055839
+Proportion Explained  0.003743 0.002909 0.001469
+Cumulative Proportion 0.995621 0.998531 1.000000
 
 Accumulated constrained eigenvalues
 Importance of components:
                         RDA1   RDA2  RDA3    RDA4    RDA5   RDA6
-Eigenvalue            <span class="hljs-number">5.1092</span> <span class="hljs-number">3.5861</span> <span class="hljs-number">1.576</span> <span class="hljs-number">1.12142</span> <span class="hljs-number">0.68949</span> <span class="hljs-number">0.4291</span>
-Proportion Explained  <span class="hljs-number">0.4084</span> <span class="hljs-number">0.2866</span> <span class="hljs-number">0.126</span> <span class="hljs-number">0.08963</span> <span class="hljs-number">0.05511</span> <span class="hljs-number">0.0343</span>
-Cumulative Proportion <span class="hljs-number">0.4084</span> <span class="hljs-number">0.6950</span> <span class="hljs-number">0.821</span> <span class="hljs-number">0.91059</span> <span class="hljs-number">0.96570</span> <span class="hljs-number">1.0000</span>
+Eigenvalue            5.1092 3.5861 1.576 1.12142 0.68949 0.4291
+Proportion Explained  0.4084 0.2866 0.126 0.08963 0.05511 0.0343
+Cumulative Proportion 0.4084 0.6950 0.821 0.91059 0.96570 1.0000
 
-Scaling <span class="hljs-number">2</span> <span class="hljs-keyword">for</span> species and site scores
+Scaling 2 for species and site scores
 * Species are scaled proportional to eigenvalues
 * Sites are unscaled: weighted dispersion equal on all dimensions
-* General scaling constant of scores:  <span class="hljs-number">5.606467</span> 
+* General scaling constant of scores:  5.606467 
 
 
 Species scores
 
           RDA1     RDA2      RDA3       RDA4       RDA5      RDA6
-V8   -<span class="hljs-number">0.243406</span>  <span class="hljs-number">0.03688</span> -<span class="hljs-number">0.097118</span> -<span class="hljs-number">0.3081485</span>  <span class="hljs-number">0.1179041</span>  <span class="hljs-number">0.091868</span>
-V11  -<span class="hljs-number">0.143506</span>  <span class="hljs-number">0.15285</span> -<span class="hljs-number">0.058295</span>  <span class="hljs-number">0.0023186</span>  <span class="hljs-number">0.1021557</span>  <span class="hljs-number">0.094997</span>
-V14  -<span class="hljs-number">0.384488</span> -<span class="hljs-number">0.09462</span> -<span class="hljs-number">0.047440</span> -<span class="hljs-number">0.0518109</span>  <span class="hljs-number">0.0141012</span> -<span class="hljs-number">0.118778</span>
-V15  -<span class="hljs-number">0.512649</span> -<span class="hljs-number">0.31431</span>  <span class="hljs-number">0.210785</span> -<span class="hljs-number">0.1881004</span>  <span class="hljs-number">0.0466457</span> -<span class="hljs-number">0.181693</span>
-V16  -<span class="hljs-number">0.349123</span> -<span class="hljs-number">0.17635</span>  <span class="hljs-number">0.011270</span> -<span class="hljs-number">0.0703175</span> -<span class="hljs-number">0.0677141</span> -<span class="hljs-number">0.050305</span>
-V19   <span class="hljs-number">0.381932</span>  <span class="hljs-number">0.51890</span> -<span class="hljs-number">0.020282</span> -<span class="hljs-number">0.1003108</span> -<span class="hljs-number">0.0718708</span> -<span class="hljs-number">0.224673</span>
-V20  -<span class="hljs-number">0.111128</span> -<span class="hljs-number">0.07816</span>  <span class="hljs-number">0.569293</span> -<span class="hljs-number">0.0552672</span>  <span class="hljs-number">0.0987528</span> -<span class="hljs-number">0.062916</span>
-V25  -<span class="hljs-number">0.030865</span> -<span class="hljs-number">0.02891</span>  <span class="hljs-number">0.092962</span> -<span class="hljs-number">0.0953025</span> -<span class="hljs-number">0.2437449</span> -<span class="hljs-number">0.101069</span>
-V26  -<span class="hljs-number">0.224865</span> -<span class="hljs-number">0.22819</span> -<span class="hljs-number">0.124940</span>  <span class="hljs-number">0.0992710</span> -<span class="hljs-number">0.0274671</span> -<span class="hljs-number">0.176101</span>
-V27  -<span class="hljs-number">0.171180</span>  <span class="hljs-number">0.05944</span> -<span class="hljs-number">0.278865</span> -<span class="hljs-number">0.3080360</span> -<span class="hljs-number">0.1468861</span>  <span class="hljs-number">0.076930</span>
-V28  -<span class="hljs-number">0.065453</span>  <span class="hljs-number">0.67067</span> -<span class="hljs-number">0.192985</span>  <span class="hljs-number">0.0976391</span>  <span class="hljs-number">0.0498934</span> -<span class="hljs-number">0.139136</span>
-V30  -<span class="hljs-number">0.106414</span>  <span class="hljs-number">0.01383</span> -<span class="hljs-number">0.194588</span> -<span class="hljs-number">0.1743389</span> -<span class="hljs-number">0.0351231</span> -<span class="hljs-number">0.061128</span>
-V31  -<span class="hljs-number">0.021339</span>  <span class="hljs-number">0.25083</span> -<span class="hljs-number">0.200792</span>  <span class="hljs-number">0.0397861</span> -<span class="hljs-number">0.3304671</span>  <span class="hljs-number">0.106561</span>
-V33  -<span class="hljs-number">0.109553</span>  <span class="hljs-number">0.40942</span>  <span class="hljs-number">0.442589</span> -<span class="hljs-number">0.2831694</span> -<span class="hljs-number">0.0851655</span> -<span class="hljs-number">0.075984</span>
-V50  -<span class="hljs-number">0.366408</span> -<span class="hljs-number">0.15329</span> -<span class="hljs-number">0.101090</span> -<span class="hljs-number">0.3850630</span>  <span class="hljs-number">0.1157340</span>  <span class="hljs-number">0.038950</span>
-V63  -<span class="hljs-number">0.354498</span> -<span class="hljs-number">0.42351</span>  <span class="hljs-number">0.068422</span>  <span class="hljs-number">0.1225142</span> -<span class="hljs-number">0.1229148</span>  <span class="hljs-number">0.050978</span>
-V67  -<span class="hljs-number">0.319194</span>  <span class="hljs-number">0.03537</span>  <span class="hljs-number">0.083127</span>  <span class="hljs-number">0.1847560</span> -<span class="hljs-number">0.1105854</span>  <span class="hljs-number">0.155644</span>
-V74   <span class="hljs-number">0.311921</span> -<span class="hljs-number">0.24809</span>  <span class="hljs-number">0.067841</span> -<span class="hljs-number">0.0666054</span> -<span class="hljs-number">0.0672168</span> -<span class="hljs-number">0.042860</span>
-V77   <span class="hljs-number">0.374762</span> -<span class="hljs-number">0.25876</span>  <span class="hljs-number">0.115443</span>  <span class="hljs-number">0.0002488</span>  <span class="hljs-number">0.0239864</span>  <span class="hljs-number">0.054075</span>
-V81   <span class="hljs-number">0.153913</span> -<span class="hljs-number">0.21544</span> -<span class="hljs-number">0.072806</span> -<span class="hljs-number">0.1505837</span>  <span class="hljs-number">0.0481929</span>  <span class="hljs-number">0.015838</span>
-V84   <span class="hljs-number">0.331083</span> -<span class="hljs-number">0.27976</span>  <span class="hljs-number">0.034041</span> -<span class="hljs-number">0.1223141</span>  <span class="hljs-number">0.1108386</span>  <span class="hljs-number">0.067295</span>
-V85   <span class="hljs-number">0.524764</span> -<span class="hljs-number">0.33441</span> -<span class="hljs-number">0.019799</span> -<span class="hljs-number">0.0420467</span> -<span class="hljs-number">0.0250583</span> -<span class="hljs-number">0.011374</span>
-V87   <span class="hljs-number">0.501936</span> -<span class="hljs-number">0.10304</span> -<span class="hljs-number">0.314432</span> -<span class="hljs-number">0.2281355</span>  <span class="hljs-number">0.0448296</span>  <span class="hljs-number">0.050468</span>
-V88   <span class="hljs-number">0.726625</span> -<span class="hljs-number">0.10428</span>  <span class="hljs-number">0.014152</span> -<span class="hljs-number">0.0915228</span>  <span class="hljs-number">0.0729030</span> -<span class="hljs-number">0.045347</span>
-V101 -<span class="hljs-number">0.146542</span>  <span class="hljs-number">0.33825</span> -<span class="hljs-number">0.115519</span>  <span class="hljs-number">0.0444386</span>  <span class="hljs-number">0.1515639</span>  <span class="hljs-number">0.046971</span>
-V114 -<span class="hljs-number">0.028116</span>  <span class="hljs-number">0.47193</span>  <span class="hljs-number">0.152871</span> -<span class="hljs-number">0.0680606</span>  <span class="hljs-number">0.0989948</span>  <span class="hljs-number">0.137106</span>
-V119  <span class="hljs-number">0.473259</span> -<span class="hljs-number">0.19041</span>  <span class="hljs-number">0.139634</span> -<span class="hljs-number">0.0425908</span> -<span class="hljs-number">0.0874574</span>  <span class="hljs-number">0.041667</span>
-V121  <span class="hljs-number">0.718153</span> -<span class="hljs-number">0.33770</span> -<span class="hljs-number">0.074219</span> -<span class="hljs-number">0.0337590</span> -<span class="hljs-number">0.1277873</span>  <span class="hljs-number">0.045839</span>
-V125 -<span class="hljs-number">0.130797</span>  <span class="hljs-number">0.31904</span> -<span class="hljs-number">0.173137</span>  <span class="hljs-number">0.1149292</span>  <span class="hljs-number">0.0243022</span>  <span class="hljs-number">0.071180</span>
-V126  <span class="hljs-number">0.004231</span> -<span class="hljs-number">0.19476</span>  <span class="hljs-number">0.006752</span>  <span class="hljs-number">0.0686144</span>  <span class="hljs-number">0.2491351</span>  <span class="hljs-number">0.069939</span>
-V140  <span class="hljs-number">0.121136</span> -<span class="hljs-number">0.06454</span> -<span class="hljs-number">0.211270</span>  <span class="hljs-number">0.0438176</span>  <span class="hljs-number">0.1706271</span> -<span class="hljs-number">0.109742</span>
-V142 -<span class="hljs-number">0.282434</span>  <span class="hljs-number">0.03333</span>  <span class="hljs-number">0.003755</span> -<span class="hljs-number">0.2451765</span> -<span class="hljs-number">0.2129072</span>  <span class="hljs-number">0.029075</span>
-V52  -<span class="hljs-number">0.405960</span> -<span class="hljs-number">0.05622</span> -<span class="hljs-number">0.082740</span>  <span class="hljs-number">0.0118185</span>  <span class="hljs-number">0.1817272</span>  <span class="hljs-number">0.026463</span>
-V143 -<span class="hljs-number">0.269370</span> -<span class="hljs-number">0.34344</span>  <span class="hljs-number">0.274121</span>  <span class="hljs-number">0.1978757</span> -<span class="hljs-number">0.0466595</span>  <span class="hljs-number">0.104330</span>
-V12   <span class="hljs-number">0.135333</span>  <span class="hljs-number">0.45699</span>  <span class="hljs-number">0.206549</span> -<span class="hljs-number">0.0328786</span> -<span class="hljs-number">0.0627156</span>  <span class="hljs-number">0.156439</span>
-V65   <span class="hljs-number">0.176603</span> -<span class="hljs-number">0.01458</span> -<span class="hljs-number">0.090758</span>  <span class="hljs-number">0.2975274</span> -<span class="hljs-number">0.0009763</span> -<span class="hljs-number">0.138004</span>
-V71   <span class="hljs-number">0.221727</span>  <span class="hljs-number">0.16221</span>  <span class="hljs-number">0.172903</span> -<span class="hljs-number">0.1405882</span>  <span class="hljs-number">0.1406303</span>  <span class="hljs-number">0.024677</span>
-V83   <span class="hljs-number">0.590742</span>  <span class="hljs-number">0.45924</span>  <span class="hljs-number">0.247837</span>  <span class="hljs-number">0.0338988</span>  <span class="hljs-number">0.0321844</span> -<span class="hljs-number">0.006069</span>
+V8   -0.243406  0.03688 -0.097118 -0.3081485  0.1179041  0.091868
+V11  -0.143506  0.15285 -0.058295  0.0023186  0.1021557  0.094997
+V14  -0.384488 -0.09462 -0.047440 -0.0518109  0.0141012 -0.118778
+V15  -0.512649 -0.31431  0.210785 -0.1881004  0.0466457 -0.181693
+V16  -0.349123 -0.17635  0.011270 -0.0703175 -0.0677141 -0.050305
+V19   0.381932  0.51890 -0.020282 -0.1003108 -0.0718708 -0.224673
+V20  -0.111128 -0.07816  0.569293 -0.0552672  0.0987528 -0.062916
+V25  -0.030865 -0.02891  0.092962 -0.0953025 -0.2437449 -0.101069
+V26  -0.224865 -0.22819 -0.124940  0.0992710 -0.0274671 -0.176101
+V27  -0.171180  0.05944 -0.278865 -0.3080360 -0.1468861  0.076930
+V28  -0.065453  0.67067 -0.192985  0.0976391  0.0498934 -0.139136
+V30  -0.106414  0.01383 -0.194588 -0.1743389 -0.0351231 -0.061128
+V31  -0.021339  0.25083 -0.200792  0.0397861 -0.3304671  0.106561
+V33  -0.109553  0.40942  0.442589 -0.2831694 -0.0851655 -0.075984
+V50  -0.366408 -0.15329 -0.101090 -0.3850630  0.1157340  0.038950
+V63  -0.354498 -0.42351  0.068422  0.1225142 -0.1229148  0.050978
+V67  -0.319194  0.03537  0.083127  0.1847560 -0.1105854  0.155644
+V74   0.311921 -0.24809  0.067841 -0.0666054 -0.0672168 -0.042860
+V77   0.374762 -0.25876  0.115443  0.0002488  0.0239864  0.054075
+V81   0.153913 -0.21544 -0.072806 -0.1505837  0.0481929  0.015838
+V84   0.331083 -0.27976  0.034041 -0.1223141  0.1108386  0.067295
+V85   0.524764 -0.33441 -0.019799 -0.0420467 -0.0250583 -0.011374
+V87   0.501936 -0.10304 -0.314432 -0.2281355  0.0448296  0.050468
+V88   0.726625 -0.10428  0.014152 -0.0915228  0.0729030 -0.045347
+V101 -0.146542  0.33825 -0.115519  0.0444386  0.1515639  0.046971
+V114 -0.028116  0.47193  0.152871 -0.0680606  0.0989948  0.137106
+V119  0.473259 -0.19041  0.139634 -0.0425908 -0.0874574  0.041667
+V121  0.718153 -0.33770 -0.074219 -0.0337590 -0.1277873  0.045839
+V125 -0.130797  0.31904 -0.173137  0.1149292  0.0243022  0.071180
+V126  0.004231 -0.19476  0.006752  0.0686144  0.2491351  0.069939
+V140  0.121136 -0.06454 -0.211270  0.0438176  0.1706271 -0.109742
+V142 -0.282434  0.03333  0.003755 -0.2451765 -0.2129072  0.029075
+V52  -0.405960 -0.05622 -0.082740  0.0118185  0.1817272  0.026463
+V143 -0.269370 -0.34344  0.274121  0.1978757 -0.0466595  0.104330
+V12   0.135333  0.45699  0.206549 -0.0328786 -0.0627156  0.156439
+V65   0.176603 -0.01458 -0.090758  0.2975274 -0.0009763 -0.138004
+V71   0.221727  0.16221  0.172903 -0.1405882  0.1406303  0.024677
+V83   0.590742  0.45924  0.247837  0.0338988  0.0321844 -0.006069
 
 
 Site scores (weighted sums of species scores)
 
        RDA1     RDA2     RDA3     RDA4     RDA5     RDA6
-A01 -<span class="hljs-number">1.5735</span>  <span class="hljs-number">2.10285</span> -<span class="hljs-number">0.98844</span> -<span class="hljs-number">2.37224</span> -<span class="hljs-number">0.32431</span>  <span class="hljs-number">0.25782</span>
-A02  <span class="hljs-number">1.0266</span> -<span class="hljs-number">0.47112</span> -<span class="hljs-number">0.49387</span> -<span class="hljs-number">0.66761</span> -<span class="hljs-number">0.66889</span>  <span class="hljs-number">0.56561</span>
-A03  <span class="hljs-number">0.8444</span> -<span class="hljs-number">0.87977</span> -<span class="hljs-number">1.27107</span> -<span class="hljs-number">2.35823</span>  <span class="hljs-number">3.20291</span>  <span class="hljs-number">2.94021</span>
-A04 -<span class="hljs-number">0.8495</span> -<span class="hljs-number">0.35290</span> -<span class="hljs-number">2.05824</span> -<span class="hljs-number">2.31916</span> -<span class="hljs-number">0.55385</span> -<span class="hljs-number">3.19843</span>
-A05  <span class="hljs-number">0.7456</span> -<span class="hljs-number">1.33236</span>  <span class="hljs-number">0.77078</span> -<span class="hljs-number">2.47486</span> -<span class="hljs-number">0.56605</span> -<span class="hljs-number">1.44256</span>
-A06 -<span class="hljs-number">1.5493</span>  <span class="hljs-number">0.06858</span> -<span class="hljs-number">1.31362</span> -<span class="hljs-number">2.89117</span>  <span class="hljs-number">0.79461</span> -<span class="hljs-number">0.77611</span>
-A07 -<span class="hljs-number">0.4269</span>  <span class="hljs-number">0.65633</span> -<span class="hljs-number">1.08187</span>  <span class="hljs-number">1.25994</span>  <span class="hljs-number">2.46753</span>  <span class="hljs-number">1.73061</span>
-A08 -<span class="hljs-number">0.8199</span>  <span class="hljs-number">0.77556</span> -<span class="hljs-number">2.10277</span>  <span class="hljs-number">2.45605</span> -<span class="hljs-number">1.89667</span> -<span class="hljs-number">3.86567</span>
-A09 -<span class="hljs-number">0.4997</span>  <span class="hljs-number">1.68621</span> -<span class="hljs-number">1.40465</span>  <span class="hljs-number">2.94037</span>  <span class="hljs-number">3.86438</span>  <span class="hljs-number">1.86292</span>
-B10  <span class="hljs-number">0.5206</span> -<span class="hljs-number">2.08254</span>  <span class="hljs-number">1.50198</span>  <span class="hljs-number">0.73367</span>  <span class="hljs-number">0.99828</span> -<span class="hljs-number">2.09808</span>
-B11 -<span class="hljs-number">2.1633</span> -<span class="hljs-number">0.41409</span>  <span class="hljs-number">1.99713</span>  <span class="hljs-number">1.09839</span>  <span class="hljs-number">0.35495</span> -<span class="hljs-number">0.98757</span>
-B12 -<span class="hljs-number">1.5928</span> -<span class="hljs-number">1.20695</span> -<span class="hljs-number">0.18861</span>  <span class="hljs-number">1.75651</span>  <span class="hljs-number">0.54059</span> -<span class="hljs-number">0.91690</span>
-B13 -<span class="hljs-number">0.5559</span> -<span class="hljs-number">0.99992</span>  <span class="hljs-number">2.08953</span> -<span class="hljs-number">0.53576</span>  <span class="hljs-number">0.72937</span>  <span class="hljs-number">2.09262</span>
-B14 -<span class="hljs-number">0.3154</span> -<span class="hljs-number">0.38448</span>  <span class="hljs-number">0.03413</span>  <span class="hljs-number">1.16950</span>  <span class="hljs-number">2.15026</span>  <span class="hljs-number">3.73487</span>
-B15 -<span class="hljs-number">1.2059</span>  <span class="hljs-number">0.31930</span>  <span class="hljs-number">0.22055</span> -<span class="hljs-number">0.64470</span> -<span class="hljs-number">2.60016</span>  <span class="hljs-number">3.19606</span>
-B16 -<span class="hljs-number">2.2593</span> -<span class="hljs-number">0.24313</span>  <span class="hljs-number">0.72890</span> -<span class="hljs-number">0.29854</span> -<span class="hljs-number">3.58506</span> -<span class="hljs-number">2.24263</span>
-B17  <span class="hljs-number">0.4774</span> -<span class="hljs-number">1.58770</span>  <span class="hljs-number">0.91528</span>  <span class="hljs-number">0.47564</span> -<span class="hljs-number">1.46366</span>  <span class="hljs-number">0.04101</span>
-B18 -<span class="hljs-number">1.1776</span> -<span class="hljs-number">1.14826</span> -<span class="hljs-number">0.19400</span>  <span class="hljs-number">0.80590</span> -<span class="hljs-number">1.57564</span> -<span class="hljs-number">0.35484</span>
-C19  <span class="hljs-number">0.7307</span>  <span class="hljs-number">2.05844</span> -<span class="hljs-number">0.25915</span> -<span class="hljs-number">1.30418</span> -<span class="hljs-number">1.53875</span> -<span class="hljs-number">1.45422</span>
-C20 -<span class="hljs-number">0.3447</span>  <span class="hljs-number">3.08312</span>  <span class="hljs-number">3.24645</span> -<span class="hljs-number">0.03043</span> -<span class="hljs-number">1.78849</span> -<span class="hljs-number">4.04400</span>
-C21  <span class="hljs-number">0.9180</span>  <span class="hljs-number">1.07669</span>  <span class="hljs-number">1.55438</span> -<span class="hljs-number">0.22500</span>  <span class="hljs-number">2.91450</span>  <span class="hljs-number">1.99859</span>
-C22  <span class="hljs-number">0.3113</span>  <span class="hljs-number">1.64132</span>  <span class="hljs-number">0.25537</span>  <span class="hljs-number">0.97648</span> -<span class="hljs-number">2.57407</span>  <span class="hljs-number">1.78402</span>
-C23  <span class="hljs-number">0.9278</span>  <span class="hljs-number">1.34665</span> -<span class="hljs-number">0.33049</span>  <span class="hljs-number">1.20587</span>  <span class="hljs-number">2.40675</span>  <span class="hljs-number">1.30725</span>
-C24  <span class="hljs-number">2.2438</span> -<span class="hljs-number">1.05578</span> -<span class="hljs-number">0.38571</span>  <span class="hljs-number">0.35277</span> -<span class="hljs-number">0.80547</span> -<span class="hljs-number">0.66775</span>
-C25  <span class="hljs-number">2.1288</span> -<span class="hljs-number">1.23157</span> -<span class="hljs-number">0.27717</span>  <span class="hljs-number">0.59992</span> -<span class="hljs-number">0.07386</span>  <span class="hljs-number">0.55567</span>
-C26  <span class="hljs-number">2.8215</span> -<span class="hljs-number">1.61911</span> -<span class="hljs-number">1.24582</span> -<span class="hljs-number">1.03061</span> -<span class="hljs-number">0.80172</span> -<span class="hljs-number">0.56023</span>
-C27  <span class="hljs-number">1.6374</span>  <span class="hljs-number">0.19463</span>  <span class="hljs-number">0.28099</span>  <span class="hljs-number">1.32149</span>  <span class="hljs-number">0.39252</span>  <span class="hljs-number">0.54173</span>
+A01 -1.5735  2.10285 -0.98844 -2.37224 -0.32431  0.25782
+A02  1.0266 -0.47112 -0.49387 -0.66761 -0.66889  0.56561
+A03  0.8444 -0.87977 -1.27107 -2.35823  3.20291  2.94021
+A04 -0.8495 -0.35290 -2.05824 -2.31916 -0.55385 -3.19843
+A05  0.7456 -1.33236  0.77078 -2.47486 -0.56605 -1.44256
+A06 -1.5493  0.06858 -1.31362 -2.89117  0.79461 -0.77611
+A07 -0.4269  0.65633 -1.08187  1.25994  2.46753  1.73061
+A08 -0.8199  0.77556 -2.10277  2.45605 -1.89667 -3.86567
+A09 -0.4997  1.68621 -1.40465  2.94037  3.86438  1.86292
+B10  0.5206 -2.08254  1.50198  0.73367  0.99828 -2.09808
+B11 -2.1633 -0.41409  1.99713  1.09839  0.35495 -0.98757
+B12 -1.5928 -1.20695 -0.18861  1.75651  0.54059 -0.91690
+B13 -0.5559 -0.99992  2.08953 -0.53576  0.72937  2.09262
+B14 -0.3154 -0.38448  0.03413  1.16950  2.15026  3.73487
+B15 -1.2059  0.31930  0.22055 -0.64470 -2.60016  3.19606
+B16 -2.2593 -0.24313  0.72890 -0.29854 -3.58506 -2.24263
+B17  0.4774 -1.58770  0.91528  0.47564 -1.46366  0.04101
+B18 -1.1776 -1.14826 -0.19400  0.80590 -1.57564 -0.35484
+C19  0.7307  2.05844 -0.25915 -1.30418 -1.53875 -1.45422
+C20 -0.3447  3.08312  3.24645 -0.03043 -1.78849 -4.04400
+C21  0.9180  1.07669  1.55438 -0.22500  2.91450  1.99859
+C22  0.3113  1.64132  0.25537  0.97648 -2.57407  1.78402
+C23  0.9278  1.34665 -0.33049  1.20587  2.40675  1.30725
+C24  2.2438 -1.05578 -0.38571  0.35277 -0.80547 -0.66775
+C25  2.1288 -1.23157 -0.27717  0.59992 -0.07386  0.55567
+C26  2.8215 -1.61911 -1.24582 -1.03061 -0.80172 -0.56023
+C27  1.6374  0.19463  0.28099  1.32149  0.39252  0.54173
 
 
 Site constraints (linear combinations of constraining variables)
 
        RDA1     RDA2     RDA3       RDA4     RDA5     RDA6
-A01 -<span class="hljs-number">0.9450</span>  <span class="hljs-number">0.69431</span> -<span class="hljs-number">1.09950</span> -<span class="hljs-number">2.2728004</span> -<span class="hljs-number">0.19839</span> -<span class="hljs-number">0.10772</span>
-A02 -<span class="hljs-number">0.6814</span>  <span class="hljs-number">0.79044</span> -<span class="hljs-number">1.06571</span> -<span class="hljs-number">0.7102468</span>  <span class="hljs-number">0.84313</span>  <span class="hljs-number">0.31903</span>
-A03 -<span class="hljs-number">0.3325</span>  <span class="hljs-number">0.16445</span> -<span class="hljs-number">0.00130</span> -<span class="hljs-number">0.6908343</span>  <span class="hljs-number">1.00812</span> -<span class="hljs-number">0.52817</span>
-A04 -<span class="hljs-number">0.4290</span> -<span class="hljs-number">0.19821</span> -<span class="hljs-number">0.57624</span>  <span class="hljs-number">0.0908234</span>  <span class="hljs-number">0.74599</span>  <span class="hljs-number">0.35752</span>
-A05 -<span class="hljs-number">0.4065</span> -<span class="hljs-number">0.42782</span>  <span class="hljs-number">0.14021</span> -<span class="hljs-number">1.3158400</span>  <span class="hljs-number">0.09924</span> -<span class="hljs-number">0.65945</span>
-A06 -<span class="hljs-number">0.7891</span>  <span class="hljs-number">0.19982</span> -<span class="hljs-number">1.14082</span> -<span class="hljs-number">2.4605480</span> -<span class="hljs-number">0.11447</span> -<span class="hljs-number">0.37798</span>
-A07 -<span class="hljs-number">0.3258</span> -<span class="hljs-number">0.29069</span> -<span class="hljs-number">0.70006</span>  <span class="hljs-number">1.4152527</span>  <span class="hljs-number">1.43928</span>  <span class="hljs-number">0.88573</span>
-A08 -<span class="hljs-number">0.8199</span>  <span class="hljs-number">0.77556</span> -<span class="hljs-number">2.10277</span>  <span class="hljs-number">2.4560510</span> -<span class="hljs-number">1.89667</span> -<span class="hljs-number">3.86567</span>
-A09 -<span class="hljs-number">0.5374</span>  <span class="hljs-number">0.37967</span> -<span class="hljs-number">1.10054</span>  <span class="hljs-number">0.2940973</span>  <span class="hljs-number">0.83668</span>  <span class="hljs-number">0.86630</span>
-B10 -<span class="hljs-number">0.5984</span> -<span class="hljs-number">1.55336</span>  <span class="hljs-number">1.32644</span>  <span class="hljs-number">0.6659005</span>  <span class="hljs-number">1.66361</span> -<span class="hljs-number">0.99827</span>
-B11 -<span class="hljs-number">0.8872</span> -<span class="hljs-number">0.82365</span> -<span class="hljs-number">0.06146</span>  <span class="hljs-number">0.3093449</span>  <span class="hljs-number">1.70301</span> -<span class="hljs-number">0.28153</span>
-B12 -<span class="hljs-number">0.8487</span> -<span class="hljs-number">1.02191</span>  <span class="hljs-number">0.42847</span>  <span class="hljs-number">0.0379636</span>  <span class="hljs-number">1.66405</span> -<span class="hljs-number">0.74928</span>
-B13 -<span class="hljs-number">0.4627</span> -<span class="hljs-number">1.12189</span>  <span class="hljs-number">1.50343</span>  <span class="hljs-number">1.0586162</span> -<span class="hljs-number">0.69875</span>  <span class="hljs-number">0.37184</span>
-B14 -<span class="hljs-number">0.8515</span> -<span class="hljs-number">0.23436</span>  <span class="hljs-number">0.07051</span>  <span class="hljs-number">0.0707862</span> -<span class="hljs-number">1.37378</span>  <span class="hljs-number">1.11538</span>
-B15 -<span class="hljs-number">0.8442</span> -<span class="hljs-number">0.60273</span>  <span class="hljs-number">0.39329</span> -<span class="hljs-number">0.1961204</span> -<span class="hljs-number">1.61422</span>  <span class="hljs-number">0.81274</span>
-B16 -<span class="hljs-number">0.8817</span> -<span class="hljs-number">0.44914</span>  <span class="hljs-number">0.16447</span> -<span class="hljs-number">0.1530870</span> -<span class="hljs-number">0.87577</span>  <span class="hljs-number">0.64100</span>
-B17 -<span class="hljs-number">0.5506</span> -<span class="hljs-number">1.22883</span>  <span class="hljs-number">1.87383</span>  <span class="hljs-number">0.0008429</span> -<span class="hljs-number">1.86875</span>  <span class="hljs-number">0.06954</span>
-B18 -<span class="hljs-number">0.7895</span> -<span class="hljs-number">0.50674</span> -<span class="hljs-number">0.15849</span>  <span class="hljs-number">0.7567120</span> -<span class="hljs-number">0.98984</span>  <span class="hljs-number">1.41958</span>
-C19  <span class="hljs-number">0.6185</span>  <span class="hljs-number">2.22194</span>  <span class="hljs-number">0.07883</span> -<span class="hljs-number">0.1561215</span> -<span class="hljs-number">0.02548</span>  <span class="hljs-number">0.48620</span>
-C20  <span class="hljs-number">0.7145</span>  <span class="hljs-number">1.66846</span>  <span class="hljs-number">2.80588</span> -<span class="hljs-number">0.3785720</span> -<span class="hljs-number">0.25915</span> -<span class="hljs-number">1.15531</span>
-C21  <span class="hljs-number">1.1727</span>  <span class="hljs-number">1.41746</span>  <span class="hljs-number">1.66662</span> -<span class="hljs-number">0.7760910</span>  <span class="hljs-number">0.65029</span> -<span class="hljs-number">1.38191</span>
-C22  <span class="hljs-number">0.5862</span>  <span class="hljs-number">1.72212</span> -<span class="hljs-number">0.43845</span>  <span class="hljs-number">1.1549307</span> -<span class="hljs-number">0.41819</span>  <span class="hljs-number">1.69981</span>
-C23  <span class="hljs-number">0.9887</span>  <span class="hljs-number">0.79432</span>  <span class="hljs-number">0.31634</span>  <span class="hljs-number">1.6182242</span>  <span class="hljs-number">1.35950</span>  <span class="hljs-number">0.43986</span>
-C24  <span class="hljs-number">1.9791</span> -<span class="hljs-number">0.99426</span> -<span class="hljs-number">0.25711</span> -<span class="hljs-number">1.0953856</span> -<span class="hljs-number">1.17916</span> -<span class="hljs-number">0.29562</span>
-C25  <span class="hljs-number">1.9026</span>  <span class="hljs-number">0.04425</span> -<span class="hljs-number">0.30714</span>  <span class="hljs-number">0.9387210</span> -<span class="hljs-number">0.21708</span>  <span class="hljs-number">0.77651</span>
-C26  <span class="hljs-number">3.3327</span> -<span class="hljs-number">2.45617</span> -<span class="hljs-number">1.48160</span> -<span class="hljs-number">0.4824233</span>  <span class="hljs-number">0.04407</span> -<span class="hljs-number">0.42065</span>
-C27  <span class="hljs-number">0.6861</span>  <span class="hljs-number">1.03696</span> -<span class="hljs-number">0.27713</span> -<span class="hljs-number">0.1801964</span> -<span class="hljs-number">0.32726</span>  <span class="hljs-number">0.56050</span>
+A01 -0.9450  0.69431 -1.09950 -2.2728004 -0.19839 -0.10772
+A02 -0.6814  0.79044 -1.06571 -0.7102468  0.84313  0.31903
+A03 -0.3325  0.16445 -0.00130 -0.6908343  1.00812 -0.52817
+A04 -0.4290 -0.19821 -0.57624  0.0908234  0.74599  0.35752
+A05 -0.4065 -0.42782  0.14021 -1.3158400  0.09924 -0.65945
+A06 -0.7891  0.19982 -1.14082 -2.4605480 -0.11447 -0.37798
+A07 -0.3258 -0.29069 -0.70006  1.4152527  1.43928  0.88573
+A08 -0.8199  0.77556 -2.10277  2.4560510 -1.89667 -3.86567
+A09 -0.5374  0.37967 -1.10054  0.2940973  0.83668  0.86630
+B10 -0.5984 -1.55336  1.32644  0.6659005  1.66361 -0.99827
+B11 -0.8872 -0.82365 -0.06146  0.3093449  1.70301 -0.28153
+B12 -0.8487 -1.02191  0.42847  0.0379636  1.66405 -0.74928
+B13 -0.4627 -1.12189  1.50343  1.0586162 -0.69875  0.37184
+B14 -0.8515 -0.23436  0.07051  0.0707862 -1.37378  1.11538
+B15 -0.8442 -0.60273  0.39329 -0.1961204 -1.61422  0.81274
+B16 -0.8817 -0.44914  0.16447 -0.1530870 -0.87577  0.64100
+B17 -0.5506 -1.22883  1.87383  0.0008429 -1.86875  0.06954
+B18 -0.7895 -0.50674 -0.15849  0.7567120 -0.98984  1.41958
+C19  0.6185  2.22194  0.07883 -0.1561215 -0.02548  0.48620
+C20  0.7145  1.66846  2.80588 -0.3785720 -0.25915 -1.15531
+C21  1.1727  1.41746  1.66662 -0.7760910  0.65029 -1.38191
+C22  0.5862  1.72212 -0.43845  1.1549307 -0.41819  1.69981
+C23  0.9887  0.79432  0.31634  1.6182242  1.35950  0.43986
+C24  1.9791 -0.99426 -0.25711 -1.0953856 -1.17916 -0.29562
+C25  1.9026  0.04425 -0.30714  0.9387210 -0.21708  0.77651
+C26  3.3327 -2.45617 -1.48160 -0.4824233  0.04407 -0.42065
+C27  0.6861  1.03696 -0.27713 -0.1801964 -0.32726  0.56050
 
 
-Biplot scores <span class="hljs-keyword">for</span> constraining variables
+Biplot scores for constraining variables
 
                   RDA1      RDA2    RDA3     RDA4    RDA5      RDA6
-Body_Weight     <span class="hljs-number">0.5206</span> <span class="hljs-number">0.4436600</span> -<span class="hljs-number">0.3798</span>  <span class="hljs-number">0.56016</span>  <span class="hljs-number">0.2633</span>  <span class="hljs-number">0.069393</span>
-Hemoglobin      <span class="hljs-number">0.1662</span> <span class="hljs-number">0.5662365</span> -<span class="hljs-number">0.7618</span> -<span class="hljs-number">0.23690</span>  <span class="hljs-number">0.1239</span>  <span class="hljs-number">0.001214</span>
-Hematocrite     <span class="hljs-number">0.1688</span> <span class="hljs-number">0.5657423</span> -<span class="hljs-number">0.7583</span> -<span class="hljs-number">0.24414</span>  <span class="hljs-number">0.1294</span>  <span class="hljs-number">0.011582</span>
-Fecal_Iron      <span class="hljs-number">0.9665</span> <span class="hljs-number">0.0009713</span> -<span class="hljs-number">0.2170</span> -<span class="hljs-number">0.10697</span> -<span class="hljs-number">0.0264</span> -<span class="hljs-number">0.081759</span>
-SI_Iron.content <span class="hljs-number">0.7605</span> <span class="hljs-number">0.5942258</span>  <span class="hljs-number">0.0965</span> -<span class="hljs-number">0.14106</span>  <span class="hljs-number">0.1406</span> -<span class="hljs-number">0.139699</span>
-Liver_iron      <span class="hljs-number">0.7905</span> <span class="hljs-number">0.5778338</span>  <span class="hljs-number">0.1416</span> -<span class="hljs-number">0.04596</span> -<span class="hljs-number">0.1325</span>  <span class="hljs-number">0.038554</span>
+Body_Weight     0.5206 0.4436600 -0.3798  0.56016  0.2633  0.069393
+Hemoglobin      0.1662 0.5662365 -0.7618 -0.23690  0.1239  0.001214
+Hematocrite     0.1688 0.5657423 -0.7583 -0.24414  0.1294  0.011582
+Fecal_Iron      0.9665 0.0009713 -0.2170 -0.10697 -0.0264 -0.081759
+SI_Iron.content 0.7605 0.5942258  0.0965 -0.14106  0.1406 -0.139699
+Liver_iron      0.7905 0.5778338  0.1416 -0.04596 -0.1325  0.038554
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># RDA&#x6A21;&#x578B;&#x7684;&#x7F6E;&#x6362;&#x68C0;&#x9A8C;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># RDA&#x6A21;&#x578B;&#x7684;&#x7F6E;&#x6362;&#x68C0;&#x9A8C;&#x7ED3;&#x679C;
 RDA_re$model_information$model_permutest
 </code></pre>
-<pre><code class="lang-R">Permutation test <span class="hljs-keyword">for</span> rda under reduced model 
+<pre class="language-"><code class="lang-R">Permutation test for rda under reduced model 
 
 Permutation: free
-Number of permutations: <span class="hljs-number">999</span>
+Number of permutations: 999
 
-Model: rda(X = data, Y = env, scale = <span class="hljs-literal">T</span>)
-Permutation test <span class="hljs-keyword">for</span> all constrained eigenvalues
-         Df Inertia      <span class="hljs-literal">F</span> Pr(&gt;<span class="hljs-literal">F</span>)   
-Model     <span class="hljs-number">6</span>  <span class="hljs-number">12.511</span> <span class="hljs-number">1.6362</span>  <span class="hljs-number">0.002</span> **
-Residual <span class="hljs-number">20</span>  <span class="hljs-number">25.488</span>                 
+Model: rda(X = data, Y = env, scale = T)
+Permutation test for all constrained eigenvalues
+         Df Inertia      F Pr(&gt;F)   
+Model     6  12.511 1.6362  0.002 **
+Residual 20  25.488                 
 ---
-Signif. codes:  <span class="hljs-number">0</span> &#x2018;***&#x2019; <span class="hljs-number">0.001</span> &#x2018;**&#x2019; <span class="hljs-number">0.01</span> &#x2018;*&#x2019; <span class="hljs-number">0.05</span> &#x2018;.&#x2019; <span class="hljs-number">0.1</span> &#x2018; &#x2019; <span class="hljs-number">1</span>
+Signif. codes:  0 &#x2018;***&#x2019; 0.001 &#x2018;**&#x2019; 0.01 &#x2018;*&#x2019; 0.05 &#x2018;.&#x2019; 0.1 &#x2018; &#x2019; 1
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x8868;&#x578B;&#x6570;&#x636E;&#x56E0;&#x5B50;&#x68C0;&#x9A8C;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># &#x8868;&#x578B;&#x6570;&#x636E;&#x56E0;&#x5B50;&#x68C0;&#x9A8C;&#x7ED3;&#x679C;
 RDA_re$model_information$model_envfit
 </code></pre>
-<pre><code class="lang-R">***VECTORS
+<pre class="language-"><code class="lang-R">***VECTORS
 
                    RDA1    RDA2     r2 Pr(&gt;r)    
-Body_Weight     <span class="hljs-number">0.73855</span> <span class="hljs-number">0.67420</span> <span class="hljs-number">0.3918</span>  <span class="hljs-number">0.003</span> ** 
-Hemoglobin      <span class="hljs-number">0.42460</span> <span class="hljs-number">0.90538</span> <span class="hljs-number">0.2708</span>  <span class="hljs-number">0.025</span> *  
-Hematocrite     <span class="hljs-number">0.42767</span> <span class="hljs-number">0.90393</span> <span class="hljs-number">0.2715</span>  <span class="hljs-number">0.026</span> *  
-Fecal_Iron      <span class="hljs-number">0.97803</span> <span class="hljs-number">0.20846</span> <span class="hljs-number">0.6436</span>  <span class="hljs-number">0.001</span> ***
-SI_Iron.content <span class="hljs-number">0.75712</span> <span class="hljs-number">0.65328</span> <span class="hljs-number">0.7775</span>  <span class="hljs-number">0.001</span> ***
-Liver_iron      <span class="hljs-number">0.77079</span> <span class="hljs-number">0.63709</span> <span class="hljs-number">0.7974</span>  <span class="hljs-number">0.001</span> ***
+Body_Weight     0.73855 0.67420 0.3918  0.003 ** 
+Hemoglobin      0.42460 0.90538 0.2708  0.025 *  
+Hematocrite     0.42767 0.90393 0.2715  0.026 *  
+Fecal_Iron      0.97803 0.20846 0.6436  0.001 ***
+SI_Iron.content 0.75712 0.65328 0.7775  0.001 ***
+Liver_iron      0.77079 0.63709 0.7974  0.001 ***
 ---
-Signif. codes:  <span class="hljs-number">0</span> &#x2018;***&#x2019; <span class="hljs-number">0.001</span> &#x2018;**&#x2019; <span class="hljs-number">0.01</span> &#x2018;*&#x2019; <span class="hljs-number">0.05</span> &#x2018;.&#x2019; <span class="hljs-number">0.1</span> &#x2018; &#x2019; <span class="hljs-number">1</span>
+Signif. codes:  0 &#x2018;***&#x2019; 0.001 &#x2018;**&#x2019; 0.01 &#x2018;*&#x2019; 0.05 &#x2018;.&#x2019; 0.1 &#x2018; &#x2019; 1
 Permutation: free
-Number of permutations: <span class="hljs-number">999</span>
+Number of permutations: 999
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x8868;&#x578B;&#x6570;&#x636E;&#x81A8;&#x80C0;&#x7CFB;&#x6570;&#x68C0;&#x9A8C;</span>
+<pre class="language-"><code class="lang-R"># &#x8868;&#x578B;&#x6570;&#x636E;&#x81A8;&#x80C0;&#x7CFB;&#x6570;&#x68C0;&#x9A8C;
 RDA_re$model_information$model_vif
 </code></pre>
-<pre><code class="lang-R">Body_Weight      Hemoglobin     Hematocrite      Fecal_Iron SI_Iron.content      Liver_iron 
-  <span class="hljs-number">1.968550</span>     <span class="hljs-number">5408.293695</span>     <span class="hljs-number">5400.909539</span>        <span class="hljs-number">2.342255</span>       <span class="hljs-number">10.267973</span>        <span class="hljs-number">9.785037</span>
+<pre class="language-"><code class="lang-R">Body_Weight      Hemoglobin     Hematocrite      Fecal_Iron SI_Iron.content      Liver_iron 
+  1.968550     5408.293695     5400.909539        2.342255       10.267973        9.785037
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x57FA;&#x672C;&#x56FE;&#x5F62;&#x5C55;&#x793A;</span>
+<pre class="language-"><code class="lang-R"># &#x57FA;&#x672C;&#x56FE;&#x5F62;&#x5C55;&#x793A;
 RDA_re$plot$pic
 </code></pre>
 <div align="center">
 <img src="../Image/RDA1.png" alt="RDA1" style="zoom:40%;">
 </div>
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;</span>
+<pre class="language-"><code class="lang-R"># &#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;
 RDA_re$plot$html
 </code></pre>
 <div id="rda">
     <iframe src="../Image/RDA.html" style="position: obsolute; background: transparent;" height="700" width="700" frameborder="0" scrolling="no"></iframe>
 </div>
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x53EF;&#x4EE5;&#x8C03;&#x6574;&#x53C2;&#x6570;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x7F8E;&#x5316;&#x6216;&#x8005;&#x8C03;&#x6574;&#x56FE;&#x5F62;&#x8F93;&#x51FA;&#x6548;&#x679C;</span>
-<span class="hljs-comment"># zoom &#x53C2;&#x6570;&#x8C03;&#x6574;&#x7BAD;&#x5934;&#x548C;&#x6837;&#x672C;&#x7684;&#x76F8;&#x5BF9;&#x8DDD;&#x79BB;</span>
-<span class="hljs-comment"># arrow_col &#x8C03;&#x6574;&#x4E24;&#x4E2A;&#x7BAD;&#x5934;&#x7684;&#x989C;&#x8272;</span>
-<span class="hljs-comment"># palette &#x8C03;&#x6574;&#x5206;&#x7EC4;&#x989C;&#x8272;</span>
-<span class="hljs-comment"># ellipse &#x5728;0~1&#x4E4B;&#x95F4;&#x53D6;&#x503C;&#x6807;&#x6CE8;&#x6837;&#x672C;&#x7F6E;&#x4FE1;&#x533A;&#x95F4;</span>
+<pre class="language-"><code class="lang-R"># &#x53EF;&#x4EE5;&#x8C03;&#x6574;&#x53C2;&#x6570;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x7F8E;&#x5316;&#x6216;&#x8005;&#x8C03;&#x6574;&#x56FE;&#x5F62;&#x8F93;&#x51FA;&#x6548;&#x679C;
+# zoom &#x53C2;&#x6570;&#x8C03;&#x6574;&#x7BAD;&#x5934;&#x548C;&#x6837;&#x672C;&#x7684;&#x76F8;&#x5BF9;&#x8DDD;&#x79BB;
+# arrow_col &#x8C03;&#x6574;&#x4E24;&#x4E2A;&#x7BAD;&#x5934;&#x7684;&#x989C;&#x8272;
+# palette &#x8C03;&#x6574;&#x5206;&#x7EC4;&#x989C;&#x8272;
+# ellipse &#x5728;0~1&#x4E4B;&#x95F4;&#x53D6;&#x503C;&#x6807;&#x6CE8;&#x6837;&#x672C;&#x7F6E;&#x4FE1;&#x533A;&#x95F4;
 RDA_re &lt;- EMP_COR_RDA(data = core_species,meta=EMP$iron,
-                      width = <span class="hljs-number">10</span>,height = <span class="hljs-number">10</span>,ellipse = <span class="hljs-number">0.7</span>,zoom = c(<span class="hljs-number">1</span>,<span class="hljs-number">1.5</span>,<span class="hljs-number">2</span>),
-                      arrow_col = c(<span class="hljs-string">&apos;#FCE181&apos;</span>,<span class="hljs-string">&apos;#F05A50&apos;</span>),palette = c(<span class="hljs-string">&apos;green&apos;</span>,<span class="hljs-string">&apos;yellow&apos;</span>,<span class="hljs-string">&apos;blue&apos;</span>))
+                      width = 10,height = 10,ellipse = 0.7,zoom = c(1,1.5,2),
+                      arrow_col = c(&apos;#FCE181&apos;,&apos;#F05A50&apos;),palette = c(&apos;green&apos;,&apos;yellow&apos;,&apos;blue&apos;))
 </code></pre>
 <div align="center">
 <img src="../Image/RDA2.png" alt="RDA2" style="zoom:40%;">
@@ -1655,7 +1668,7 @@ RDA_re &lt;- EMP_COR_RDA(data = core_species,meta=EMP$iron,
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 15 冗余分析","level":"1.16","depth":1,"next":{"title":"15.1 EMP_COR_RDA模块","level":"1.16.1","depth":2,"anchor":"#151","path":"MD/15.冗余分析.md","ref":"MD/15.冗余分析.md#151","articles":[{"title":"15.1.1 参数介绍","level":"1.16.1.1","depth":3,"anchor":"#1511","path":"MD/15.冗余分析.md","ref":"MD/15.冗余分析.md#1511","articles":[]},{"title":"15.1.2 使用范例","level":"1.16.1.2","depth":3,"anchor":"#1512","path":"MD/15.冗余分析.md","ref":"MD/15.冗余分析.md#1512","articles":[]}]},"previous":{"title":"14.1.2 使用范例","level":"1.15.1.2","depth":3,"anchor":"#1412","path":"MD/14.双变量拟合图.md","ref":"MD/14.双变量拟合图.md#1412","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/15.冗余分析.md","mtime":"2022-09-01T09:32:14.079Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 15 冗余分析","level":"1.16","depth":1,"next":{"title":"15.1 EMP_COR_RDA模块","level":"1.16.1","depth":2,"anchor":"#151","path":"MD/15.冗余分析.md","ref":"MD/15.冗余分析.md#151","articles":[{"title":"15.1.1 参数介绍","level":"1.16.1.1","depth":3,"anchor":"#1511","path":"MD/15.冗余分析.md","ref":"MD/15.冗余分析.md#1511","articles":[]},{"title":"15.1.2 使用范例","level":"1.16.1.2","depth":3,"anchor":"#1512","path":"MD/15.冗余分析.md","ref":"MD/15.冗余分析.md#1512","articles":[]}]},"previous":{"title":"14.1.2 使用范例","level":"1.15.1.2","depth":3,"anchor":"#1412","path":"MD/14.双变量拟合图.md","ref":"MD/14.双变量拟合图.md#1412","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/15.冗余分析.md","mtime":"2022-09-01T09:32:14.079Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

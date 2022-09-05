@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1355,125 +1368,125 @@
 <p>Tips 2&#xFF1A;<code>data_list</code>&#x5185;&#x6570;&#x636E;&#x6846;&#x5305;&#x542B;&#x7684;&#x6837;&#x672C;&#x4E0D;&#x5FC5;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#xFF0C;&#x4E24;&#x5C42;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x5C06;&#x91C7;&#x7528;&#x4EA4;&#x96C6;&#x6837;&#x672C;&#x8BA1;&#x7B97;&#x3002;</p>
 <p>Tips 3&#xFF1A;<code>EMP_COR_SANKEY</code>&#x6A21;&#x5757;&#x8BA1;&#x7B97;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x65F6;&#xFF0C;&#x5C06;&#x6839;&#x636E;<code>rvalue</code>&#x548C;<code>pvalue</code>&#x8FC7;&#x6EE4;&#x6389;&#x4E0D;&#x7B26;&#x5408;&#x610F;&#x4E49;&#x7684;&#x8FB9;&#xFF0C;&#x800C;&#x5B64;&#x7ACB;&#x7684;&#x8282;&#x70B9;&#x5C06;&#x4F1A;&#x88AB;&#x53BB;&#x9664;&#x3002;</p>
 <p>Tips 4&#xFF1A;<code>EMP_COR_SANKEY</code>&#x6A21;&#x5757;&#x8BA1;&#x7B97;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x65F6;&#xFF0C;&#x5C06;&#x5224;&#x5B9A;&#x4E2D;&#x95F4;&#x5C42;&#x7684;&#x8282;&#x70B9;&#x5FC5;&#x987B;&#x5DE6;&#x53F3;&#x5747;&#x5177;&#x6709;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x53EA;&#x5B58;&#x5728;&#x4E00;&#x4FA7;&#x5173;&#x7CFB;&#x7684;&#x4E2D;&#x95F4;&#x5C42;&#x8282;&#x70B9;&#x5C06;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x8FC7;&#x6EE4;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x57FA;&#x672C;&#x7528;&#x6CD5;</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-data(EMP) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5185;&#x7F6E;&#x793A;&#x4F8B;&#x6570;&#x636E;</span>
-Sankey_pic&lt;- EMP_COR_SANKEY(data_list = EMP$Sankey_data,rvalue = <span class="hljs-number">0.3</span>,pvalue = <span class="hljs-number">0.05</span>)
-Sankey_pic$plot <span class="hljs-comment"># &#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
-Sankey_pic$sankey_data <span class="hljs-comment"># &#x5206;&#x5C42;&#x76F8;&#x5173;&#x6027;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># &#x57FA;&#x672C;&#x7528;&#x6CD5;
+library(EasyMicroPlot) # &#x52A0;&#x8F7D;&#x5305;
+data(EMP) # &#x52A0;&#x8F7D;&#x5185;&#x7F6E;&#x793A;&#x4F8B;&#x6570;&#x636E;
+Sankey_pic&lt;- EMP_COR_SANKEY(data_list = EMP$Sankey_data,rvalue = 0.3,pvalue = 0.05)
+Sankey_pic$plot # &#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
+Sankey_pic$sankey_data # &#x5206;&#x5C42;&#x76F8;&#x5173;&#x6027;&#x7ED3;&#x679C;
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x4E24;&#x4E24;&#x76F8;&#x5173;&#x6027;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># &#x4E24;&#x4E24;&#x76F8;&#x5173;&#x6027;&#x7ED3;&#x679C;
 Sankey_pic$sankey_data
 </code></pre>
-<pre><code class="lang-R">     <span class="hljs-keyword">source</span>          target      value
-<span class="hljs-number">1</span>        V4         ko00062 -<span class="hljs-number">0.4269738</span>
-<span class="hljs-number">2</span>        V8         ko00062  <span class="hljs-number">0.5953949</span>
-<span class="hljs-number">3</span>       V14         ko00062  <span class="hljs-number">0.8701599</span>
-<span class="hljs-number">4</span>        V8         ko05322  <span class="hljs-number">0.5811994</span>
-<span class="hljs-number">5</span>       V14         ko05322  <span class="hljs-number">0.8452108</span>
-<span class="hljs-number">6</span>        V4         ko00100 -<span class="hljs-number">0.4236874</span>
-<span class="hljs-number">7</span>        V8         ko00100  <span class="hljs-number">0.6312576</span>
-<span class="hljs-number">8</span>       V14         ko00100  <span class="hljs-number">0.8074742</span>
-<span class="hljs-number">9</span>       V14         ko00740  <span class="hljs-number">0.6502133</span>
-<span class="hljs-number">10</span>       V4         ko00350 -<span class="hljs-number">0.8620269</span>
-<span class="hljs-number">11</span>       V8         ko00350  <span class="hljs-number">0.6459096</span>
-<span class="hljs-number">12</span>      V11         ko00350  <span class="hljs-number">0.4163614</span>
-<span class="hljs-number">13</span>      V14         ko00350  <span class="hljs-number">0.4438084</span>
-<span class="hljs-number">14</span>       V3         ko01040 -<span class="hljs-number">0.4108669</span>
-<span class="hljs-number">15</span>       V4         ko01040 -<span class="hljs-number">0.7759463</span>
-<span class="hljs-number">16</span>       V8         ko01040  <span class="hljs-number">0.6819292</span>
-<span class="hljs-number">17</span>      V14         ko01040  <span class="hljs-number">0.5829238</span>
-<span class="hljs-number">18</span>       V4         ko00920 -<span class="hljs-number">0.5836386</span>
-<span class="hljs-number">19</span>      V14         ko00920  <span class="hljs-number">0.5194146</span>
-<span class="hljs-number">20</span>       V3         ko05143  <span class="hljs-number">0.4143512</span>
-<span class="hljs-number">21</span>      V11         ko05143 -<span class="hljs-number">0.6552672</span>
-<span class="hljs-number">22</span>      V14         ko05143  <span class="hljs-number">0.7366293</span>
-<span class="hljs-number">23</span>      V11         ko00140 -<span class="hljs-number">0.5384615</span>
-<span class="hljs-number">24</span>      V14         ko00140  <span class="hljs-number">0.6229951</span>
-<span class="hljs-number">29</span>      V11         ko00627  <span class="hljs-number">0.4536020</span>
-<span class="hljs-number">30</span>      V11         ko00053  <span class="hljs-number">0.6233211</span>
-<span class="hljs-number">31</span>      V14         ko00053 -<span class="hljs-number">0.5723390</span>
-<span class="hljs-number">32</span>       V3         ko00760  <span class="hljs-number">0.6019536</span>
-<span class="hljs-number">33</span>       V4         ko00760  <span class="hljs-number">0.6910867</span>
-<span class="hljs-number">34</span>       V8         ko00760 -<span class="hljs-number">0.7362637</span>
-<span class="hljs-number">35</span>      V14         ko00760 -<span class="hljs-number">0.4695145</span>
-<span class="hljs-number">36</span>       V4         ko00643 -<span class="hljs-number">0.5277981</span>
-<span class="hljs-number">37</span>      V14         ko00643  <span class="hljs-number">0.4344559</span>
-<span class="hljs-number">54</span>       V3         ko03410  <span class="hljs-number">0.4957265</span>
-<span class="hljs-number">55</span>      V11         ko03410 -<span class="hljs-number">0.4084249</span>
-<span class="hljs-number">56</span>      V14         ko03410  <span class="hljs-number">0.5889723</span>
-<span class="hljs-number">59</span>       V3         ko00280  <span class="hljs-number">0.5299145</span>
-<span class="hljs-number">60</span>      V12         ko00280  <span class="hljs-number">0.5067155</span>
-<span class="hljs-number">61</span>      V14         ko00280 -<span class="hljs-number">0.4649781</span>
-<span class="hljs-number">62</span>       V4         ko00510  <span class="hljs-number">0.6697192</span>
-<span class="hljs-number">63</span>       V8         ko00510 -<span class="hljs-number">0.7936508</span>
-<span class="hljs-number">64</span>      V14         ko00510 -<span class="hljs-number">0.4075174</span>
-<span class="hljs-number">110</span> ko00062     Body_Weight -<span class="hljs-number">0.4093981</span>
-<span class="hljs-number">210</span> ko00740     Body_Weight -<span class="hljs-number">0.4440373</span>
-<span class="hljs-number">310</span> ko00140     Body_Weight -<span class="hljs-number">0.5432891</span>
-<span class="hljs-number">410</span> ko00062      Hemoglobin -<span class="hljs-number">0.7193000</span>
-<span class="hljs-number">510</span> ko05322      Hemoglobin -<span class="hljs-number">0.6908386</span>
-<span class="hljs-number">65</span>  ko00100      Hemoglobin -<span class="hljs-number">0.5867975</span>
-<span class="hljs-number">71</span>  ko00740      Hemoglobin -<span class="hljs-number">0.5513452</span>
-<span class="hljs-number">81</span>  ko00350      Hemoglobin -<span class="hljs-number">0.4281788</span>
-<span class="hljs-number">91</span>  ko01040      Hemoglobin -<span class="hljs-number">0.5443158</span>
-<span class="hljs-number">101</span> ko00920      Hemoglobin -<span class="hljs-number">0.5767119</span>
-<span class="hljs-number">111</span> ko00140      Hemoglobin -<span class="hljs-number">0.4318463</span>
-<span class="hljs-number">121</span> ko00760      Hemoglobin  <span class="hljs-number">0.4804405</span>
-<span class="hljs-number">131</span> ko00643      Hemoglobin -<span class="hljs-number">0.4243372</span>
-<span class="hljs-number">141</span> ko00280      Hemoglobin  <span class="hljs-number">0.4349025</span>
-<span class="hljs-number">151</span> ko00510      Hemoglobin  <span class="hljs-number">0.4850248</span>
-<span class="hljs-number">161</span> ko00062     Hematocrite -<span class="hljs-number">0.7193000</span>
-<span class="hljs-number">171</span> ko05322     Hematocrite -<span class="hljs-number">0.6956372</span>
-<span class="hljs-number">181</span> ko00100     Hematocrite -<span class="hljs-number">0.5944381</span>
-<span class="hljs-number">191</span> ko00740     Hematocrite -<span class="hljs-number">0.5482889</span>
-<span class="hljs-number">201</span> ko00350     Hematocrite -<span class="hljs-number">0.4229832</span>
-<span class="hljs-number">211</span> ko01040     Hematocrite -<span class="hljs-number">0.5437046</span>
-<span class="hljs-number">221</span> ko00920     Hematocrite -<span class="hljs-number">0.5721276</span>
-<span class="hljs-number">231</span> ko00140     Hematocrite -<span class="hljs-number">0.4345969</span>
-<span class="hljs-number">241</span> ko00760     Hematocrite  <span class="hljs-number">0.4841079</span>
-<span class="hljs-number">25</span>  ko00643     Hematocrite -<span class="hljs-number">0.4294001</span>
-<span class="hljs-number">26</span>  ko00280     Hematocrite  <span class="hljs-number">0.4397925</span>
-<span class="hljs-number">27</span>  ko00510     Hematocrite  <span class="hljs-number">0.4844136</span>
-<span class="hljs-number">28</span>  ko00062      Fecal_Iron -<span class="hljs-number">0.5819080</span>
-<span class="hljs-number">291</span> ko05322      Fecal_Iron -<span class="hljs-number">0.5879092</span>
-<span class="hljs-number">301</span> ko00100      Fecal_Iron -<span class="hljs-number">0.5427350</span>
-<span class="hljs-number">311</span> ko00740      Fecal_Iron -<span class="hljs-number">0.6959707</span>
-<span class="hljs-number">321</span> ko05143      Fecal_Iron -<span class="hljs-number">0.5261069</span>
-<span class="hljs-number">331</span> ko00140      Fecal_Iron -<span class="hljs-number">0.5006105</span>
-<span class="hljs-number">341</span> ko00627      Fecal_Iron  <span class="hljs-number">0.5726496</span>
-<span class="hljs-number">351</span> ko00053      Fecal_Iron  <span class="hljs-number">0.5775336</span>
-<span class="hljs-number">361</span> ko03410      Fecal_Iron -<span class="hljs-number">0.5073260</span>
-<span class="hljs-number">371</span> ko00280      Fecal_Iron  <span class="hljs-number">0.4603175</span>
-<span class="hljs-number">38</span>  ko00062 SI_Iron.content -<span class="hljs-number">0.6052633</span>
-<span class="hljs-number">39</span>  ko05322 SI_Iron.content -<span class="hljs-number">0.6380732</span>
-<span class="hljs-number">40</span>  ko00100 SI_Iron.content -<span class="hljs-number">0.5634921</span>
-<span class="hljs-number">41</span>  ko00740 SI_Iron.content -<span class="hljs-number">0.6440781</span>
-<span class="hljs-number">42</span>  ko01040 SI_Iron.content -<span class="hljs-number">0.4151404</span>
-<span class="hljs-number">43</span>  ko05143 SI_Iron.content -<span class="hljs-number">0.4842748</span>
-<span class="hljs-number">44</span>  ko00140 SI_Iron.content -<span class="hljs-number">0.4932845</span>
-<span class="hljs-number">45</span>  ko00627 SI_Iron.content  <span class="hljs-number">0.5781441</span>
-<span class="hljs-number">46</span>  ko00053 SI_Iron.content  <span class="hljs-number">0.5256410</span>
-<span class="hljs-number">47</span>  ko00760 SI_Iron.content  <span class="hljs-number">0.4810745</span>
-<span class="hljs-number">48</span>  ko03410 SI_Iron.content -<span class="hljs-number">0.4035409</span>
-<span class="hljs-number">49</span>  ko00280 SI_Iron.content  <span class="hljs-number">0.4700855</span>
-<span class="hljs-number">50</span>  ko00062      Liver_iron -<span class="hljs-number">0.5690791</span>
-<span class="hljs-number">51</span>  ko05322      Liver_iron -<span class="hljs-number">0.5949386</span>
-<span class="hljs-number">52</span>  ko00100      Liver_iron -<span class="hljs-number">0.5366300</span>
-<span class="hljs-number">53</span>  ko00740      Liver_iron -<span class="hljs-number">0.6721612</span>
-<span class="hljs-number">541</span> ko01040      Liver_iron -<span class="hljs-number">0.4236874</span>
-<span class="hljs-number">551</span> ko00920      Liver_iron -<span class="hljs-number">0.3809524</span>
-<span class="hljs-number">561</span> ko05143      Liver_iron -<span class="hljs-number">0.4308397</span>
-<span class="hljs-number">57</span>  ko00140      Liver_iron -<span class="hljs-number">0.5610501</span>
-<span class="hljs-number">58</span>  ko00627      Liver_iron  <span class="hljs-number">0.6465201</span>
-<span class="hljs-number">591</span> ko00053      Liver_iron  <span class="hljs-number">0.5360195</span>
-<span class="hljs-number">601</span> ko00760      Liver_iron  <span class="hljs-number">0.4932845</span>
-<span class="hljs-number">611</span> ko03410      Liver_iron -<span class="hljs-number">0.3986569</span>
-<span class="hljs-number">621</span> ko00280      Liver_iron  <span class="hljs-number">0.4761905</span>
+<pre class="language-"><code class="lang-R">     source          target      value
+1        V4         ko00062 -0.4269738
+2        V8         ko00062  0.5953949
+3       V14         ko00062  0.8701599
+4        V8         ko05322  0.5811994
+5       V14         ko05322  0.8452108
+6        V4         ko00100 -0.4236874
+7        V8         ko00100  0.6312576
+8       V14         ko00100  0.8074742
+9       V14         ko00740  0.6502133
+10       V4         ko00350 -0.8620269
+11       V8         ko00350  0.6459096
+12      V11         ko00350  0.4163614
+13      V14         ko00350  0.4438084
+14       V3         ko01040 -0.4108669
+15       V4         ko01040 -0.7759463
+16       V8         ko01040  0.6819292
+17      V14         ko01040  0.5829238
+18       V4         ko00920 -0.5836386
+19      V14         ko00920  0.5194146
+20       V3         ko05143  0.4143512
+21      V11         ko05143 -0.6552672
+22      V14         ko05143  0.7366293
+23      V11         ko00140 -0.5384615
+24      V14         ko00140  0.6229951
+29      V11         ko00627  0.4536020
+30      V11         ko00053  0.6233211
+31      V14         ko00053 -0.5723390
+32       V3         ko00760  0.6019536
+33       V4         ko00760  0.6910867
+34       V8         ko00760 -0.7362637
+35      V14         ko00760 -0.4695145
+36       V4         ko00643 -0.5277981
+37      V14         ko00643  0.4344559
+54       V3         ko03410  0.4957265
+55      V11         ko03410 -0.4084249
+56      V14         ko03410  0.5889723
+59       V3         ko00280  0.5299145
+60      V12         ko00280  0.5067155
+61      V14         ko00280 -0.4649781
+62       V4         ko00510  0.6697192
+63       V8         ko00510 -0.7936508
+64      V14         ko00510 -0.4075174
+110 ko00062     Body_Weight -0.4093981
+210 ko00740     Body_Weight -0.4440373
+310 ko00140     Body_Weight -0.5432891
+410 ko00062      Hemoglobin -0.7193000
+510 ko05322      Hemoglobin -0.6908386
+65  ko00100      Hemoglobin -0.5867975
+71  ko00740      Hemoglobin -0.5513452
+81  ko00350      Hemoglobin -0.4281788
+91  ko01040      Hemoglobin -0.5443158
+101 ko00920      Hemoglobin -0.5767119
+111 ko00140      Hemoglobin -0.4318463
+121 ko00760      Hemoglobin  0.4804405
+131 ko00643      Hemoglobin -0.4243372
+141 ko00280      Hemoglobin  0.4349025
+151 ko00510      Hemoglobin  0.4850248
+161 ko00062     Hematocrite -0.7193000
+171 ko05322     Hematocrite -0.6956372
+181 ko00100     Hematocrite -0.5944381
+191 ko00740     Hematocrite -0.5482889
+201 ko00350     Hematocrite -0.4229832
+211 ko01040     Hematocrite -0.5437046
+221 ko00920     Hematocrite -0.5721276
+231 ko00140     Hematocrite -0.4345969
+241 ko00760     Hematocrite  0.4841079
+25  ko00643     Hematocrite -0.4294001
+26  ko00280     Hematocrite  0.4397925
+27  ko00510     Hematocrite  0.4844136
+28  ko00062      Fecal_Iron -0.5819080
+291 ko05322      Fecal_Iron -0.5879092
+301 ko00100      Fecal_Iron -0.5427350
+311 ko00740      Fecal_Iron -0.6959707
+321 ko05143      Fecal_Iron -0.5261069
+331 ko00140      Fecal_Iron -0.5006105
+341 ko00627      Fecal_Iron  0.5726496
+351 ko00053      Fecal_Iron  0.5775336
+361 ko03410      Fecal_Iron -0.5073260
+371 ko00280      Fecal_Iron  0.4603175
+38  ko00062 SI_Iron.content -0.6052633
+39  ko05322 SI_Iron.content -0.6380732
+40  ko00100 SI_Iron.content -0.5634921
+41  ko00740 SI_Iron.content -0.6440781
+42  ko01040 SI_Iron.content -0.4151404
+43  ko05143 SI_Iron.content -0.4842748
+44  ko00140 SI_Iron.content -0.4932845
+45  ko00627 SI_Iron.content  0.5781441
+46  ko00053 SI_Iron.content  0.5256410
+47  ko00760 SI_Iron.content  0.4810745
+48  ko03410 SI_Iron.content -0.4035409
+49  ko00280 SI_Iron.content  0.4700855
+50  ko00062      Liver_iron -0.5690791
+51  ko05322      Liver_iron -0.5949386
+52  ko00100      Liver_iron -0.5366300
+53  ko00740      Liver_iron -0.6721612
+541 ko01040      Liver_iron -0.4236874
+551 ko00920      Liver_iron -0.3809524
+561 ko05143      Liver_iron -0.4308397
+57  ko00140      Liver_iron -0.5610501
+58  ko00627      Liver_iron  0.6465201
+591 ko00053      Liver_iron  0.5360195
+601 ko00760      Liver_iron  0.4932845
+611 ko03410      Liver_iron -0.3986569
+621 ko00280      Liver_iron  0.4761905
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># &#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
 Sankey_pic$plot
 </code></pre>
 <div id="sankey">
@@ -1525,7 +1538,7 @@ Sankey_pic$plot
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 16 多重相关性Sankey图","level":"1.17","depth":1,"next":{"title":"16.1 EMP_COR_SANKEY模块","level":"1.17.1","depth":2,"anchor":"#161","path":"MD/16.多层相关性Sankey图.md","ref":"MD/16.多层相关性Sankey图.md#161","articles":[{"title":"16.1.1 参数介绍","level":"1.17.1.1","depth":3,"anchor":"#1611","path":"MD/16.多层相关性Sankey图.md","ref":"MD/16.多层相关性Sankey图.md#1611","articles":[]},{"title":"16.1.2 使用范例","level":"1.17.1.2","depth":3,"anchor":"#1612","path":"MD/16.多层相关性Sankey图.md","ref":"MD/16.多层相关性Sankey图.md#1612","articles":[]}]},"previous":{"title":"15.1.2 使用范例","level":"1.16.1.2","depth":3,"anchor":"#1512","path":"MD/15.冗余分析.md","ref":"MD/15.冗余分析.md#1512","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/16.多层相关性Sankey图.md","mtime":"2022-09-01T07:52:23.241Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 16 多重相关性Sankey图","level":"1.17","depth":1,"next":{"title":"16.1 EMP_COR_SANKEY模块","level":"1.17.1","depth":2,"anchor":"#161","path":"MD/16.多层相关性Sankey图.md","ref":"MD/16.多层相关性Sankey图.md#161","articles":[{"title":"16.1.1 参数介绍","level":"1.17.1.1","depth":3,"anchor":"#1611","path":"MD/16.多层相关性Sankey图.md","ref":"MD/16.多层相关性Sankey图.md#1611","articles":[]},{"title":"16.1.2 使用范例","level":"1.17.1.2","depth":3,"anchor":"#1612","path":"MD/16.多层相关性Sankey图.md","ref":"MD/16.多层相关性Sankey图.md#1612","articles":[]}]},"previous":{"title":"15.1.2 使用范例","level":"1.16.1.2","depth":3,"anchor":"#1512","path":"MD/15.冗余分析.md","ref":"MD/15.冗余分析.md#1512","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/16.多层相关性Sankey图.md","mtime":"2022-09-01T07:52:23.241Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

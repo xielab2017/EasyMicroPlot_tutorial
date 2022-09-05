@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1408,80 +1421,80 @@
 <h4 id="912">9.1.2 &#x4F7F;&#x7528;&#x8303;&#x4F8B;</h4>
 
 <p><strong>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-keyword">library</span>(EasyMicroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-cooc_re &lt;- cooc_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                     min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,
-                     cooc_method = <span class="hljs-string">&apos;spearman&apos;</span>,cooc_output = <span class="hljs-literal">T</span>,
-                     cooc_p = <span class="hljs-number">0.05</span>,cooc_r = <span class="hljs-number">0.3</span>) 
-cooc_re$result$filter_data <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x524D;&#x7F6E;data_filter&#x51FD;&#x6570;&#x8FC7;&#x6EE4;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x679C;</span>
-cooc_re$cooc_profile <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x5404;&#x4E2A;&#x7EA7;&#x522B;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x7684;&#x57FA;&#x672C;&#x5C5E;&#x6027;&#x7ED3;&#x679C;</span>
-cooc_re$plot <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x5404;&#x4E2A;&#x7EA7;&#x522B;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x7684;igraph&#x76F8;&#x5173;&#x56FE;&#x5F62;&#x4FE1;&#x606F;</span>
+<pre class="language-"><code class="lang-R">library(EasyMicroPlot) # &#x52A0;&#x8F7D;&#x5305;
+cooc_re &lt;- cooc_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                     min_relative = 0.001,min_ratio = 0.7,
+                     cooc_method = &apos;spearman&apos;,cooc_output = T,
+                     cooc_p = 0.05,cooc_r = 0.3) 
+cooc_re$result$filter_data ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x524D;&#x7F6E;data_filter&#x51FD;&#x6570;&#x8FC7;&#x6EE4;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x679C;
+cooc_re$cooc_profile ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x5404;&#x4E2A;&#x7EA7;&#x522B;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x7684;&#x57FA;&#x672C;&#x5C5E;&#x6027;&#x7ED3;&#x679C;
+cooc_re$plot ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x5404;&#x4E2A;&#x7EA7;&#x522B;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x7684;igraph&#x76F8;&#x5173;&#x56FE;&#x5F62;&#x4FE1;&#x606F;
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF1A;</strong></p>
 <p>Tips 1: &#x8FD9;&#x91CC;&#x4EC5;&#x5C55;&#x793A;&#x79CD;&#x7EA7;&#x522B;CT&#x7EC4;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8F93;&#x5165;&#x6570;&#x636E;&#x60C5;&#x51B5;&#x67E5;&#x770B;&#x5176;&#x4ED6;&#x7EA7;&#x522B;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
 <p>Tips 2: &#x5F53;<code>group_combie = True</code>&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x7EC4;&#x7684;&#x6570;&#x636E;&#x5C06;&#x5408;&#x5E76;&#x5904;&#x7406;&#xFF0C;&#x7EC4;&#x540D;&#x5C06;&#x7EDF;&#x4E00;&#x4E3A;<code>Total</code></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x79CD;&#x7EA7;&#x522B;&#x5404;&#x4E2A;&#x5206;&#x7EC4;&#x7684;&#x7F51;&#x7EDC;&#x57FA;&#x672C;&#x5C5E;&#x6027;</span>
+<pre class="language-"><code class="lang-R"># &#x79CD;&#x7EA7;&#x522B;&#x5404;&#x4E2A;&#x5206;&#x7EC4;&#x7684;&#x7F51;&#x7EDC;&#x57FA;&#x672C;&#x5C5E;&#x6027;
 cooc_re$cooc_profile$species
 </code></pre>
-<pre><code class="lang-R">                num.vertices num.edges transitivity centralization_degree graph_density
-CT           <span class="hljs-number">31</span>        <span class="hljs-number">95</span>    <span class="hljs-number">0.6756757</span>             <span class="hljs-number">0.1956989</span>     <span class="hljs-number">0.2043011</span>
-ID           <span class="hljs-number">26</span>        <span class="hljs-number">57</span>    <span class="hljs-number">0.4912892</span>             <span class="hljs-number">0.2246154</span>     <span class="hljs-number">0.1753846</span>
-IO           <span class="hljs-number">32</span>       <span class="hljs-number">112</span>    <span class="hljs-number">0.6211973</span>             <span class="hljs-number">0.2903226</span>     <span class="hljs-number">0.2258065</span>
+<pre class="language-"><code class="lang-R">                num.vertices num.edges transitivity centralization_degree graph_density
+CT           31        95    0.6756757             0.1956989     0.2043011
+ID           26        57    0.4912892             0.2246154     0.1753846
+IO           32       112    0.6211973             0.2903226     0.2258065
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x79CD;&#x7EA7;&#x522B;CT&#x7EC4;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x76F8;&#x5173;&#x6027;&#x7CFB;&#x6570;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># &#x79CD;&#x7EA7;&#x522B;CT&#x7EC4;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x76F8;&#x5173;&#x6027;&#x7CFB;&#x6570;&#x7ED3;&#x679C;
 cor_r &lt;- cooc_re$plot$CT$species$cor_result$cor_r
-<span class="hljs-comment"># &#x79CD;&#x7EA7;&#x522B;CT&#x7EC4;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x76F8;&#x5173;&#x6027;&#x7CFB;&#x6570;&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;</span>
+# &#x79CD;&#x7EA7;&#x522B;CT&#x7EC4;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x76F8;&#x5173;&#x6027;&#x7CFB;&#x6570;&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;
 cor_p &lt;- cooc_re$plot$CT$species$cor_result$cor_p
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x79CD;&#x7EA7;&#x522B;CT&#x7EC4;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x4E2D;&#x5404;&#x4E2A;&#x8282;&#x70B9;&#x5728;&#x4E0D;&#x540C;&#x7B97;&#x6CD5;&#x7684;&#x91CD;&#x8981;&#x6027;&#x8BC4;&#x4F30;</span>
-<span class="hljs-comment"># EMP&#x5305;&#x5185;&#x7F6E;&#x4E86;evcent_value&#xFF0C;betweenness_value&#x548C;page_rank_value&#x4E09;&#x4E2A;&#x5E38;&#x7528;&#x7684;&#x7F51;&#x7EDC;&#x8282;&#x70B9;&#x8BC4;&#x4F30;&#x7B97;&#x6CD5;</span>
+<pre class="language-"><code class="lang-R"># &#x79CD;&#x7EA7;&#x522B;CT&#x7EC4;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x4E2D;&#x5404;&#x4E2A;&#x8282;&#x70B9;&#x5728;&#x4E0D;&#x540C;&#x7B97;&#x6CD5;&#x7684;&#x91CD;&#x8981;&#x6027;&#x8BC4;&#x4F30;
+# EMP&#x5305;&#x5185;&#x7F6E;&#x4E86;evcent_value&#xFF0C;betweenness_value&#x548C;page_rank_value&#x4E09;&#x4E2A;&#x5E38;&#x7528;&#x7684;&#x7F51;&#x7EDC;&#x8282;&#x70B9;&#x8BC4;&#x4F30;&#x7B97;&#x6CD5;
 cooc_re$plot$CT$species$vertex_attribute$vertex_importance_value
 </code></pre>
-<pre><code class="lang-R">     evcent_value betweenness_value page_rank_value
-V11   <span class="hljs-number">0.894767363</span>      <span class="hljs-number">0.0006568144</span>      <span class="hljs-number">0.03748984</span>
-V14   <span class="hljs-number">0.111946208</span>      <span class="hljs-number">0.0408464535</span>      <span class="hljs-number">0.03996182</span>
-V15   <span class="hljs-number">0.073028000</span>      <span class="hljs-number">0.0598905309</span>      <span class="hljs-number">0.03606126</span>
-V16   <span class="hljs-number">0.120083019</span>      <span class="hljs-number">0.0226038346</span>      <span class="hljs-number">0.03390773</span>
-V19   <span class="hljs-number">0.375088867</span>      <span class="hljs-number">0.2397686661</span>      <span class="hljs-number">0.05081571</span>
-V20   <span class="hljs-number">0.010881847</span>      <span class="hljs-number">0.0007662835</span>      <span class="hljs-number">0.01612598</span>
-V25   <span class="hljs-number">0.101058494</span>      <span class="hljs-number">0.1005016259</span>      <span class="hljs-number">0.04333433</span>
-V26   <span class="hljs-number">0.194527714</span>      <span class="hljs-number">0.1187298368</span>      <span class="hljs-number">0.05377930</span>
-V27   <span class="hljs-number">0.076653472</span>      <span class="hljs-number">0.0000000000</span>      <span class="hljs-number">0.01853288</span>
-V28   <span class="hljs-number">0.894767363</span>      <span class="hljs-number">0.0006568144</span>      <span class="hljs-number">0.03748984</span>
-V30   <span class="hljs-number">0.024882835</span>      <span class="hljs-number">0.0073508484</span>      <span class="hljs-number">0.02180678</span>
-V31   <span class="hljs-number">0.118581669</span>      <span class="hljs-number">0.0812700827</span>      <span class="hljs-number">0.03444455</span>
-V33   <span class="hljs-number">0.011231679</span>      <span class="hljs-number">0.0000000000</span>      <span class="hljs-number">0.01010074</span>
-V50   <span class="hljs-number">0.025741613</span>      <span class="hljs-number">0.0000000000</span>      <span class="hljs-number">0.01887667</span>
-V63   <span class="hljs-number">0.211304738</span>      <span class="hljs-number">0.0983519270</span>      <span class="hljs-number">0.02584497</span>
-V67   <span class="hljs-number">0.249218353</span>      <span class="hljs-number">0.1530166779</span>      <span class="hljs-number">0.04089875</span>
-V74   <span class="hljs-number">0.975072258</span>      <span class="hljs-number">0.1000790431</span>      <span class="hljs-number">0.04602047</span>
-V77   <span class="hljs-number">0.958146550</span>      <span class="hljs-number">0.1370721047</span>      <span class="hljs-number">0.04759485</span>
-V81   <span class="hljs-number">0.726127159</span>      <span class="hljs-number">0.0000000000</span>      <span class="hljs-number">0.02994727</span>
-V84   <span class="hljs-number">1.000000000</span>      <span class="hljs-number">0.1911416981</span>      <span class="hljs-number">0.05093498</span>
-V85   <span class="hljs-number">0.843272919</span>      <span class="hljs-number">0.0332010045</span>      <span class="hljs-number">0.03918532</span>
-V87   <span class="hljs-number">0.842729507</span>      <span class="hljs-number">0.0572413793</span>      <span class="hljs-number">0.03966348</span>
-V88   <span class="hljs-number">0.894767363</span>      <span class="hljs-number">0.0006568144</span>      <span class="hljs-number">0.03748984</span>
-V101  <span class="hljs-number">0.915902846</span>      <span class="hljs-number">0.0394804244</span>      <span class="hljs-number">0.04287798</span>
-V114  <span class="hljs-number">0.023484488</span>      <span class="hljs-number">0.0000000000</span>      <span class="hljs-number">0.01033077</span>
-V119  <span class="hljs-number">0.003116891</span>      <span class="hljs-number">0.0000000000</span>      <span class="hljs-number">0.01409915</span>
-V121  <span class="hljs-number">0.028044633</span>      <span class="hljs-number">0.0666666667</span>      <span class="hljs-number">0.02178926</span>
-V125  <span class="hljs-number">0.205871904</span>      <span class="hljs-number">0.1287356322</span>      <span class="hljs-number">0.02830766</span>
-V126  <span class="hljs-number">0.427769779</span>      <span class="hljs-number">0.1052228823</span>      <span class="hljs-number">0.03480820</span>
-V140  <span class="hljs-number">0.096860597</span>      <span class="hljs-number">0.0000000000</span>      <span class="hljs-number">0.01860294</span>
-V142  <span class="hljs-number">0.025741613</span>      <span class="hljs-number">0.0000000000</span>      <span class="hljs-number">0.01887667</span>
+<pre class="language-"><code class="lang-R">     evcent_value betweenness_value page_rank_value
+V11   0.894767363      0.0006568144      0.03748984
+V14   0.111946208      0.0408464535      0.03996182
+V15   0.073028000      0.0598905309      0.03606126
+V16   0.120083019      0.0226038346      0.03390773
+V19   0.375088867      0.2397686661      0.05081571
+V20   0.010881847      0.0007662835      0.01612598
+V25   0.101058494      0.1005016259      0.04333433
+V26   0.194527714      0.1187298368      0.05377930
+V27   0.076653472      0.0000000000      0.01853288
+V28   0.894767363      0.0006568144      0.03748984
+V30   0.024882835      0.0073508484      0.02180678
+V31   0.118581669      0.0812700827      0.03444455
+V33   0.011231679      0.0000000000      0.01010074
+V50   0.025741613      0.0000000000      0.01887667
+V63   0.211304738      0.0983519270      0.02584497
+V67   0.249218353      0.1530166779      0.04089875
+V74   0.975072258      0.1000790431      0.04602047
+V77   0.958146550      0.1370721047      0.04759485
+V81   0.726127159      0.0000000000      0.02994727
+V84   1.000000000      0.1911416981      0.05093498
+V85   0.843272919      0.0332010045      0.03918532
+V87   0.842729507      0.0572413793      0.03966348
+V88   0.894767363      0.0006568144      0.03748984
+V101  0.915902846      0.0394804244      0.04287798
+V114  0.023484488      0.0000000000      0.01033077
+V119  0.003116891      0.0000000000      0.01409915
+V121  0.028044633      0.0666666667      0.02178926
+V125  0.205871904      0.1287356322      0.02830766
+V126  0.427769779      0.1052228823      0.03480820
+V140  0.096860597      0.0000000000      0.01860294
+V142  0.025741613      0.0000000000      0.01887667
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
 <p>Tips 3: &#x7531;&#x4E8E;EMP&#x5305;&#x7684;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x4E3B;&#x8981;&#x57FA;&#x4E8E;<code>igragh</code>&#x5305;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x56E0;&#x6B64;&#x56FE;&#x5F62;&#x5C06;&#x4F1A;&#x76F4;&#x63A5;&#x751F;&#x6210;&#x5728;&#x5DE5;&#x4F5C;&#x533A;&#x57DF;&#x7684;&#x672C;&#x5730;&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x540E;&#x7EED;&#x7684;&#x7248;&#x672C;&#x66F4;&#x65B0;&#x8BA1;&#x5212;&#x4E2D;&#x4F1A;&#x6DFB;&#x52A0;&#x5BF9;&#x4E8E;<code>ggplot2</code>&#x7684;&#x652F;&#x6301;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x5404;&#x7EA7;&#x522B;&#x5206;&#x7EC4;&#x7684;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C06;&#x4F1A;&#x5728;&#x5DE5;&#x4F5C;&#x533A;&#x57DF;&#x7684;&#x672C;&#x5730;&#x76EE;&#x5F55;&#x4E2D;&#x751F;&#x6210;</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot)
-cooc_re &lt;- cooc_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                     min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,
-                     cooc_method = <span class="hljs-string">&apos;spearman&apos;</span>,cooc_output = <span class="hljs-literal">T</span>,clust = <span class="hljs-literal">F</span>,
-                     cooc_p = <span class="hljs-number">0.05</span>,cooc_r = <span class="hljs-number">0.3</span>)
+<pre class="language-"><code class="lang-R"># &#x5404;&#x7EA7;&#x522B;&#x5206;&#x7EC4;&#x7684;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C06;&#x4F1A;&#x5728;&#x5DE5;&#x4F5C;&#x533A;&#x57DF;&#x7684;&#x672C;&#x5730;&#x76EE;&#x5F55;&#x4E2D;&#x751F;&#x6210;
+library(EasyMicroPlot)
+cooc_re &lt;- cooc_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                     min_relative = 0.001,min_ratio = 0.7,
+                     cooc_method = &apos;spearman&apos;,cooc_output = T,clust = F,
+                     cooc_p = 0.05,cooc_r = 0.3)
 </code></pre>
-<pre><code class="lang-R">cooc_result/ <span class="hljs-comment"># &#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x7ED3;&#x679C;&#x6587;&#x4EF6;&#x5939;</span>
-&#x251C;&#x2500;&#x2500; network <span class="hljs-comment"># &#x5305;&#x542B;&#x5168;&#x90E8;&#x5206;&#x7EC4;&#x5404;&#x4E2A;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7684;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x56FE;</span>
-&#x2514;&#x2500;&#x2500; vertex <span class="hljs-comment"># &#x5305;&#x542B;&#x5168;&#x90E8;&#x5206;&#x7EC4;&#x5404;&#x4E2A;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7684;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x8282;&#x70B9;&#x91CD;&#x8981;&#x6027;&#x8BC4;&#x4F30;&#x7ED3;&#x679C;&#x70ED;&#x56FE;</span>
+<pre class="language-"><code class="lang-R">cooc_result/ # &#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x7ED3;&#x679C;&#x6587;&#x4EF6;&#x5939;
+&#x251C;&#x2500;&#x2500; network # &#x5305;&#x542B;&#x5168;&#x90E8;&#x5206;&#x7EC4;&#x5404;&#x4E2A;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7684;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x56FE;
+&#x2514;&#x2500;&#x2500; vertex # &#x5305;&#x542B;&#x5168;&#x90E8;&#x5206;&#x7EC4;&#x5404;&#x4E2A;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7684;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x8282;&#x70B9;&#x91CD;&#x8981;&#x6027;&#x8BC4;&#x4F30;&#x7ED3;&#x679C;&#x70ED;&#x56FE;
 </code></pre>
 <p>Tips 4: &#x4E3A;&#x4E86;&#x56FE;&#x5F62;&#x7F8E;&#x5316;&#xFF0C;&#x5FAE;&#x751F;&#x7269;&#x8282;&#x70B9;&#x7528;&#x7F16;&#x7801;&#x663E;&#x793A;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;<code>cooc_re$result$filter_data</code>&#x5185;&#x67E5;&#x8BE2;&#x5177;&#x4F53;&#x5FAE;&#x751F;&#x7269;&#x6CE8;&#x91CA;&#x4FE1;&#x606F;&#x3002;&#x4F8B;&#x5982;&#x79CD;&#x7EA7;&#x522B;&#x7269;&#x79CD;&#x6CE8;&#x91CA;&#x4FE1;&#x606F;&#x4E3A;<code>cooc_re$result$filter_data$species_ID</code></p>
 <center class="half">    
@@ -1495,12 +1508,12 @@ cooc_re &lt;- cooc_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</
 
 
 <p>Tips 5&#xFF1A; EMP&#x5305;&#x9ED8;&#x8BA4;&#x91C7;&#x7528;&#x5706;&#x5F62;&#x6392;&#x5E03;&#x5C55;&#x793A;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x7ED3;&#x679C;&#xFF0C;&#x5F53;<code>clust = True</code>&#x65F6;&#x5019;&#x56FE;&#x5F62;&#x5C06;&#x6839;&#x636E;<code>fast greedy</code>&#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x805A;&#x7C7B;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x6CE8;&#x610F;&#x4FEE;&#x6539;&#x4E3A;clust = T</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot)
-cooc_re &lt;- cooc_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                     min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,cooc_method = <span class="hljs-string">&apos;spearman&apos;</span>,
-                     cooc_output = <span class="hljs-literal">T</span>,clust = <span class="hljs-literal">T</span>,
-                     cooc_p = <span class="hljs-number">0.05</span>,cooc_r = <span class="hljs-number">0.3</span>)
+<pre class="language-"><code class="lang-R"># &#x6CE8;&#x610F;&#x4FEE;&#x6539;&#x4E3A;clust = T
+library(EasyMicroPlot)
+cooc_re &lt;- cooc_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                     min_relative = 0.001,min_ratio = 0.7,cooc_method = &apos;spearman&apos;,
+                     cooc_output = T,clust = T,
+                     cooc_p = 0.05,cooc_r = 0.3)
 </code></pre>
 <center class="half">    
   <img src="../Image/cooc3.png" alt="cooc1" style="zoom:30%;">  
@@ -1508,20 +1521,20 @@ cooc_re &lt;- cooc_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</
 </center>
 
 <p>Tips 5&#xFF1A; EMP&#x5305;&#x9ED8;&#x8BA4;&#x91C7;&#x7528;&#x5706;&#x5F62;&#x6392;&#x5E03;&#x5C55;&#x793A;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x7ED3;&#x679C;&#xFF0C;&#x5F53;<code>clust = True</code>&#x65F6;&#x5019;&#x56FE;&#x5F62;&#x5C06;&#x6839;&#x636E;<code>fast greedy</code>&#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x805A;&#x7C7B;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x76F4;&#x63A5;&#x67E5;&#x770B;&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x548C;&#x7F8E;&#x5316;&#xFF0C;EMP&#x4E5F;&#x5185;&#x7F6E;cooc_plot_each&#x5FEB;&#x901F;&#x5BF9;&#x4E8E;&#x7279;&#x5B9A;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x56FE;&#x5F62;&#x8C03;&#x6574;</span>
-<span class="hljs-comment"># &#x4F8B;&#x5982;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5BF9;&#x4E8E;CT&#x7EC4;&#x79CD;&#x7EA7;&#x522B;&#x56FE;&#x5F62;&#x8FDB;&#x884C;&#x90E8;&#x5206;&#x53C2;&#x6570;&#x7684;&#x91CD;&#x65B0;&#x8BBE;&#x5B9A;</span>
-cooc_plot_each(cooc_re$plot$CT$species,cooc_output=<span class="hljs-literal">F</span>,vertex.size = <span class="hljs-number">12</span>,
-               vertex.label.cex =<span class="hljs-number">1</span> ,edge.width =<span class="hljs-number">3</span>,clust = <span class="hljs-literal">T</span>,
-               edge.curved = <span class="hljs-literal">T</span>,edge_color_positive = <span class="hljs-string">&apos;#C34A36&apos;</span>,
-               edge_color_negitive =<span class="hljs-string">&apos;#845EC2&apos;</span>)
+<pre class="language-"><code class="lang-R"># &#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x76F4;&#x63A5;&#x67E5;&#x770B;&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x548C;&#x7F8E;&#x5316;&#xFF0C;EMP&#x4E5F;&#x5185;&#x7F6E;cooc_plot_each&#x5FEB;&#x901F;&#x5BF9;&#x4E8E;&#x7279;&#x5B9A;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x56FE;&#x5F62;&#x8C03;&#x6574;
+# &#x4F8B;&#x5982;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5BF9;&#x4E8E;CT&#x7EC4;&#x79CD;&#x7EA7;&#x522B;&#x56FE;&#x5F62;&#x8FDB;&#x884C;&#x90E8;&#x5206;&#x53C2;&#x6570;&#x7684;&#x91CD;&#x65B0;&#x8BBE;&#x5B9A;
+cooc_plot_each(cooc_re$plot$CT$species,cooc_output=F,vertex.size = 12,
+               vertex.label.cex =1 ,edge.width =3,clust = T,
+               edge.curved = T,edge_color_positive = &apos;#C34A36&apos;,
+               edge_color_negitive =&apos;#845EC2&apos;)
 </code></pre>
 <p><img src="../Image/cooc4.png" alt="cooc4" style="zoom:40%;"></p>
 <p>Tips 6&#xFF1A; EMP&#x5305;&#x652F;&#x6301;&#x5C06;&#x8868;&#x578B;&#x6570;&#x636E;&#x4E0E;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#x8054;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x505A;&#x5171;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x5206;&#x6790;&#x3002;&#x7531;&#x4E8E;&#x8868;&#x578B;&#x6570;&#x636E;&#x6837;&#x672C;&#x548C;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#x6837;&#x672C;&#x5F80;&#x5F80;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#xFF0C;&#x56E0;&#x6B64;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x5C06;&#x91C7;&#x53D6;&#x4E8C;&#x8005;&#x6837;&#x672C;&#x7684;&#x4EA4;&#x96C6;&#x8FDB;&#x884C;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x6574;&#x5408;&#x8868;&#x578B;&#x6570;&#x636E;&#x8054;&#x5408;&#x5206;&#x6790;</span>
-meta_data &lt;- EMP$iron <span class="hljs-comment"># &#x6CE8;&#x610F;&#x8981;&#x7B26;&#x5408;3.2&#x7684;&#x683C;&#x5F0F;&#x8981;&#x6C42;</span>
-cooc_re &lt;- cooc_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                     min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,cooc_method = <span class="hljs-string">&apos;spearman&apos;</span>,cooc_output = <span class="hljs-literal">T</span>,
-                     cooc_p = <span class="hljs-number">0.05</span>,cooc_r = <span class="hljs-number">0.3</span>,clust = <span class="hljs-literal">T</span> )
+<pre class="language-"><code class="lang-R"># &#x6574;&#x5408;&#x8868;&#x578B;&#x6570;&#x636E;&#x8054;&#x5408;&#x5206;&#x6790;
+meta_data &lt;- EMP$iron # &#x6CE8;&#x610F;&#x8981;&#x7B26;&#x5408;3.2&#x7684;&#x683C;&#x5F0F;&#x8981;&#x6C42;
+cooc_re &lt;- cooc_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                     min_relative = 0.001,min_ratio = 0.7,cooc_method = &apos;spearman&apos;,cooc_output = T,
+                     cooc_p = 0.05,cooc_r = 0.3,clust = T )
 </code></pre>
 <center class="half">    
   <img src="../Image/cooc5.png" alt="cooc1" style="zoom:30%;">  
@@ -1574,7 +1587,7 @@ cooc_re &lt;- cooc_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 9 Co-oc共发生网络","level":"1.10","depth":1,"next":{"title":"9.1 cooc_plot","level":"1.10.1","depth":2,"anchor":"#91","path":"MD/09.Co-oc共发生网络.md","ref":"MD/09.Co-oc共发生网络.md#91","articles":[{"title":"9.1.1 参数介绍","level":"1.10.1.1","depth":3,"anchor":"#911","path":"MD/09.Co-oc共发生网络.md","ref":"MD/09.Co-oc共发生网络.md#911","articles":[]},{"title":"9.1.2 使用范例","level":"1.10.1.2","depth":3,"anchor":"#912","path":"MD/09.Co-oc共发生网络.md","ref":"MD/09.Co-oc共发生网络.md#912","articles":[]}]},"previous":{"title":"8.1.2 使用范例","level":"1.9.1.2","depth":3,"anchor":"#812","path":"MD/08.Beta多样性.md","ref":"MD/08.Beta多样性.md#812","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/09.Co-oc共发生网络.md","mtime":"2022-09-01T07:20:00.341Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 9 Co-oc共发生网络","level":"1.10","depth":1,"next":{"title":"9.1 cooc_plot","level":"1.10.1","depth":2,"anchor":"#91","path":"MD/09.Co-oc共发生网络.md","ref":"MD/09.Co-oc共发生网络.md#91","articles":[{"title":"9.1.1 参数介绍","level":"1.10.1.1","depth":3,"anchor":"#911","path":"MD/09.Co-oc共发生网络.md","ref":"MD/09.Co-oc共发生网络.md#911","articles":[]},{"title":"9.1.2 使用范例","level":"1.10.1.2","depth":3,"anchor":"#912","path":"MD/09.Co-oc共发生网络.md","ref":"MD/09.Co-oc共发生网络.md#912","articles":[]}]},"previous":{"title":"8.1.2 使用范例","level":"1.9.1.2","depth":3,"anchor":"#812","path":"MD/08.Beta多样性.md","ref":"MD/08.Beta多样性.md#812","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/09.Co-oc共发生网络.md","mtime":"2022-09-01T07:20:00.341Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

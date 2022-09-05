@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1380,17 +1393,17 @@
 <h4 id="1012">10.1.2 &#x4F7F;&#x7528;&#x8303;&#x4F8B;</h4>
 
 <p><strong>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</strong></p>
-<pre><code class="lang-R">Library(EasyMciroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-<span class="hljs-comment"># &#x57FA;&#x672C;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;,&#x81EA;&#x52A8;&#x6309;&#x7167;&#x5747;&#x503C;&#x524D;10&#x540D;&#x7ED8;&#x5236;&#x7269;&#x79CD;&#x7ED3;&#x6784;&#x56FE;</span>
-structure_re &lt;- structure_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                               min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,num=<span class="hljs-number">10</span>) 
-cooc_re$result$filter_data <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x524D;&#x7F6E;data_filter&#x51FD;&#x6570;&#x8FC7;&#x6EE4;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x679C;</span>
-structure_re$result$top_abundance <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x7ED3;&#x6784;&#x56FE;&#x4E2D;TOP&#x663E;&#x793A;&#x7269;&#x79CD;&#x7684;&#x4E30;&#x5EA6;&#x6570;&#x636E;</span>
-structure_re$pic <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x5404;&#x4E2A;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;&#x53CA;&#x5404;&#x7EC4;&#x7684;&#x7ED3;&#x6784;&#x56FE;</span>
+<pre class="language-"><code class="lang-R">Library(EasyMciroPlot) # &#x52A0;&#x8F7D;&#x5305;
+# &#x57FA;&#x672C;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;,&#x81EA;&#x52A8;&#x6309;&#x7167;&#x5747;&#x503C;&#x524D;10&#x540D;&#x7ED8;&#x5236;&#x7269;&#x79CD;&#x7ED3;&#x6784;&#x56FE;
+structure_re &lt;- structure_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                               min_relative = 0.001,min_ratio = 0.7,num=10) 
+cooc_re$result$filter_data ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x524D;&#x7F6E;data_filter&#x51FD;&#x6570;&#x8FC7;&#x6EE4;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x679C;
+structure_re$result$top_abundance ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x7ED3;&#x6784;&#x56FE;&#x4E2D;TOP&#x663E;&#x793A;&#x7269;&#x79CD;&#x7684;&#x4E30;&#x5EA6;&#x6570;&#x636E;
+structure_re$pic ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x5404;&#x4E2A;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;&#x53CA;&#x5404;&#x7EC4;&#x7684;&#x7ED3;&#x6784;&#x56FE;
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;</strong>&#xFF1A;</p>
 <p>Tips 1: &#x8FD9;&#x91CC;&#x4EC5;&#x5C55;&#x793A;&#x7EB2;&#x7EA7;&#x522B;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8F93;&#x5165;&#x6570;&#x636E;&#x60C5;&#x51B5;&#x67E5;&#x770B;&#x5176;&#x4ED6;&#x7EA7;&#x522B;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># TOP&#x7269;&#x79CD;&#x7684;&#x7EB2;&#x6C34;&#x5E73;&#x7684;&#x6570;&#x636E;</span>
+<pre class="language-"><code class="lang-R"># TOP&#x7269;&#x79CD;&#x7684;&#x7EB2;&#x6C34;&#x5E73;&#x7684;&#x6570;&#x636E;
 structure_re$result$top_abundance$class
 </code></pre>
 <table>
@@ -1489,58 +1502,58 @@ structure_re$result$top_abundance$class
 </tr>
 </tbody>
 </table>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7EB2;&#x7EA7;&#x522B;&#x7269;&#x79CD;&#x5B8C;&#x6574;&#x6CE8;&#x91CA;&#x540D;&#x79F0;</span>
+<pre class="language-"><code class="lang-R"># &#x7EB2;&#x7EA7;&#x522B;&#x7269;&#x79CD;&#x5B8C;&#x6574;&#x6CE8;&#x91CA;&#x540D;&#x79F0;
 structure_re$result$filter_data$class_ID
 </code></pre>
-<pre><code class="lang-R">    ID                                                    tax
-<span class="hljs-number">1</span>   V1                                 Unassigned;Other;Other
-<span class="hljs-number">2</span>   V2         k__Bacteria;p__Acidobacteria;c__Acidobacteriia
-<span class="hljs-number">3</span>   V3                 k__Bacteria;p__Acidobacteria;c__iii1-<span class="hljs-number">8</span>
-<span class="hljs-number">4</span>   V4        k__Bacteria;p__Actinobacteria;c__Actinobacteria
-<span class="hljs-number">5</span>   V5        k__Bacteria;p__Actinobacteria;c__Coriobacteriia
-<span class="hljs-number">6</span>   V6             k__Bacteria;p__Actinobacteria;c__MB-A2-<span class="hljs-number">108</span>
-<span class="hljs-number">7</span>   V7            k__Bacteria;p__Bacteroidetes;c__Bacteroidia
-<span class="hljs-number">8</span>   V8         k__Bacteria;p__Bacteroidetes;c__Flavobacteriia
-<span class="hljs-number">9</span>   V9       k__Bacteria;p__Bacteroidetes;c__Sphingobacteriia
-<span class="hljs-number">10</span> V10             k__Bacteria;p__Chloroflexi;c__Anaerolineae
-<span class="hljs-number">11</span> V11                 k__Bacteria;p__Cyanobacteria;c__4C0d-<span class="hljs-number">2</span>
-<span class="hljs-number">12</span> V12            k__Bacteria;p__Cyanobacteria;c__Chloroplast
-<span class="hljs-number">13</span> V13      k__Bacteria;p__Deferribacteres;c__Deferribacteres
-<span class="hljs-number">14</span> V14                   k__Bacteria;p__Firmicutes;c__Bacilli
-<span class="hljs-number">15</span> V15                k__Bacteria;p__Firmicutes;c__Clostridia
-<span class="hljs-number">16</span> V16           k__Bacteria;p__Firmicutes;c__Erysipelotrichi
-<span class="hljs-number">17</span> V17                               k__Bacteria;p__GAL15;c__
-<span class="hljs-number">18</span> V18                              k__Bacteria;p__OD1;c__ZB2
-<span class="hljs-number">19</span> V19   k__Bacteria;p__Proteobacteria;c__Alphaproteobacteria
-<span class="hljs-number">20</span> V20    k__Bacteria;p__Proteobacteria;c__Betaproteobacteria
-<span class="hljs-number">21</span> V21   k__Bacteria;p__Proteobacteria;c__Deltaproteobacteria
-<span class="hljs-number">22</span> V22 k__Bacteria;p__Proteobacteria;c__Epsilonproteobacteria
-<span class="hljs-number">23</span> V23   k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria
-<span class="hljs-number">24</span> V24                            k__Bacteria;p__TM7;c__TM7-<span class="hljs-number">3</span>
-<span class="hljs-number">25</span> V25               k__Bacteria;p__Tenericutes;c__Mollicutes
-<span class="hljs-number">26</span> V26     k__Bacteria;p__Verrucomicrobia;c__Verrucomicrobiae
+<pre class="language-"><code class="lang-R">    ID                                                    tax
+1   V1                                 Unassigned;Other;Other
+2   V2         k__Bacteria;p__Acidobacteria;c__Acidobacteriia
+3   V3                 k__Bacteria;p__Acidobacteria;c__iii1-8
+4   V4        k__Bacteria;p__Actinobacteria;c__Actinobacteria
+5   V5        k__Bacteria;p__Actinobacteria;c__Coriobacteriia
+6   V6             k__Bacteria;p__Actinobacteria;c__MB-A2-108
+7   V7            k__Bacteria;p__Bacteroidetes;c__Bacteroidia
+8   V8         k__Bacteria;p__Bacteroidetes;c__Flavobacteriia
+9   V9       k__Bacteria;p__Bacteroidetes;c__Sphingobacteriia
+10 V10             k__Bacteria;p__Chloroflexi;c__Anaerolineae
+11 V11                 k__Bacteria;p__Cyanobacteria;c__4C0d-2
+12 V12            k__Bacteria;p__Cyanobacteria;c__Chloroplast
+13 V13      k__Bacteria;p__Deferribacteres;c__Deferribacteres
+14 V14                   k__Bacteria;p__Firmicutes;c__Bacilli
+15 V15                k__Bacteria;p__Firmicutes;c__Clostridia
+16 V16           k__Bacteria;p__Firmicutes;c__Erysipelotrichi
+17 V17                               k__Bacteria;p__GAL15;c__
+18 V18                              k__Bacteria;p__OD1;c__ZB2
+19 V19   k__Bacteria;p__Proteobacteria;c__Alphaproteobacteria
+20 V20    k__Bacteria;p__Proteobacteria;c__Betaproteobacteria
+21 V21   k__Bacteria;p__Proteobacteria;c__Deltaproteobacteria
+22 V22 k__Bacteria;p__Proteobacteria;c__Epsilonproteobacteria
+23 V23   k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria
+24 V24                            k__Bacteria;p__TM7;c__TM7-3
+25 V25               k__Bacteria;p__Tenericutes;c__Mollicutes
+26 V26     k__Bacteria;p__Verrucomicrobia;c__Verrucomicrobiae
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7EB2;&#x7EA7;&#x522B;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x6784;&#x56FE;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8F93;&#x5165;&#x6570;&#x636E;&#x63D0;&#x8D77;&#x5176;&#x4ED6;&#x7EA7;&#x522B;</span>
+<pre class="language-"><code class="lang-R"># &#x7EB2;&#x7EA7;&#x522B;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x6784;&#x56FE;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8F93;&#x5165;&#x6570;&#x636E;&#x63D0;&#x8D77;&#x5176;&#x4ED6;&#x7EA7;&#x522B;
 structure_re$pic$class$barplot$Total
 </code></pre>
 <p><img src="../Image/str_bar1.png" alt="str_bar1" style="zoom:50%;"></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x56FE;&#x5F62;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x56FE;&#x5F62;&#x8FDB;&#x884C;&#x7F8E;&#x5316;</span>
-top_num &lt;- <span class="hljs-number">5</span> <span class="hljs-comment">## &#x9009;&#x53D6;&#x524D;&#x4E94;&#x540D;&#x7269;&#x79CD;</span>
-group_order &lt;- c(<span class="hljs-string">&apos;ID&apos;</span>,<span class="hljs-string">&apos;CT&apos;</span>,<span class="hljs-string">&apos;IO&apos;</span>) <span class="hljs-comment">## &#x8BBE;&#x5B9A;&#x6392;&#x5E8F;&#xFF0C;&#x540D;&#x79F0;&#x9700;&#x8981;&#x7EDD;&#x5BF9;&#x4E00;&#x81F4;</span>
-tax_order &lt;- c(<span class="hljs-string">&apos;Others&apos;</span>,<span class="hljs-string">&apos;V7&apos;</span>,<span class="hljs-string">&apos;V15&apos;</span>,<span class="hljs-string">&apos;V16&apos;</span>,<span class="hljs-string">&apos;V21&apos;</span>,<span class="hljs-string">&apos;V22&apos;</span>) 
-cols &lt;- c(<span class="hljs-string">&quot;#432c39&quot;</span>, <span class="hljs-string">&quot;#437478&quot;</span>, <span class="hljs-string">&quot;#b8b7a1&quot;</span>, <span class="hljs-string">&quot;#eed7b8&quot;</span>,<span class="hljs-string">&quot;#e5855f&quot;</span>, <span class="hljs-string">&quot;#db6c4e&quot;</span>, <span class="hljs-string">&quot;#d24d3a&quot;</span>) <span class="hljs-comment">## &#x8BBE;&#x5B9A;&#x989C;&#x8272;&#x65B9;&#x6848;</span>
+<pre class="language-"><code class="lang-R"># &#x56FE;&#x5F62;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x56FE;&#x5F62;&#x8FDB;&#x884C;&#x7F8E;&#x5316;
+top_num &lt;- 5 ## &#x9009;&#x53D6;&#x524D;&#x4E94;&#x540D;&#x7269;&#x79CD;
+group_order &lt;- c(&apos;ID&apos;,&apos;CT&apos;,&apos;IO&apos;) ## &#x8BBE;&#x5B9A;&#x6392;&#x5E8F;&#xFF0C;&#x540D;&#x79F0;&#x9700;&#x8981;&#x7EDD;&#x5BF9;&#x4E00;&#x81F4;
+tax_order &lt;- c(&apos;Others&apos;,&apos;V7&apos;,&apos;V15&apos;,&apos;V16&apos;,&apos;V21&apos;,&apos;V22&apos;) 
+cols &lt;- c(&quot;#432c39&quot;, &quot;#437478&quot;, &quot;#b8b7a1&quot;, &quot;#eed7b8&quot;,&quot;#e5855f&quot;, &quot;#db6c4e&quot;, &quot;#d24d3a&quot;) ## &#x8BBE;&#x5B9A;&#x989C;&#x8272;&#x65B9;&#x6848;
 
-<span class="hljs-comment"># mytheme &#x652F;&#x6301;ggplot2&#x4E3B;&#x9898;&#x8BED;&#x6CD5;</span>
-<span class="hljs-keyword">library</span>(ggplot2)
-newtheme_slope=theme(axis.text.x =element_text(angle = <span class="hljs-number">45</span>, hjust = <span class="hljs-number">1</span>,size = <span class="hljs-number">10</span>))
-<span class="hljs-comment"># &#x51FA;&#x56FE;</span>
-<span class="hljs-comment"># &#x6CE8;&#x610F;&#x7531;&#x4E8E;&#x8BBE;&#x7F6E;&#x4E86;&#x53EA;&#x7B26;&#x5408;&#x7EB2;&#x7EA7;&#x522B;&#x7684;tax_level&#x53C2;&#x6570;&#xFF0C;&#x56E0;&#x6B64;&#x5EFA;&#x8BAE;&#x53EA;&#x8F93;&#x5165;&#x7EB2;&#x7EA7;&#x522B;&#x6570;&#x636E;&#xFF0C;&#x5426;&#x5219;&#x5176;&#x4ED6;&#x7EA7;&#x522B;&#x6570;&#x636E;&#x5C06;&#x4F1A;&#x56E0;&#x65E0;&#x6CD5;&#x5339;&#x914D;&#x800C;&#x51FA;&#x73B0;warning</span>
-<span class="hljs-comment"># &#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x5229;&#x7528;pattern&#x53C2;&#x6570;&#xFF0C;&#x6839;&#x636E;&#x6587;&#x4EF6;&#x540D;&#x53EA;&#x9009;&#x62E9;&#x8BFB;&#x53D6;&#x7EB2;&#x7EA7;&#x522B;&#x6570;&#x636E;&#xFF1B;&#x4E5F;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x9884;&#x8BFB;&#x53D6;&#x7EB2;&#x7EA7;&#x522B;&#x6570;&#x636E;&#xFF0C;&#x518D;&#x5229;&#x7528;data&#x53C2;&#x6570;&#x8F93;&#x5165;</span>
-structure_re &lt;- structure_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                               min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,num=top_num,
+# mytheme &#x652F;&#x6301;ggplot2&#x4E3B;&#x9898;&#x8BED;&#x6CD5;
+library(ggplot2)
+newtheme_slope=theme(axis.text.x =element_text(angle = 45, hjust = 1,size = 10))
+# &#x51FA;&#x56FE;
+# &#x6CE8;&#x610F;&#x7531;&#x4E8E;&#x8BBE;&#x7F6E;&#x4E86;&#x53EA;&#x7B26;&#x5408;&#x7EB2;&#x7EA7;&#x522B;&#x7684;tax_level&#x53C2;&#x6570;&#xFF0C;&#x56E0;&#x6B64;&#x5EFA;&#x8BAE;&#x53EA;&#x8F93;&#x5165;&#x7EB2;&#x7EA7;&#x522B;&#x6570;&#x636E;&#xFF0C;&#x5426;&#x5219;&#x5176;&#x4ED6;&#x7EA7;&#x522B;&#x6570;&#x636E;&#x5C06;&#x4F1A;&#x56E0;&#x65E0;&#x6CD5;&#x5339;&#x914D;&#x800C;&#x51FA;&#x73B0;warning
+# &#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x5229;&#x7528;pattern&#x53C2;&#x6570;&#xFF0C;&#x6839;&#x636E;&#x6587;&#x4EF6;&#x540D;&#x53EA;&#x9009;&#x62E9;&#x8BFB;&#x53D6;&#x7EB2;&#x7EA7;&#x522B;&#x6570;&#x636E;&#xFF1B;&#x4E5F;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x9884;&#x8BFB;&#x53D6;&#x7EB2;&#x7EA7;&#x522B;&#x6570;&#x636E;&#xFF0C;&#x518D;&#x5229;&#x7528;data&#x53C2;&#x6570;&#x8F93;&#x5165;
+structure_re &lt;- structure_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                               min_relative = 0.001,min_ratio = 0.7,num=top_num,
                                group_level = group_order,tax_level =tax_order,palette = cols,
-                               mytheme =newtheme_slope,pattern = <span class="hljs-string">&apos;L3&apos;</span>,measure = <span class="hljs-string">&apos;Others&apos;</span>)
+                               mytheme =newtheme_slope,pattern = &apos;L3&apos;,measure = &apos;Others&apos;)
 </code></pre>
 <p><img src="../Image/str_bar2.png" alt="str_bar2" style="zoom:90%;"></p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; 382983280@qq.com 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x66F4;&#x65B0;&#x65F6;&#x95F4;&#xFF1A;
@@ -1588,7 +1601,7 @@ structure_re &lt;- structure_plot(dir  = <span class="hljs-string">&apos;16s_dat
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 10 Structure结构图","level":"1.11","depth":1,"next":{"title":"10.1 structure_plot","level":"1.11.1","depth":2,"anchor":"#101","path":"MD/10.Structure结构图.md","ref":"MD/10.Structure结构图.md#101","articles":[{"title":"10.1.1 参数介绍","level":"1.11.1.1","depth":3,"anchor":"#1011","path":"MD/10.Structure结构图.md","ref":"MD/10.Structure结构图.md#1011","articles":[]},{"title":"10.1.2 使用范例","level":"1.11.1.2","depth":3,"anchor":"#1012","path":"MD/10.Structure结构图.md","ref":"MD/10.Structure结构图.md#1012","articles":[]}]},"previous":{"title":"9.1.2 使用范例","level":"1.10.1.2","depth":3,"anchor":"#912","path":"MD/09.Co-oc共发生网络.md","ref":"MD/09.Co-oc共发生网络.md#912","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/10.Structure结构图.md","mtime":"2022-09-01T06:44:46.404Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 10 Structure结构图","level":"1.11","depth":1,"next":{"title":"10.1 structure_plot","level":"1.11.1","depth":2,"anchor":"#101","path":"MD/10.Structure结构图.md","ref":"MD/10.Structure结构图.md#101","articles":[{"title":"10.1.1 参数介绍","level":"1.11.1.1","depth":3,"anchor":"#1011","path":"MD/10.Structure结构图.md","ref":"MD/10.Structure结构图.md#1011","articles":[]},{"title":"10.1.2 使用范例","level":"1.11.1.2","depth":3,"anchor":"#1012","path":"MD/10.Structure结构图.md","ref":"MD/10.Structure结构图.md#1012","articles":[]}]},"previous":{"title":"9.1.2 使用范例","level":"1.10.1.2","depth":3,"anchor":"#912","path":"MD/09.Co-oc共发生网络.md","ref":"MD/09.Co-oc共发生网络.md#912","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/10.Structure结构图.md","mtime":"2022-09-01T06:44:46.404Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

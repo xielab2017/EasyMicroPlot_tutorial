@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1378,109 +1391,109 @@
 <p>Tips 1&#xFF1A;<code>alpha_plot</code>&#x6A21;&#x5757;&#x4E0E;<code>data_filter</code>&#x6A21;&#x5757;&#x4E00;&#x6837;&#x652F;&#x6301;<code>dataframe</code>&#x3001;<code>list</code>&#x548C;<code>file</code>&#x4E09;&#x79CD;&#x683C;&#x5F0F;&#x3002;</p>
 <p>Tips 2&#xFF1A;&#x4EE5;&#x4E0B;&#x5747;&#x5728;&#x79CD;&#x7EA7;&#x522B;&#x8FDB;&#x884C;&#x6F14;&#x793A;&#xFF0C;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x67E5;&#x770B;&#x5176;&#x4ED6;&#x7EA7;&#x522B;&#x7ED3;&#x679C;&#x3002;</p>
 <p>Tips 3&#xFF1A;<code>method</code>&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x6210;<code>LSD</code>&#x7B49;&#x65B9;&#x5DEE;&#x5206;&#x6790;&#x7684;&#x7EDF;&#x8BA1;&#x65B9;&#x5F0F;&#x3002;</p>
-<pre><code class="lang-R">libary(EasyMciroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-alpha_re &lt;- alpha_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,
-                       method = <span class="hljs-string">&apos;ttest&apos;</span>) 
-alpha_re$result$filter_data <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x524D;&#x7F6E;data_filter&#x51FD;&#x6570;&#x8FC7;&#x6EE4;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x679C;</span>
-alpha_re$result$alpha_result <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x5404;&#x4E2A;&#x7EA7;&#x522B;alpha&#x591A;&#x6837;&#x6027;&#x7684;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;</span>
-alpha_re$plot <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x5404;&#x4E2A;&#x7EA7;&#x522B;alpha&#x591A;&#x6837;&#x6027;&#x7684;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R">libary(EasyMciroPlot) # &#x52A0;&#x8F7D;&#x5305;
+alpha_re &lt;- alpha_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,min_relative = 0.001,min_ratio = 0.7,
+                       method = &apos;ttest&apos;) 
+alpha_re$result$filter_data ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x524D;&#x7F6E;data_filter&#x51FD;&#x6570;&#x8FC7;&#x6EE4;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x679C;
+alpha_re$result$alpha_result ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x5404;&#x4E2A;&#x7EA7;&#x522B;alpha&#x591A;&#x6837;&#x6027;&#x7684;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;
+alpha_re$plot ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x5404;&#x4E2A;&#x7EA7;&#x522B;alpha&#x591A;&#x6837;&#x6027;&#x7684;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x79CD;&#x7EA7;&#x522B;&#x5404;&#x4E2A;&#x6837;&#x672C;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;alpha&#x591A;&#x6837;&#x6027;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># &#x79CD;&#x7EA7;&#x522B;&#x5404;&#x4E2A;&#x6837;&#x672C;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;alpha&#x591A;&#x6837;&#x6027;&#x7ED3;&#x679C;
 alpha_re$result$alpha_result$species
 </code></pre>
-<pre><code class="lang-R">      Pielou  Shannon   Simpson   InvSimpson
-A01 <span class="hljs-number">0.6948243</span> <span class="hljs-number">2.429458</span> <span class="hljs-number">0.8176936</span>   <span class="hljs-number">7.485272</span>
-A02 <span class="hljs-number">0.7426636</span> <span class="hljs-number">2.596729</span> <span class="hljs-number">0.8862084</span>   <span class="hljs-number">8.787994</span>
-A03 <span class="hljs-number">0.7076148</span> <span class="hljs-number">2.452406</span> <span class="hljs-number">0.8545843</span>   <span class="hljs-number">6.876838</span>
-A04 <span class="hljs-number">0.7631435</span> <span class="hljs-number">2.691119</span> <span class="hljs-number">0.8724602</span>   <span class="hljs-number">7.840688</span>
-A05 <span class="hljs-number">0.7837826</span> <span class="hljs-number">2.740502</span> <span class="hljs-number">0.9059144</span>  <span class="hljs-number">10.628623</span>
-A06 <span class="hljs-number">0.7209308</span> <span class="hljs-number">2.520740</span> <span class="hljs-number">0.8454894</span>   <span class="hljs-number">6.472048</span>
-A07 <span class="hljs-number">0.6536974</span> <span class="hljs-number">2.285658</span> <span class="hljs-number">0.8120621</span>   <span class="hljs-number">7.320907</span>
-A08 <span class="hljs-number">0.6371104</span> <span class="hljs-number">2.227661</span> <span class="hljs-number">0.7835866</span>   <span class="hljs-number">4.620785</span>
-A09 <span class="hljs-number">0.5946119</span> <span class="hljs-number">2.096816</span> <span class="hljs-number">0.7714934</span>   <span class="hljs-number">4.376242</span>
-B10 <span class="hljs-number">0.7829667</span> <span class="hljs-number">2.713556</span> <span class="hljs-number">0.9069157</span>  <span class="hljs-number">10.742948</span>
-B11 <span class="hljs-number">0.6321257</span> <span class="hljs-number">2.190781</span> <span class="hljs-number">0.7945742</span>   <span class="hljs-number">4.867937</span>
-B12 <span class="hljs-number">0.6694254</span> <span class="hljs-number">2.360635</span> <span class="hljs-number">0.8143036</span>   <span class="hljs-number">7.385135</span>
-B13 <span class="hljs-number">0.7716491</span> <span class="hljs-number">2.649833</span> <span class="hljs-number">0.8867659</span>   <span class="hljs-number">8.831258</span>
-B14 <span class="hljs-number">0.6920953</span> <span class="hljs-number">2.440578</span> <span class="hljs-number">0.8603441</span>   <span class="hljs-number">7.160455</span>
-B15 <span class="hljs-number">0.7316281</span> <span class="hljs-number">2.601193</span> <span class="hljs-number">0.8699751</span>   <span class="hljs-number">7.690835</span>
-B16 <span class="hljs-number">0.6226102</span> <span class="hljs-number">2.138035</span> <span class="hljs-number">0.7871505</span>   <span class="hljs-number">4.698154</span>
-B17 <span class="hljs-number">0.7231726</span> <span class="hljs-number">2.506325</span> <span class="hljs-number">0.8731743</span>   <span class="hljs-number">7.884838</span>
-B18 <span class="hljs-number">0.6677607</span> <span class="hljs-number">2.354765</span> <span class="hljs-number">0.8126828</span>   <span class="hljs-number">7.338539</span>
-C19 <span class="hljs-number">0.7366446</span> <span class="hljs-number">2.619028</span> <span class="hljs-number">0.8544939</span>   <span class="hljs-number">6.872564</span>
-C20 <span class="hljs-number">0.6591650</span> <span class="hljs-number">2.263564</span> <span class="hljs-number">0.7867330</span>   <span class="hljs-number">4.688959</span>
-C21 <span class="hljs-number">0.6828007</span> <span class="hljs-number">2.407802</span> <span class="hljs-number">0.8427408</span>   <span class="hljs-number">6.358927</span>
-C22 <span class="hljs-number">0.6930151</span> <span class="hljs-number">2.483433</span> <span class="hljs-number">0.8253161</span>   <span class="hljs-number">7.724627</span>
-C23 <span class="hljs-number">0.6610389</span> <span class="hljs-number">2.368845</span> <span class="hljs-number">0.8191883</span>   <span class="hljs-number">7.530616</span>
-C24 <span class="hljs-number">0.7519618</span> <span class="hljs-number">2.651688</span> <span class="hljs-number">0.8923070</span>   <span class="hljs-number">9.285650</span>
-C25 <span class="hljs-number">0.7335167</span> <span class="hljs-number">2.564747</span> <span class="hljs-number">0.8895906</span>   <span class="hljs-number">9.057199</span>
-C26 <span class="hljs-number">0.7492045</span> <span class="hljs-number">2.641965</span> <span class="hljs-number">0.8972072</span>   <span class="hljs-number">9.728307</span>
-C27 <span class="hljs-number">0.7194006</span> <span class="hljs-number">2.557720</span> <span class="hljs-number">0.8769097</span>   <span class="hljs-number">8.124116</span>
+<pre class="language-"><code class="lang-R">      Pielou  Shannon   Simpson   InvSimpson
+A01 0.6948243 2.429458 0.8176936   7.485272
+A02 0.7426636 2.596729 0.8862084   8.787994
+A03 0.7076148 2.452406 0.8545843   6.876838
+A04 0.7631435 2.691119 0.8724602   7.840688
+A05 0.7837826 2.740502 0.9059144  10.628623
+A06 0.7209308 2.520740 0.8454894   6.472048
+A07 0.6536974 2.285658 0.8120621   7.320907
+A08 0.6371104 2.227661 0.7835866   4.620785
+A09 0.5946119 2.096816 0.7714934   4.376242
+B10 0.7829667 2.713556 0.9069157  10.742948
+B11 0.6321257 2.190781 0.7945742   4.867937
+B12 0.6694254 2.360635 0.8143036   7.385135
+B13 0.7716491 2.649833 0.8867659   8.831258
+B14 0.6920953 2.440578 0.8603441   7.160455
+B15 0.7316281 2.601193 0.8699751   7.690835
+B16 0.6226102 2.138035 0.7871505   4.698154
+B17 0.7231726 2.506325 0.8731743   7.884838
+B18 0.6677607 2.354765 0.8126828   7.338539
+C19 0.7366446 2.619028 0.8544939   6.872564
+C20 0.6591650 2.263564 0.7867330   4.688959
+C21 0.6828007 2.407802 0.8427408   6.358927
+C22 0.6930151 2.483433 0.8253161   7.724627
+C23 0.6610389 2.368845 0.8191883   7.530616
+C24 0.7519618 2.651688 0.8923070   9.285650
+C25 0.7335167 2.564747 0.8895906   9.057199
+C26 0.7492045 2.641965 0.8972072   9.728307
+C27 0.7194006 2.557720 0.8769097   8.124116
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#xFF08;&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x65B9;&#x5DEE;&#x5206;&#x6790;&#xFF09;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x4E86;&#x5404;&#x4E2A;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x7684;onewayANOVA&#x7684;&#x8BE6;&#x7EC6;&#x8BB0;&#x5F55;</span>
+<pre class="language-"><code class="lang-R"># &#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x4E86;&#x5404;&#x4E2A;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x7684;onewayANOVA&#x7684;&#x8BE6;&#x7EC6;&#x8BB0;&#x5F55;
 alpha_re$plot$species$test$ANOVA
 </code></pre>
-<pre><code class="lang-R">$Pielou
-            Df  Sum Sq   Mean Sq <span class="hljs-literal">F</span> value Pr(&gt;<span class="hljs-literal">F</span>)
-Group        <span class="hljs-number">2</span> <span class="hljs-number">0.00061</span> <span class="hljs-number">0.0003063</span>   <span class="hljs-number">0.109</span>  <span class="hljs-number">0.897</span>
-Residuals   <span class="hljs-number">24</span> <span class="hljs-number">0.06740</span> <span class="hljs-number">0.0028081</span>               
+<pre class="language-"><code class="lang-R">$Pielou
+            Df  Sum Sq   Mean Sq F value Pr(&gt;F)
+Group        2 0.00061 0.0003063   0.109  0.897
+Residuals   24 0.06740 0.0028081               
 
 $Shannon
-            Df Sum Sq Mean Sq <span class="hljs-literal">F</span> value Pr(&gt;<span class="hljs-literal">F</span>)
-Group        <span class="hljs-number">2</span> <span class="hljs-number">0.0237</span> <span class="hljs-number">0.01183</span>   <span class="hljs-number">0.341</span>  <span class="hljs-number">0.715</span>
-Residuals   <span class="hljs-number">24</span> <span class="hljs-number">0.8331</span> <span class="hljs-number">0.03471</span>               
+            Df Sum Sq Mean Sq F value Pr(&gt;F)
+Group        2 0.0237 0.01183   0.341  0.715
+Residuals   24 0.8331 0.03471               
 
 $Simpson
-            Df  Sum Sq   Mean Sq <span class="hljs-literal">F</span> value Pr(&gt;<span class="hljs-literal">F</span>)
-Group        <span class="hljs-number">2</span> <span class="hljs-number">0.00102</span> <span class="hljs-number">0.0005108</span>    <span class="hljs-number">0.28</span>  <span class="hljs-number">0.758</span>
-Residuals   <span class="hljs-number">24</span> <span class="hljs-number">0.04384</span> <span class="hljs-number">0.0018265</span>               
+            Df  Sum Sq   Mean Sq F value Pr(&gt;F)
+Group        2 0.00102 0.0005108    0.28  0.758
+Residuals   24 0.04384 0.0018265               
 
 $InvSimpson
-            Df Sum Sq Mean Sq <span class="hljs-literal">F</span> value Pr(&gt;<span class="hljs-literal">F</span>)
-Group        <span class="hljs-number">2</span>   <span class="hljs-number">1.37</span>   <span class="hljs-number">0.687</span>   <span class="hljs-number">0.173</span>  <span class="hljs-number">0.842</span>
-Residuals   <span class="hljs-number">24</span>  <span class="hljs-number">97.21</span>   <span class="hljs-number">3.967</span>
+            Df Sum Sq Mean Sq F value Pr(&gt;F)
+Group        2   1.37   0.687   0.173  0.842
+Residuals   24  97.21   3.967
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x4E86;&#x5404;&#x4E2A;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x7684;&#x4E8B;&#x540E;&#x68C0;&#x9A8C;&#x7684;&#x8BE6;&#x7EC6;&#x8BB0;&#x5F55;</span>
+<pre class="language-"><code class="lang-R"># &#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x4E86;&#x5404;&#x4E2A;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x7684;&#x4E8B;&#x540E;&#x68C0;&#x9A8C;&#x7684;&#x8BE6;&#x7EC6;&#x8BB0;&#x5F55;
 alpha_re$plot$species$test$comparison
 </code></pre>
-<pre><code class="lang-R">$Pielou
+<pre class="language-"><code class="lang-R">$Pielou
            difference pvalue signif.         LCL        UCL
-CT - ID  <span class="hljs-number">0.0005494902</span> <span class="hljs-number">0.9826</span>         -<span class="hljs-number">0.05100785</span> <span class="hljs-number">0.05210683</span>
-CT - IO -<span class="hljs-number">0.0098187401</span> <span class="hljs-number">0.6977</span>         -<span class="hljs-number">0.06137608</span> <span class="hljs-number">0.04173860</span>
-ID - IO -<span class="hljs-number">0.0103682303</span> <span class="hljs-number">0.6818</span>         -<span class="hljs-number">0.06192557</span> <span class="hljs-number">0.04118911</span>
+CT - ID  0.0005494902 0.9826         -0.05100785 0.05210683
+CT - IO -0.0098187401 0.6977         -0.06137608 0.04173860
+ID - IO -0.0103682303 0.6818         -0.06192557 0.04118911
 
 $Shannon
           difference pvalue signif.        LCL       UCL
-CT - ID  <span class="hljs-number">0.009487593</span> <span class="hljs-number">0.9149</span>         -<span class="hljs-number">0.1717834</span> <span class="hljs-number">0.1907586</span>
-CT - IO -<span class="hljs-number">0.057522482</span> <span class="hljs-number">0.5187</span>         -<span class="hljs-number">0.2387935</span> <span class="hljs-number">0.1237486</span>
-ID - IO -<span class="hljs-number">0.067010075</span> <span class="hljs-number">0.4529</span>         -<span class="hljs-number">0.2482811</span> <span class="hljs-number">0.1142610</span>
+CT - ID  0.009487593 0.9149         -0.1717834 0.1907586
+CT - IO -0.057522482 0.5187         -0.2387935 0.1237486
+ID - IO -0.067010075 0.4529         -0.2482811 0.1142610
 
 $Simpson
           difference pvalue signif.         LCL        UCL
-CT - ID -<span class="hljs-number">0.006265957</span> <span class="hljs-number">0.7585</span>         -<span class="hljs-number">0.04784704</span> <span class="hljs-number">0.03531512</span>
-CT - IO -<span class="hljs-number">0.014999340</span> <span class="hljs-number">0.4638</span>         -<span class="hljs-number">0.05658042</span> <span class="hljs-number">0.02658174</span>
-ID - IO -<span class="hljs-number">0.008733383</span> <span class="hljs-number">0.6685</span>         -<span class="hljs-number">0.05031446</span> <span class="hljs-number">0.03284770</span>
+CT - ID -0.006265957 0.7585         -0.04784704 0.03531512
+CT - IO -0.014999340 0.4638         -0.05658042 0.02658174
+ID - IO -0.008733383 0.6685         -0.05031446 0.03284770
 
 $InvSimpson
         difference pvalue signif.       LCL      UCL
-CT - ID -<span class="hljs-number">0.2434114</span> <span class="hljs-number">0.7977</span>         -<span class="hljs-number">2.181290</span> <span class="hljs-number">1.694467</span>
-CT - IO -<span class="hljs-number">0.5512853</span> <span class="hljs-number">0.5626</span>         -<span class="hljs-number">2.489164</span> <span class="hljs-number">1.386593</span>
-ID - IO -<span class="hljs-number">0.3078740</span> <span class="hljs-number">0.7458</span>         -<span class="hljs-number">2.245752</span> <span class="hljs-number">1.630004</span>
+CT - ID -0.2434114 0.7977         -2.181290 1.694467
+CT - IO -0.5512853 0.5626         -2.489164 1.386593
+ID - IO -0.3078740 0.7458         -2.245752 1.630004
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment">## &#x79CD;&#x7EA7;&#x522B;alpha&#x591A;&#x6837;&#x6027;&#x7ED3;&#x679C;</span>
-alpha_re &lt;- alpha_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                       min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,
-                       method = <span class="hljs-string">&apos;ttest&apos;</span>) 
+<pre class="language-"><code class="lang-R">## &#x79CD;&#x7EA7;&#x522B;alpha&#x591A;&#x6837;&#x6027;&#x7ED3;&#x679C;
+alpha_re &lt;- alpha_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                       min_relative = 0.001,min_ratio = 0.7,
+                       method = &apos;ttest&apos;) 
 alpha_re$plot$species$pic$Total
 </code></pre>
 <div align="center">
 <img src="../Image/alpha_diversity1.png" width="600" height="600" style="zoom:100%;">
 </div>
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7ED3;&#x679C;&#x4E5F;&#x652F;&#x6301;&#x8F93;&#x51FA;&#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#xFF0C;&#x4FBF;&#x4E8E;&#x53D1;&#x73B0;&#x79BB;&#x7FA4;&#x6837;&#x672C;&#x7B49;&#x60C5;&#x51B5;</span>
+<pre class="language-"><code class="lang-R"># &#x7ED3;&#x679C;&#x4E5F;&#x652F;&#x6301;&#x8F93;&#x51FA;&#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#xFF0C;&#x4FBF;&#x4E8E;&#x53D1;&#x73B0;&#x79BB;&#x7FA4;&#x6837;&#x672C;&#x7B49;&#x60C5;&#x51B5;
 alpha_re$plot$species$html$Total
 </code></pre>
 <div id="alpha" align="center">
@@ -1489,32 +1502,32 @@ alpha_re$plot$species$html$Total
 
 
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7ED3;&#x679C;&#x7EDF;&#x8BA1;&#x652F;&#x6301;&#x591A;&#x7EC4;&#x95F4;onewayANOVA&#x548C;&#x4E8B;&#x540E;&#x591A;&#x91CD;&#x68C0;&#x9A8C;Post-Hoc</span>
-<span class="hljs-comment"># &#x9700;&#x8981;&#x8BBE;&#x5B9A;method&#x53C2;&#x6570;</span>
-alpha_re &lt;- alpha_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,
-                       method = <span class="hljs-string">&apos;LSD&apos;</span>) 
+<pre class="language-"><code class="lang-R"># &#x7ED3;&#x679C;&#x7EDF;&#x8BA1;&#x652F;&#x6301;&#x591A;&#x7EC4;&#x95F4;onewayANOVA&#x548C;&#x4E8B;&#x540E;&#x591A;&#x91CD;&#x68C0;&#x9A8C;Post-Hoc
+# &#x9700;&#x8981;&#x8BBE;&#x5B9A;method&#x53C2;&#x6570;
+alpha_re &lt;- alpha_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,min_relative = 0.001,min_ratio = 0.7,
+                       method = &apos;LSD&apos;) 
 alpha_re$plot$species$pic$Total
 </code></pre>
 <div align="center">
 <img src="../Image/alpha_diversity2.png" width="600" height="600" style="zoom:100%;" align="center">
 </div>
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x56FE;&#x5F62;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x6574;group_level&#x53C2;&#x6570;&#x548C;palette&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8C03;&#x6574;&#x5206;&#x7EC4;&#x6392;&#x5E8F;&#x548C;&#x989C;&#x8272;&#x65B9;&#x6848;</span>
-group_order &lt;- c(<span class="hljs-string">&apos;ID&apos;</span>,<span class="hljs-string">&apos;CT&apos;</span>,<span class="hljs-string">&apos;IO&apos;</span>) <span class="hljs-comment">## &#x8BBE;&#x5B9A;&#x6392;&#x5E8F;&#xFF0C;&#x540D;&#x79F0;&#x9700;&#x8981;&#x7EDD;&#x5BF9;&#x4E00;&#x81F4;</span>
-cols &lt;- c(<span class="hljs-string">&apos;green&apos;</span>,<span class="hljs-string">&apos;yellow&apos;</span>,<span class="hljs-string">&apos;blue&apos;</span>) <span class="hljs-comment">## &#x8BBE;&#x5B9A;&#x989C;&#x8272;&#x65B9;&#x6848;</span>
-alpha_re &lt;- alpha_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,
-                       method = <span class="hljs-string">&apos;ttest&apos;</span>,group_level = group_order,palette = cols) 
+<pre class="language-"><code class="lang-R"># &#x56FE;&#x5F62;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x6574;group_level&#x53C2;&#x6570;&#x548C;palette&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8C03;&#x6574;&#x5206;&#x7EC4;&#x6392;&#x5E8F;&#x548C;&#x989C;&#x8272;&#x65B9;&#x6848;
+group_order &lt;- c(&apos;ID&apos;,&apos;CT&apos;,&apos;IO&apos;) ## &#x8BBE;&#x5B9A;&#x6392;&#x5E8F;&#xFF0C;&#x540D;&#x79F0;&#x9700;&#x8981;&#x7EDD;&#x5BF9;&#x4E00;&#x81F4;
+cols &lt;- c(&apos;green&apos;,&apos;yellow&apos;,&apos;blue&apos;) ## &#x8BBE;&#x5B9A;&#x989C;&#x8272;&#x65B9;&#x6848;
+alpha_re &lt;- alpha_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,min_relative = 0.001,min_ratio = 0.7,
+                       method = &apos;ttest&apos;,group_level = group_order,palette = cols) 
 alpha_re$plot$species$pic$Total
 </code></pre>
 <div align="center">
 <img src="../Image/alpha_diversity3.png" width="600" height="600" style="zoom:100%;" align="center">
 </div>
 
-<pre><code class="lang-R"><span class="hljs-comment"># alpha_plot&#x652F;&#x6301;ggplot2&#x4E3B;&#x9898;&#x8BED;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;mytheme&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8FDB;&#x4E00;&#x6B65;&#x7F8E;&#x5316;</span>
-<span class="hljs-keyword">library</span>(ggplot2)
-newtheme_slope=theme(axis.text.x =element_text(angle = <span class="hljs-number">45</span>, hjust = <span class="hljs-number">1</span>,size = <span class="hljs-number">10</span>)) <span class="hljs-comment"># &#x4F8B;&#x5982;&#x8C03;&#x6574;&#x5206;&#x7EC4;&#x540D;&#x79F0;&#x7684;&#x89D2;&#x5EA6;</span>
-alpha_re=alpha_plot(data = EMP$micro,design = EMP$mapping,min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,
-                    method = <span class="hljs-string">&apos;ttest&apos;</span>,mytheme = newtheme_slope) 
+<pre class="language-"><code class="lang-R"># alpha_plot&#x652F;&#x6301;ggplot2&#x4E3B;&#x9898;&#x8BED;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;mytheme&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8FDB;&#x4E00;&#x6B65;&#x7F8E;&#x5316;
+library(ggplot2)
+newtheme_slope=theme(axis.text.x =element_text(angle = 45, hjust = 1,size = 10)) # &#x4F8B;&#x5982;&#x8C03;&#x6574;&#x5206;&#x7EC4;&#x540D;&#x79F0;&#x7684;&#x89D2;&#x5EA6;
+alpha_re=alpha_plot(data = EMP$micro,design = EMP$mapping,min_relative = 0.001,min_ratio = 0.7,
+                    method = &apos;ttest&apos;,mytheme = newtheme_slope) 
 alpha_re$plot$species$pic$Total
 </code></pre>
 <div align="center">
@@ -1567,7 +1580,7 @@ alpha_re$plot$species$pic$Total
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 7 Alpha多样性","level":"1.8","depth":1,"next":{"title":"7.1 alpha_plot模块","level":"1.8.1","depth":2,"anchor":"#71","path":"MD/07.Alpha多样性.md","ref":"MD/07.Alpha多样性.md#71","articles":[{"title":"7.1.1 参数介绍","level":"1.8.1.1","depth":3,"anchor":"#711","path":"MD/07.Alpha多样性.md","ref":"MD/07.Alpha多样性.md#711","articles":[]},{"title":"7.1.2 使用范例","level":"1.8.1.2","depth":3,"anchor":"#712","path":"MD/07.Alpha多样性.md","ref":"MD/07.Alpha多样性.md#712","articles":[]}]},"previous":{"title":"6.1.2 使用范例","level":"1.7.1.2","depth":3,"anchor":"#612","path":"MD/06.核心过滤模块.md","ref":"MD/06.核心过滤模块.md#612","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/07.Alpha多样性.md","mtime":"2022-09-01T08:47:34.031Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 7 Alpha多样性","level":"1.8","depth":1,"next":{"title":"7.1 alpha_plot模块","level":"1.8.1","depth":2,"anchor":"#71","path":"MD/07.Alpha多样性.md","ref":"MD/07.Alpha多样性.md#71","articles":[{"title":"7.1.1 参数介绍","level":"1.8.1.1","depth":3,"anchor":"#711","path":"MD/07.Alpha多样性.md","ref":"MD/07.Alpha多样性.md#711","articles":[]},{"title":"7.1.2 使用范例","level":"1.8.1.2","depth":3,"anchor":"#712","path":"MD/07.Alpha多样性.md","ref":"MD/07.Alpha多样性.md#712","articles":[]}]},"previous":{"title":"6.1.2 使用范例","level":"1.7.1.2","depth":3,"anchor":"#612","path":"MD/06.核心过滤模块.md","ref":"MD/06.核心过滤模块.md#612","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/07.Alpha多样性.md","mtime":"2022-09-01T08:47:34.031Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

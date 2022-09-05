@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1357,66 +1370,66 @@
 <h4 id="1112">11.1.2 &#x4F7F;&#x7528;&#x8303;&#x4F8B;</h4>
 
 <p>  <strong>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x9996;&#x5148;&#x5229;&#x7528;&#x8FC7;&#x6EE4;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BFB;&#x53D6;&#x539F;&#x59CB;&#x6570;&#x636E;</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot)  <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-core_data &lt;- data_filter(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                         min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>)
-<span class="hljs-comment"># &#x9009;&#x62E9;&#x51FA;&#x81EA;&#x5DF1;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x6570;&#x636E;</span>
+<pre class="language-"><code class="lang-R"># &#x9996;&#x5148;&#x5229;&#x7528;&#x8FC7;&#x6EE4;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BFB;&#x53D6;&#x539F;&#x59CB;&#x6570;&#x636E;
+library(EasyMicroPlot)  # &#x52A0;&#x8F7D;&#x5305;
+core_data &lt;- data_filter(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                         min_relative = 0.001,min_ratio = 0.7)
+# &#x9009;&#x62E9;&#x51FA;&#x81EA;&#x5DF1;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7EA7;&#x522B;&#x6570;&#x636E;
 tax_data &lt;- core_data$filter_data$species
-<span class="hljs-comment"># &#x5229;&#x7528;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x8FD9;&#x91CC;&#x9009;&#x62E9;V14,V15,V15&#x7528;&#x4E8E;&#x793A;&#x4F8B;</span>
-tax_re &lt;- tax_plot(data = sp,tax_select = c(<span class="hljs-string">&apos;V14&apos;</span>,<span class="hljs-string">&apos;V15&apos;</span>,<span class="hljs-string">&apos;V16&apos;</span>),
-                   method = <span class="hljs-string">&apos;LSD&apos;</span>,width = <span class="hljs-number">5</span>,height = <span class="hljs-number">5</span>)
+# &#x5229;&#x7528;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x8FD9;&#x91CC;&#x9009;&#x62E9;V14,V15,V15&#x7528;&#x4E8E;&#x793A;&#x4F8B;
+tax_re &lt;- tax_plot(data = sp,tax_select = c(&apos;V14&apos;,&apos;V15&apos;,&apos;V16&apos;),
+                   method = &apos;LSD&apos;,width = 5,height = 5)
 
-tax_re$pic <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x57FA;&#x672C;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
-tax_re$html <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
-tax_re$Post_Hoc <span class="hljs-comment"># &#x5F53;method&#x9009;&#x62E9;onewayANOVA&#x7684;&#x591A;&#x91CD;&#x68C0;&#x9A8C;&#x65F6;&#xFF0C;&#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x4E8B;&#x540E;&#x68C0;&#x9A8C;&#x7684;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;</span>
+tax_re$pic # &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x57FA;&#x672C;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
+tax_re$html # &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
+tax_re$Post_Hoc # &#x5F53;method&#x9009;&#x62E9;onewayANOVA&#x7684;&#x591A;&#x91CD;&#x68C0;&#x9A8C;&#x65F6;&#xFF0C;&#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x4E8B;&#x540E;&#x68C0;&#x9A8C;&#x7684;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x8BE6;&#x7EC6;&#x7684;&#x65F6;&#x5019;&#x591A;&#x91CD;&#x4E8B;&#x540E;&#x68C0;&#x9A8C;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># &#x8BE6;&#x7EC6;&#x7684;&#x65F6;&#x5019;&#x591A;&#x91CD;&#x4E8B;&#x540E;&#x68C0;&#x9A8C;&#x7ED3;&#x679C;
 tax_re$Post_Hoc
 </code></pre>
-<pre><code class="lang-R">$V14
+<pre class="language-"><code class="lang-R">$V14
           difference pvalue signif.           LCL         UCL
-CT - ID -<span class="hljs-number">0.002209020</span> <span class="hljs-number">0.6419</span>         -<span class="hljs-number">0.0118903818</span> <span class="hljs-number">0.007472342</span>
-CT - IO  <span class="hljs-number">0.007127541</span> <span class="hljs-number">0.1417</span>         -<span class="hljs-number">0.0025538212</span> <span class="hljs-number">0.016808903</span>
-ID - IO  <span class="hljs-number">0.009336561</span> <span class="hljs-number">0.0581</span>       . -<span class="hljs-number">0.0003448013</span> <span class="hljs-number">0.019017922</span>
+CT - ID -0.002209020 0.6419         -0.0118903818 0.007472342
+CT - IO  0.007127541 0.1417         -0.0025538212 0.016808903
+ID - IO  0.009336561 0.0581       . -0.0003448013 0.019017922
 
 $V15
           difference pvalue signif.           LCL          UCL
-CT - ID -<span class="hljs-number">0.003261756</span> <span class="hljs-number">0.1208</span>         -<span class="hljs-number">0.0074471973</span> <span class="hljs-number">0.0009236855</span>
-CT - IO  <span class="hljs-number">0.004577676</span> <span class="hljs-number">0.0334</span>       *  <span class="hljs-number">0.0003922346</span> <span class="hljs-number">0.0087631173</span>
-ID - IO  <span class="hljs-number">0.007839432</span> <span class="hljs-number">0.0007</span>     ***  <span class="hljs-number">0.0036539905</span> <span class="hljs-number">0.0120248732</span>
+CT - ID -0.003261756 0.1208         -0.0074471973 0.0009236855
+CT - IO  0.004577676 0.0334       *  0.0003922346 0.0087631173
+ID - IO  0.007839432 0.0007     ***  0.0036539905 0.0120248732
 
 $V16
           difference pvalue signif.           LCL        UCL
-CT - ID -<span class="hljs-number">0.002920911</span> <span class="hljs-number">0.5940</span>         -<span class="hljs-number">0.0140806819</span> <span class="hljs-number">0.00823886</span>
-CT - IO  <span class="hljs-number">0.008443461</span> <span class="hljs-number">0.1315</span>         -<span class="hljs-number">0.0027163101</span> <span class="hljs-number">0.01960323</span>
-ID - IO  <span class="hljs-number">0.011364372</span> <span class="hljs-number">0.0463</span>       *  <span class="hljs-number">0.0002046009</span> <span class="hljs-number">0.02252414</span>
+CT - ID -0.002920911 0.5940         -0.0140806819 0.00823886
+CT - IO  0.008443461 0.1315         -0.0027163101 0.01960323
+ID - IO  0.011364372 0.0463       *  0.0002046009 0.02252414
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># T&#x68C0;&#x9A8C;&#x7ED3;&#x679C;</span>
-tax_re &lt;- tax_plot(data = sp,tax_select = c(<span class="hljs-string">&apos;V14&apos;</span>,<span class="hljs-string">&apos;V15&apos;</span>,<span class="hljs-string">&apos;V16&apos;</span>,<span class="hljs-string">&apos;V17&apos;</span>),method = <span class="hljs-string">&apos;ttest&apos;</span>)
+<pre class="language-"><code class="lang-R"># T&#x68C0;&#x9A8C;&#x7ED3;&#x679C;
+tax_re &lt;- tax_plot(data = sp,tax_select = c(&apos;V14&apos;,&apos;V15&apos;,&apos;V16&apos;,&apos;V17&apos;),method = &apos;ttest&apos;)
 tax_re$pic$total
 </code></pre>
 <p><img src="../Image/taxplot2.png" alt="taxplot2" style="zoom:35%;"></p>
-<pre><code class="lang-R"><span class="hljs-comment"># onewayANOVA&#x7684;&#x591A;&#x91CD;&#x68C0;&#x9A8C;</span>
-tax_re &lt;- tax_plot(data = sp,tax_select = c(<span class="hljs-string">&apos;V14&apos;</span>,<span class="hljs-string">&apos;V15&apos;</span>,<span class="hljs-string">&apos;V16&apos;</span>),method = <span class="hljs-string">&apos;LSD&apos;</span>)
+<pre class="language-"><code class="lang-R"># onewayANOVA&#x7684;&#x591A;&#x91CD;&#x68C0;&#x9A8C;
+tax_re &lt;- tax_plot(data = sp,tax_select = c(&apos;V14&apos;,&apos;V15&apos;,&apos;V16&apos;),method = &apos;LSD&apos;)
 tax_re$pic$total
 </code></pre>
 <p><img src="../Image/taxplot1.png" alt="taxplot1" style="zoom:35%;"></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7ED3;&#x679C;&#x4E5F;&#x652F;&#x6301;&#x8F93;&#x51FA;&#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#xFF0C;&#x4FBF;&#x4E8E;&#x53D1;&#x73B0;&#x79BB;&#x7FA4;&#x6837;&#x672C;&#x7B49;&#x60C5;&#x51B5;</span>
+<pre class="language-"><code class="lang-R"># &#x7ED3;&#x679C;&#x4E5F;&#x652F;&#x6301;&#x8F93;&#x51FA;&#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#xFF0C;&#x4FBF;&#x4E8E;&#x53D1;&#x73B0;&#x79BB;&#x7FA4;&#x6837;&#x672C;&#x7B49;&#x60C5;&#x51B5;
 tax_re$html$total
 </code></pre>
 <div id="taxplot">
     <iframe src="../Image/taxplot.html" style="position: obsolute; background: transparent;" height="800" width="800" frameborder="0" scrolling="no"></iframe>
 </div>
 
-<pre><code class="lang-R"><span class="hljs-comment"># tax_plot&#x652F;&#x6301;ggplot2&#x4E3B;&#x9898;&#x8BED;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;mytheme&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8FDB;&#x4E00;&#x6B65;&#x7F8E;&#x5316;</span>
-<span class="hljs-keyword">library</span>(ggplot2)
-newtheme_slope=theme(axis.text.x =element_text(angle = <span class="hljs-number">45</span>, hjust = <span class="hljs-number">1</span>,size = <span class="hljs-number">10</span>)) <span class="hljs-comment"># &#x4F8B;&#x5982;&#x8C03;&#x6574;&#x5206;&#x7EC4;&#x540D;&#x79F0;&#x7684;&#x89D2;&#x5EA6;</span>
-group_order &lt;- c(<span class="hljs-string">&apos;ID&apos;</span>,<span class="hljs-string">&apos;CT&apos;</span>,<span class="hljs-string">&apos;IO&apos;</span>) <span class="hljs-comment">## &#x8BBE;&#x5B9A;&#x6392;&#x5E8F;&#xFF0C;&#x540D;&#x79F0;&#x9700;&#x8981;&#x7EDD;&#x5BF9;&#x4E00;&#x81F4;</span>
-cols &lt;- c(<span class="hljs-string">&apos;green&apos;</span>,<span class="hljs-string">&apos;yellow&apos;</span>,<span class="hljs-string">&apos;blue&apos;</span>) <span class="hljs-comment">## &#x8BBE;&#x5B9A;&#x989C;&#x8272;&#x65B9;&#x6848;</span>
-tax_re &lt;- tax_plot(data = sp,tax_select = c(<span class="hljs-string">&apos;V14&apos;</span>,<span class="hljs-string">&apos;V15&apos;</span>,<span class="hljs-string">&apos;V16&apos;</span>),method = <span class="hljs-string">&apos;LSD&apos;</span>,
+<pre class="language-"><code class="lang-R"># tax_plot&#x652F;&#x6301;ggplot2&#x4E3B;&#x9898;&#x8BED;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;mytheme&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8FDB;&#x4E00;&#x6B65;&#x7F8E;&#x5316;
+library(ggplot2)
+newtheme_slope=theme(axis.text.x =element_text(angle = 45, hjust = 1,size = 10)) # &#x4F8B;&#x5982;&#x8C03;&#x6574;&#x5206;&#x7EC4;&#x540D;&#x79F0;&#x7684;&#x89D2;&#x5EA6;
+group_order &lt;- c(&apos;ID&apos;,&apos;CT&apos;,&apos;IO&apos;) ## &#x8BBE;&#x5B9A;&#x6392;&#x5E8F;&#xFF0C;&#x540D;&#x79F0;&#x9700;&#x8981;&#x7EDD;&#x5BF9;&#x4E00;&#x81F4;
+cols &lt;- c(&apos;green&apos;,&apos;yellow&apos;,&apos;blue&apos;) ## &#x8BBE;&#x5B9A;&#x989C;&#x8272;&#x65B9;&#x6848;
+tax_re &lt;- tax_plot(data = sp,tax_select = c(&apos;V14&apos;,&apos;V15&apos;,&apos;V16&apos;),method = &apos;LSD&apos;,
                   mytheme = newtheme_slope)
 tax_re$pic$total
 </code></pre>
@@ -1466,7 +1479,7 @@ tax_re$pic$total
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 11 微生物差异箱型图","level":"1.12","depth":1,"next":{"title":"11.1 tax_plot","level":"1.12.1","depth":2,"anchor":"#111","path":"MD/11.微生物差异箱型图.md","ref":"MD/11.微生物差异箱型图.md#111","articles":[{"title":"11.1.1 参数介绍","level":"1.12.1.1","depth":3,"anchor":"#1111","path":"MD/11.微生物差异箱型图.md","ref":"MD/11.微生物差异箱型图.md#1111","articles":[]},{"title":"11.1.2 使用范例","level":"1.12.1.2","depth":3,"anchor":"#1112","path":"MD/11.微生物差异箱型图.md","ref":"MD/11.微生物差异箱型图.md#1112","articles":[]}]},"previous":{"title":"10.1.2 使用范例","level":"1.11.1.2","depth":3,"anchor":"#1012","path":"MD/10.Structure结构图.md","ref":"MD/10.Structure结构图.md#1012","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/11.微生物差异箱型图.md","mtime":"2022-09-01T08:33:05.424Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 11 微生物差异箱型图","level":"1.12","depth":1,"next":{"title":"11.1 tax_plot","level":"1.12.1","depth":2,"anchor":"#111","path":"MD/11.微生物差异箱型图.md","ref":"MD/11.微生物差异箱型图.md#111","articles":[{"title":"11.1.1 参数介绍","level":"1.12.1.1","depth":3,"anchor":"#1111","path":"MD/11.微生物差异箱型图.md","ref":"MD/11.微生物差异箱型图.md#1111","articles":[]},{"title":"11.1.2 使用范例","level":"1.12.1.2","depth":3,"anchor":"#1112","path":"MD/11.微生物差异箱型图.md","ref":"MD/11.微生物差异箱型图.md#1112","articles":[]}]},"previous":{"title":"10.1.2 使用范例","level":"1.11.1.2","depth":3,"anchor":"#1012","path":"MD/10.Structure结构图.md","ref":"MD/10.Structure结构图.md#1012","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/11.微生物差异箱型图.md","mtime":"2022-09-01T08:33:05.424Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

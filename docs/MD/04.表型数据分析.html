@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1342,53 +1355,53 @@
 <h4 id="412">4.1.2 &#x57FA;&#x672C;&#x7528;&#x6CD5;</h4>
 
 <p><strong>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-keyword">library</span>(EasyMicroPlot)
-<span class="hljs-comment"># &#x52A0;&#x8F7D;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x683C;&#x5F0F;&#x9700;&#x8981;&#x6EE1;&#x8DB3;&#x683C;&#x5F0F;&#x9700;&#x8981;&#x7B26;&#x5408;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;</span>
+<pre class="language-"><code class="lang-R">library(EasyMicroPlot)
+# &#x52A0;&#x8F7D;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x683C;&#x5F0F;&#x9700;&#x8981;&#x6EE1;&#x8DB3;&#x683C;&#x5F0F;&#x9700;&#x8981;&#x7B26;&#x5408;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;
 data(EMP)
-meta_data &lt;- EMP$meta <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x662F;&#x5185;&#x7F6E;&#x7684;&#x793A;&#x4F8B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;</span>
-<span class="hljs-comment"># &#x8FDB;&#x884C;&#x8BA1;&#x7B97;</span>
-meta_re &lt;- meta_summary(data = meta_data,estimate_group = <span class="hljs-string">&apos;MetS&apos;</span>,keep_col = <span class="hljs-string">&apos;SampleID&apos;</span>)
-meta_re$summary_info <span class="hljs-comment"># &#x8868;&#x578B;&#x6570;&#x636E;&#x7684;&#x57FA;&#x672C;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;</span>
-meta_re$missing_plot <span class="hljs-comment"># &#x8868;&#x578B;&#x6570;&#x636E;&#x7684;&#x7F3A;&#x5931;&#x503C;&#x4FE1;&#x606F;</span>
-meta$summary_table <span class="hljs-comment"># &#x8868;&#x578B;&#x6570;&#x636E;&#x4E09;&#x7EBF;&#x8868;</span>
+meta_data &lt;- EMP$meta # &#x8FD9;&#x91CC;&#x662F;&#x5185;&#x7F6E;&#x7684;&#x793A;&#x4F8B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;
+# &#x8FDB;&#x884C;&#x8BA1;&#x7B97;
+meta_re &lt;- meta_summary(data = meta_data,estimate_group = &apos;MetS&apos;,keep_col = &apos;SampleID&apos;)
+meta_re$summary_info # &#x8868;&#x578B;&#x6570;&#x636E;&#x7684;&#x57FA;&#x672C;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;
+meta_re$missing_plot # &#x8868;&#x578B;&#x6570;&#x636E;&#x7684;&#x7F3A;&#x5931;&#x503C;&#x4FE1;&#x606F;
+meta$summary_table # &#x8868;&#x578B;&#x6570;&#x636E;&#x4E09;&#x7EBF;&#x8868;
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;</strong>&#xFF1A;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x8FD9;&#x91CC;&#x4EC5;&#x9009;&#x62E9;&#x524D;&#x516D;&#x5217;&#x4F5C;&#x4E3A;&#x5C55;&#x793A;</span>
-meta_re$summary_info[,<span class="hljs-number">1</span>:<span class="hljs-number">6</span>]
+<pre class="language-"><code class="lang-R"># &#x8FD9;&#x91CC;&#x4EC5;&#x9009;&#x62E9;&#x524D;&#x516D;&#x5217;&#x4F5C;&#x4E3A;&#x5C55;&#x793A;
+meta_re$summary_info[,1:6]
 </code></pre>
-<pre><code class="lang-R">     Aginomoto        Animal_oil        Plant_oil         Salt           Sauce          Soy_sauce     
- Min.   :  <span class="hljs-number">0.00</span>   Min.   :   <span class="hljs-number">0.00</span>   Min.   :   <span class="hljs-number">0</span>   Min.   :  <span class="hljs-number">0.0</span>   Min.   :  <span class="hljs-number">0.00</span>   Min.   :   <span class="hljs-number">0.0</span>  
- 1st Qu.:  <span class="hljs-number">0.00</span>   1st Qu.:   <span class="hljs-number">0.00</span>   1st Qu.: <span class="hljs-number">680</span>   1st Qu.: <span class="hljs-number">67.0</span>   1st Qu.:  <span class="hljs-number">0.00</span>   1st Qu.:  <span class="hljs-number">83.0</span>  
- Median :  <span class="hljs-number">0.00</span>   Median :   <span class="hljs-number">0.00</span>   Median :<span class="hljs-number">1000</span>   Median :<span class="hljs-number">100.0</span>   Median :  <span class="hljs-number">0.00</span>   Median : <span class="hljs-number">150.0</span>  
- Mean   : <span class="hljs-number">18.89</span>   Mean   :  <span class="hljs-number">24.92</span>   Mean   :<span class="hljs-number">1209</span>   Mean   :<span class="hljs-number">115.2</span>   Mean   : <span class="hljs-number">25.42</span>   Mean   : <span class="hljs-number">217.5</span>  
- 3rd Qu.: <span class="hljs-number">25.00</span>   3rd Qu.:   <span class="hljs-number">0.00</span>   3rd Qu.:<span class="hljs-number">1500</span>   3rd Qu.:<span class="hljs-number">133.0</span>   3rd Qu.: <span class="hljs-number">25.00</span>   3rd Qu.: <span class="hljs-number">250.0</span>  
- Max.   :<span class="hljs-number">200.00</span>   Max.   :<span class="hljs-number">1250.00</span>   Max.   :<span class="hljs-number">5333</span>   Max.   :<span class="hljs-number">400.0</span>   Max.   :<span class="hljs-number">500.00</span>   Max.   :<span class="hljs-number">6667.0</span>  
- <span class="hljs-literal">NA</span><span class="hljs-string">&apos;s   :17       NA&apos;</span>s   :<span class="hljs-number">14</span>        <span class="hljs-literal">NA</span><span class="hljs-string">&apos;s   :23     NA&apos;</span>s   :<span class="hljs-number">28</span>      <span class="hljs-literal">NA</span><span class="hljs-string">&apos;s   :11       NA&apos;</span>s   :<span class="hljs-number">21</span>
+<pre class="language-"><code class="lang-R">     Aginomoto        Animal_oil        Plant_oil         Salt           Sauce          Soy_sauce     
+ Min.   :  0.00   Min.   :   0.00   Min.   :   0   Min.   :  0.0   Min.   :  0.00   Min.   :   0.0  
+ 1st Qu.:  0.00   1st Qu.:   0.00   1st Qu.: 680   1st Qu.: 67.0   1st Qu.:  0.00   1st Qu.:  83.0  
+ Median :  0.00   Median :   0.00   Median :1000   Median :100.0   Median :  0.00   Median : 150.0  
+ Mean   : 18.89   Mean   :  24.92   Mean   :1209   Mean   :115.2   Mean   : 25.42   Mean   : 217.5  
+ 3rd Qu.: 25.00   3rd Qu.:   0.00   3rd Qu.:1500   3rd Qu.:133.0   3rd Qu.: 25.00   3rd Qu.: 250.0  
+ Max.   :200.00   Max.   :1250.00   Max.   :5333   Max.   :400.0   Max.   :500.00   Max.   :6667.0  
+ NA&apos;s   :17       NA&apos;s   :14        NA&apos;s   :23     NA&apos;s   :28      NA&apos;s   :11       NA&apos;s   :21
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7F3A;&#x5931;&#x503C;&#x57FA;&#x672C;&#x7EDF;&#x8BA1;</span>
+<pre class="language-"><code class="lang-R"># &#x7F3A;&#x5931;&#x503C;&#x57FA;&#x672C;&#x7EDF;&#x8BA1;
 meta_re$missing_plot
 </code></pre>
-<pre><code class="lang-R"> Missings <span class="hljs-keyword">in</span> variables:
+<pre class="language-"><code class="lang-R"> Missings in variables:
     Variable Count
-   Aginomoto    <span class="hljs-number">17</span>
-  Animal_oil    <span class="hljs-number">14</span>
-   Plant_oil    <span class="hljs-number">23</span>
-        Salt    <span class="hljs-number">28</span>
-       Sauce    <span class="hljs-number">11</span>
-   Soy_sauce    <span class="hljs-number">21</span>
-       Sugar    <span class="hljs-number">20</span>
-    Diarrhea     <span class="hljs-number">4</span>
-  Astriction     <span class="hljs-number">4</span>
- Antibiotics     <span class="hljs-number">6</span>
-  Synbiotics     <span class="hljs-number">7</span>
+   Aginomoto    17
+  Animal_oil    14
+   Plant_oil    23
+        Salt    28
+       Sauce    11
+   Soy_sauce    21
+       Sugar    20
+    Diarrhea     4
+  Astriction     4
+ Antibiotics     6
+  Synbiotics     7
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7F3A;&#x5931;&#x503C;&#x5C55;&#x793A;</span>
-meta_re &lt;- meta_summary(data = meta_data,estimate_group = <span class="hljs-string">&apos;MetS&apos;</span>,
-                        keep_col = <span class="hljs-string">&apos;SampleID&apos;</span>,width = <span class="hljs-number">10</span>,height = <span class="hljs-number">10</span>)
+<pre class="language-"><code class="lang-R"># &#x7F3A;&#x5931;&#x503C;&#x5C55;&#x793A;
+meta_re &lt;- meta_summary(data = meta_data,estimate_group = &apos;MetS&apos;,
+                        keep_col = &apos;SampleID&apos;,width = 10,height = 10)
 </code></pre>
 <p><img src="../Image/meta1.png" alt="meta1" style="zoom:40%;"></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x4E09;&#x7EBF;&#x8868;</span>
+<pre class="language-"><code class="lang-R"># &#x4E09;&#x7EBF;&#x8868;
 meta_re$summary_table
 </code></pre>
 <div id="table" align="center">
@@ -1436,71 +1449,71 @@ meta_re$summary_table
 <p></p><h4 id="422">4.2.2 &#x57FA;&#x672C;&#x7528;&#x6CD5;</h4>
 <strong>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</strong><p></p>
 <p>Tips1&#xFF1A;&#x672C;&#x6B21;&#x793A;&#x4F8B;&#x91C7;&#x7528;&#x4E86;&#x5E7F;&#x4E1C;&#x7701;&#x5FAE;&#x751F;&#x7269;&#x8BA1;&#x5212;&#x7684;&#x6DF1;&#x5733;&#x5357;&#x5C71;&#x533A;&#x90E8;&#x5206;&#x4EE3;&#x8C22;&#x7EFC;&#x5408;&#x5F81;&#x3001;&#x996E;&#x98DF;&#x548C;&#x6392;&#x4FBF;&#x60C5;&#x51B5;&#x6570;&#x636E;&#x3002;<code>meta_regroup</code>&#x51FD;&#x6570;&#x5C06;&#x9996;&#x5148;&#x6839;&#x636E;<code>Nbclust</code>&#x5305;&#x7684;26&#x79CD;&#x6307;&#x6807;&#x5BF9;&#x996E;&#x98DF;&#x60C5;&#x51B5;&#x7684;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x6295;&#x7968;&#x5224;&#x65AD;&#xFF0C;&#x518D;&#x7ED3;&#x5408;&#x4EE3;&#x8C22;&#x7EFC;&#x5408;&#x5F81;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x91CD;&#x65B0;&#x5206;&#x7EC4;394&#x540D;&#x53D7;&#x8BD5;&#x8005;&#x6570;&#x636E;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x793A;&#x4F8B;&#x91C7;&#x7528;&#x4E86;EMP&#x5185;&#x7F6E;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x9009;&#x62E9;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
+<pre class="language-"><code class="lang-R"># &#x793A;&#x4F8B;&#x91C7;&#x7528;&#x4E86;EMP&#x5185;&#x7F6E;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x9009;&#x62E9;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;
+library(EasyMicroPlot) # &#x52A0;&#x8F7D;&#x5305;
 data(EMP)
-<span class="hljs-comment"># &#x6570;&#x636E;&#x6E05;&#x6D17;</span>
+# &#x6570;&#x636E;&#x6E05;&#x6D17;
 meta_data &lt;- EMP$meta
 meta_data &lt;- na.omit(meta_data)
-meta_data &lt;- meta_data[meta_data$Diarrhea==<span class="hljs-string">&apos;n&apos;</span>&amp; meta_data$Astriction==<span class="hljs-string">&apos;n&apos;</span>&amp; meta_data$Antibiotics==<span class="hljs-string">&apos;n&apos;</span>&amp;            meta_data$Synbiotics==<span class="hljs-string">&apos;n&apos;</span>,]
-<span class="hljs-comment"># &#x6700;&#x7EC8;meta_data&#x6570;&#x636E;&#x5305;&#x542B;&#x4E00;&#x4E2A;MetS&#x7684;&#x7B49;&#x7EA7;&#x53D8;&#x91CF;&#x6570;&#x636E;&#x548C;&#x4E00;&#x7CFB;&#x5217;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x6570;&#x636E;</span>
-col_str &lt;- <span class="hljs-string">&apos;MetS&apos;</span>
-col_num &lt;- colnames(meta_data)[!colnames(meta_data) %<span class="hljs-keyword">in</span>% c(<span class="hljs-string">&apos;SampleID&apos;</span>,<span class="hljs-string">&apos;MetS&apos;</span>,<span class="hljs-string">&apos;Diarrhea&apos;</span>,<span class="hljs-string">&apos;Astriction&apos;</span>,<span class="hljs-string">&apos;Antibiotics&apos;</span>,<span class="hljs-string">&apos;Synbiotics&apos;</span>)]
+meta_data &lt;- meta_data[meta_data$Diarrhea==&apos;n&apos;&amp; meta_data$Astriction==&apos;n&apos;&amp; meta_data$Antibiotics==&apos;n&apos;&amp;            meta_data$Synbiotics==&apos;n&apos;,]
+# &#x6700;&#x7EC8;meta_data&#x6570;&#x636E;&#x5305;&#x542B;&#x4E00;&#x4E2A;MetS&#x7684;&#x7B49;&#x7EA7;&#x53D8;&#x91CF;&#x6570;&#x636E;&#x548C;&#x4E00;&#x7CFB;&#x5217;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x6570;&#x636E;
+col_str &lt;- &apos;MetS&apos;
+col_num &lt;- colnames(meta_data)[!colnames(meta_data) %in% c(&apos;SampleID&apos;,&apos;MetS&apos;,&apos;Diarrhea&apos;,&apos;Astriction&apos;,&apos;Antibiotics&apos;,&apos;Synbiotics&apos;)]
 col_num
-<span class="hljs-comment"># &#x8FDB;&#x884C;&#x5206;&#x7EC4;&#x8BC4;&#x4F30;</span>
-meta_regroup &lt;- meta_regroup(data = meta_data,new_col_id = <span class="hljs-string">&apos;Group&apos;</span>,col_str = col_str,
-                   col_num = col_num,keep_col = <span class="hljs-string">&apos;SampleID&apos;</span>,regroup = <span class="hljs-literal">T</span>,clust_min = <span class="hljs-number">2</span>,clust_max = <span class="hljs-number">9</span>)
-meta_regroup$regroup_info <span class="hljs-comment"># &#x7B49;&#x7EA7;&#x53D8;&#x91CF;&#x548C;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x91CD;&#x5206;&#x7EC4;&#x5177;&#x4F53;&#x60C5;&#x51B5;</span>
-meta_regroup$regroup_data <span class="hljs-comment"># &#x6839;&#x636E;&#x7B49;&#x7EA7;&#x53D8;&#x91CF;&#x548C;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x5145;&#x5206;&#x7EC4;&#x7684;&#x7ED3;&#x679C;</span>
+# &#x8FDB;&#x884C;&#x5206;&#x7EC4;&#x8BC4;&#x4F30;
+meta_regroup &lt;- meta_regroup(data = meta_data,new_col_id = &apos;Group&apos;,col_str = col_str,
+                   col_num = col_num,keep_col = &apos;SampleID&apos;,regroup = T,clust_min = 2,clust_max = 9)
+meta_regroup$regroup_info # &#x7B49;&#x7EA7;&#x53D8;&#x91CF;&#x548C;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x91CD;&#x5206;&#x7EC4;&#x5177;&#x4F53;&#x60C5;&#x51B5;
+meta_regroup$regroup_data # &#x6839;&#x636E;&#x7B49;&#x7EA7;&#x53D8;&#x91CF;&#x548C;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x5145;&#x5206;&#x7EC4;&#x7684;&#x7ED3;&#x679C;
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;</strong>&#xFF1A;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x91CD;&#x5206;&#x7EC4;&#x7ED3;&#x679C;&#x4FE1;&#x606F;</span>
-meta_regroup &lt;- meta_regroup(data = meta_data,new_col_id = <span class="hljs-string">&apos;Group&apos;</span>,col_str = col_str,clust_method = kmeans,
-                   col_num = col_num,keep_col = <span class="hljs-string">&apos;SampleID&apos;</span>,regroup = <span class="hljs-literal">T</span>,clust_min = <span class="hljs-number">2</span>,clust_max = <span class="hljs-number">9</span>)
+<pre class="language-"><code class="lang-R"># &#x91CD;&#x5206;&#x7EC4;&#x7ED3;&#x679C;&#x4FE1;&#x606F;
+meta_regroup &lt;- meta_regroup(data = meta_data,new_col_id = &apos;Group&apos;,col_str = col_str,clust_method = kmeans,
+                   col_num = col_num,keep_col = &apos;SampleID&apos;,regroup = T,clust_min = 2,clust_max = 9)
 </code></pre>
-<pre><code class="lang-R">*********************************************************************** 
-*** : The best number of clusters <span class="hljs-keyword">for</span> Continuous variable data is  <span class="hljs-number">2</span> 
+<pre class="language-"><code class="lang-R">*********************************************************************** 
+*** : The best number of clusters for Continuous variable data is  2 
 
-*** : The best number of clusters <span class="hljs-keyword">for</span> Categorical variable data is  <span class="hljs-number">2</span> 
+*** : The best number of clusters for Categorical variable data is  2 
 
 
                    ***** Conclusion *****                            
 
-***:  According to the majority rule, the best number of clusters is  <span class="hljs-number">4</span> 
+***:  According to the majority rule, the best number of clusters is  4 
 
 
 ***********************************************************************
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x91CD;&#x5206;&#x7EC4;&#x4E2D;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x548C;&#x7B49;&#x7EA7;&#x53D8;&#x91CF;&#x7684;&#x5206;&#x7EC4;&#x60C5;&#x51B5;</span>
+<pre class="language-"><code class="lang-R"># &#x91CD;&#x5206;&#x7EC4;&#x4E2D;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x548C;&#x7B49;&#x7EA7;&#x53D8;&#x91CF;&#x7684;&#x5206;&#x7EC4;&#x60C5;&#x51B5;
 meta_regroup$regroup_info
 </code></pre>
-<pre><code class="lang-R">$data_num_clust_best
-[<span class="hljs-number">1</span>] <span class="hljs-string">&quot;2&quot;</span>
+<pre class="language-"><code class="lang-R">$data_num_clust_best
+[1] &quot;2&quot;
 
 $data_str_clust_best
-[<span class="hljs-number">1</span>] <span class="hljs-number">2</span>
+[1] 2
 
 $data_clust_best
-[<span class="hljs-number">1</span>] <span class="hljs-number">4</span>
+[1] 4
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x91CD;&#x5206;&#x7EC4;&#x540E;&#x6837;&#x672C;&#xFF0C;&#x8FD9;&#x91CC;&#x4EC5;&#x5C55;&#x793A;&#x524D;10&#x884C;</span>
-re$regroup_data[<span class="hljs-number">1</span>:<span class="hljs-number">10</span>,]
+<pre class="language-"><code class="lang-R"># &#x91CD;&#x5206;&#x7EC4;&#x540E;&#x6837;&#x672C;&#xFF0C;&#x8FD9;&#x91CC;&#x4EC5;&#x5C55;&#x793A;&#x524D;10&#x884C;
+re$regroup_data[1:10,]
 </code></pre>
 <p>Tips2&#xFF1A;<code>Group</code>&#x5217;&#x4E3A;&#x76F4;&#x63A5;&#x5C06;&#x539F;&#x6709;&#x7EC4;&#x540D;&#x8FDB;&#x884C;&#x62FC;&#x63A5;&#x540E;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x7EC4;&#x540D;&#xFF0C;<code>regroup</code>&#x5217;&#x4E3A;&#x6839;&#x636E;<code>Group</code>&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x7684;&#x65B0;&#x7EC4;&#x540D;&#x3002;</p>
-<pre><code class="lang-R">      SampleID    Group   regroup
-<span class="hljs-number">1540</span> G440305004 Control_1 Group_C
-<span class="hljs-number">1541</span> G440305006 Control_2 Group_D
-<span class="hljs-number">1542</span> G440305007   Cases_2 Group_B
-<span class="hljs-number">1544</span> G440305009 Control_1 Group_C
-<span class="hljs-number">1545</span> G440305010 Control_2 Group_D
-<span class="hljs-number">1546</span> G440305011 Control_2 Group_D
-<span class="hljs-number">1548</span> G440305013 Control_1 Group_C
-<span class="hljs-number">1553</span> G440305018 Control_2 Group_D
-<span class="hljs-number">1555</span> G440305020 Control_2 Group_D
-<span class="hljs-number">1556</span> G440305021 Control_2 Group_D
+<pre class="language-"><code class="lang-R">      SampleID    Group   regroup
+1540 G440305004 Control_1 Group_C
+1541 G440305006 Control_2 Group_D
+1542 G440305007   Cases_2 Group_B
+1544 G440305009 Control_1 Group_C
+1545 G440305010 Control_2 Group_D
+1546 G440305011 Control_2 Group_D
+1548 G440305013 Control_1 Group_C
+1553 G440305018 Control_2 Group_D
+1555 G440305020 Control_2 Group_D
+1556 G440305021 Control_2 Group_D
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># 26&#x79CD;&#x7B97;&#x6CD5;&#x5BF9;&#x60A3;&#x8005;&#x996E;&#x98DF;&#x72B6;&#x51B5;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x7684;&#x6295;&#x7968;&#x5206;&#x7EC4;</span>
+<pre class="language-"><code class="lang-R"># 26&#x79CD;&#x7B97;&#x6CD5;&#x5BF9;&#x60A3;&#x8005;&#x996E;&#x98DF;&#x72B6;&#x51B5;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#x7684;&#x6295;&#x7968;&#x5206;&#x7EC4;
 meta_regroup$regroup_info$data_num_clust_plot
 </code></pre>
 <div align="center">
@@ -1509,7 +1522,7 @@ meta_regroup$regroup_info$data_num_clust_plot
 
 
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; 382983280@qq.com 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x66F4;&#x65B0;&#x65F6;&#x95F4;&#xFF1A;
-2022-09-02 13:59:18
+2022-09-02 14:00:12
 </span></footer></h3>
                                 
                                 </section>
@@ -1537,7 +1550,7 @@ meta_regroup$regroup_info$data_num_clust_plot
 
             
                 
-                <a href="03.数据的基本格式.html#33" class="navigation navigation-prev " aria-label="Previous page: 3.3 分组数据mapping格式要求">
+                <a href="03.数据的基本格式.html#34" class="navigation navigation-prev " aria-label="Previous page: 3.4 示例数据的内置与下载">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1553,7 +1566,7 @@ meta_regroup$regroup_info$data_num_clust_plot
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 4 表型数据分析","level":"1.5","depth":1,"next":{"title":"4.1 meta_summary模块","level":"1.5.1","depth":2,"anchor":"#41","path":"MD/04.表型数据分析.md","ref":"MD/04.表型数据分析.md#41","articles":[{"title":"4.1.1 参数介绍","level":"1.5.1.1","depth":3,"anchor":"#411","path":"MD/04.表型数据分析.md","ref":"MD/04.表型数据分析.md#411","articles":[]},{"title":"4.1.2 基本用法","level":"1.5.1.2","depth":3,"anchor":"#412","path":"MD/04.表型数据分析.md","ref":"MD/04.表型数据分析.md#412","articles":[]}]},"previous":{"title":"3.3 分组数据mapping格式要求","level":"1.4.3","depth":2,"anchor":"#33","path":"MD/03.数据的基本格式.md","ref":"MD/03.数据的基本格式.md#33","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/04.表型数据分析.md","mtime":"2022-09-02T05:59:18.303Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:59:22.300Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 4 表型数据分析","level":"1.5","depth":1,"next":{"title":"4.1 meta_summary模块","level":"1.5.1","depth":2,"anchor":"#41","path":"MD/04.表型数据分析.md","ref":"MD/04.表型数据分析.md#41","articles":[{"title":"4.1.1 参数介绍","level":"1.5.1.1","depth":3,"anchor":"#411","path":"MD/04.表型数据分析.md","ref":"MD/04.表型数据分析.md#411","articles":[]},{"title":"4.1.2 基本用法","level":"1.5.1.2","depth":3,"anchor":"#412","path":"MD/04.表型数据分析.md","ref":"MD/04.表型数据分析.md#412","articles":[]}]},"previous":{"title":"3.4 示例数据的内置与下载","level":"1.4.4","depth":2,"anchor":"#34","path":"MD/03.数据的基本格式.md","ref":"MD/03.数据的基本格式.md#34","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/04.表型数据分析.md","mtime":"2022-09-02T06:00:12.606Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

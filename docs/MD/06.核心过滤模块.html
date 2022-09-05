@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1359,48 +1372,48 @@
 <p>Tips1: &#x53EF;&#x4EE5;&#x6839;&#x636E;&#x5B9E;&#x9A8C;&#x5206;&#x6790;&#x60C5;&#x51B5;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x5206;&#x7EC4;&#x6216;&#x8005;&#x6837;&#x672C;&#x6570;&#x91CF;&#x7684;<code>mapping</code>&#x6587;&#x4EF6;&#xFF0C;EMP&#x5305;&#x5C06;&#x81EA;&#x52A8;&#x6839;&#x636E;<code>mapping</code>&#x6587;&#x4EF6;&#x4ECE;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#x4E2D;&#x63D0;&#x53D6;&#x6837;&#x672C;&#xFF0C;&#x65E0;&#x9700;&#x624B;&#x52A8;&#x8C03;&#x6574;&#x3002;</p>
 <p>Tips2:&#x53EF;&#x4EE5;&#x5229;&#x7528; <code>pattern</code>&#x53C2;&#x6570;&#x9009;&#x62E9;&#x81EA;&#x5DF1;&#x60F3;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#x3002;&#x4F8B;&#x5982;&#x5F53;&#x793A;&#x4F8B;&#x6570;&#x636E;&#x662F;&#x6309;&#x7167;L2-L7&#x5BF9;&#x5FAE;&#x751F;&#x7269;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x547D;&#x540D;&#xFF0C;&#x5982;&#x53EA;&#x9700;&#x8981;&#x5206;&#x6790;&#x79CD;&#x7EA7;&#x522B;&#x6570;&#x636E;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;<code>pattern=&apos;L7&apos;</code>&#xFF0C;&#x8FD9;&#x6837;&#x51FD;&#x6570;&#x5C06;&#x53EA;&#x4F1A;&#x8BFB;&#x53D6;&#x79CD;&#x7EA7;&#x522B;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5206;&#x6790;&#x3002;</p>
 <p>Tips2:&#x5982;&#x679C;&#x4E0D;&#x9700;&#x8981;&#x5BF9;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;<code>min_relative = 0</code>&#x548C;<code>min_ratio = 0</code></p>
-<pre><code class="lang-R">Library(EasyMciroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-core_data &lt;- data_filter(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                         min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>&#xFF0C;pattern=<span class="hljs-string">&apos;txt&apos;</span>)
-<span class="hljs-comment"># &#x6838;&#x5FC3;&#x7269;&#x79CD;&#xFF08;&#x95E8;&#x7EA7;&#x522B;&#xFF09;</span>
+<pre class="language-"><code class="lang-R">Library(EasyMciroPlot) # &#x52A0;&#x8F7D;&#x5305;
+core_data &lt;- data_filter(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                         min_relative = 0.001,min_ratio = 0.7&#xFF0C;pattern=&apos;txt&apos;)
+# &#x6838;&#x5FC3;&#x7269;&#x79CD;&#xFF08;&#x95E8;&#x7EA7;&#x522B;&#xFF09;
 core_phylum &lt;- core_data$filter_data$phylum
 core_phylum &lt;- core_data$filter_data$phylum_ID
-<span class="hljs-comment"># &#x6838;&#x5FC3;&#x7269;&#x79CD;&#xFF08;&#x79CD;&#x7EA7;&#x522B;&#xFF09;</span>
+# &#x6838;&#x5FC3;&#x7269;&#x79CD;&#xFF08;&#x79CD;&#x7EA7;&#x522B;&#xFF09;
 core_species &lt;- core_data$filter_data$species
 core_species_ID &lt;- core_data$filter_data$species_ID
 </code></pre>
 <p>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#x4E8C; &#xFF1A;&#x901A;&#x8FC7;&#x6570;&#x636E;&#x6846;&#x8BFB;&#x53D6;</p>
-<pre><code class="lang-R">Library(EasyMciroPlot)
-raw_species &lt;- read.table(<span class="hljs-string">&apos;16s_data/otu_table_even_L7.txt&apos;</span>,header = <span class="hljs-literal">T</span>)
-mapping &lt;- read.table(<span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,header = <span class="hljs-literal">T</span>)
+<pre class="language-"><code class="lang-R">Library(EasyMciroPlot)
+raw_species &lt;- read.table(&apos;16s_data/otu_table_even_L7.txt&apos;,header = T)
+mapping &lt;- read.table(&apos;mapping/mapping.txt&apos;,header = T)
 
 core_data &lt;- data_filter(data=raw_species,design = mapping,
-                         min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span> )
-<span class="hljs-comment"># &#x6838;&#x5FC3;&#x7269;&#x79CD;&#xFF08;&#x79CD;&#x7EA7;&#x522B;&#xFF09;</span>
+                         min_relative = 0.001,min_ratio = 0.7 )
+# &#x6838;&#x5FC3;&#x7269;&#x79CD;&#xFF08;&#x79CD;&#x7EA7;&#x522B;&#xFF09;
 core_species &lt;- core_data$filter_data$species
 core_species_ID &lt;- core_data$filter_data$species_ID
 </code></pre>
 <p>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#x4E09; &#xFF1A;&#x901A;&#x8FC7;&#x5217;&#x8868;&#x8BFB;&#x53D6;</p>
-<pre><code class="lang-R"><span class="hljs-keyword">library</span>(EasyMicroPlot)
-file1 &lt;- read.table(<span class="hljs-string">&apos;16s_data/otu_table_even_L2.txt&apos;</span>,header = <span class="hljs-literal">T</span>)
-file2 &lt;- read.table(<span class="hljs-string">&apos;16s_data/otu_table_even_L7.txt&apos;</span>,header = <span class="hljs-literal">T</span>)
-mapping &lt;- read.table(<span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,header = <span class="hljs-literal">T</span>)
+<pre class="language-"><code class="lang-R">library(EasyMicroPlot)
+file1 &lt;- read.table(&apos;16s_data/otu_table_even_L2.txt&apos;,header = T)
+file2 &lt;- read.table(&apos;16s_data/otu_table_even_L7.txt&apos;,header = T)
+mapping &lt;- read.table(&apos;mapping/mapping.txt&apos;,header = T)
 file_list &lt;- list(file1,file2)
-core_data &lt;- data_filter(data=file_list,design = mapping,min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span> )
-<span class="hljs-comment"># &#x6838;&#x5FC3;&#x7269;&#x79CD;&#xFF08;&#x95E8;&#x7EA7;&#x522B;&#xFF09;</span>
+core_data &lt;- data_filter(data=file_list,design = mapping,min_relative = 0.001,min_ratio = 0.7 )
+# &#x6838;&#x5FC3;&#x7269;&#x79CD;&#xFF08;&#x95E8;&#x7EA7;&#x522B;&#xFF09;
 core_phylum &lt;- core_data$filter_data$phylum
 core_phylum_ID &lt;- core_data$filter_data$phylum_ID
-<span class="hljs-comment"># &#x6838;&#x5FC3;&#x7269;&#x79CD;&#xFF08;&#x79CD;&#x7EA7;&#x522B;&#xFF09;</span>
+# &#x6838;&#x5FC3;&#x7269;&#x79CD;&#xFF08;&#x79CD;&#x7EA7;&#x522B;&#xFF09;
 core_species &lt;- core_data$filter_data$species
 core_species_ID &lt;- core_data$filter_data$species_ID
 </code></pre>
 <p><strong>&#x6570;&#x636E;&#x7ED3;&#x679C;&#x5C55;&#x793A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># core_data$filter_data &#x8FC7;&#x6EE4;&#x540E;&#x6837;&#x672C;&#x5404;&#x4E2A;&#x7EA7;&#x522B;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># core_data$filter_data &#x8FC7;&#x6EE4;&#x540E;&#x6837;&#x672C;&#x5404;&#x4E2A;&#x7EA7;&#x522B;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x679C;
 core_phylum &lt;- core_data$filter_data$phylum
-core_phylum <span class="hljs-comment"># &#x95E8;&#x6C34;&#x5E73;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;</span>
+core_phylum # &#x95E8;&#x6C34;&#x5E73;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;
 </code></pre>
-<pre><code class="lang-R">core_phylum_ID &lt;- core_data$filter_data$phylum_ID
-core_phylum_ID <span class="hljs-comment">#&#x95E8;&#x6C34;&#x5E73;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x8BE6;&#x7EC6;&#x6CE8;&#x91CA;&#x4FE1;&#x606F;</span>
+<pre class="language-"><code class="lang-R">core_phylum_ID &lt;- core_data$filter_data$phylum_ID
+core_phylum_ID #&#x95E8;&#x6C34;&#x5E73;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x8BE6;&#x7EC6;&#x6CE8;&#x91CA;&#x4FE1;&#x606F;
 </code></pre>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; 382983280@qq.com 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x66F4;&#x65B0;&#x65F6;&#x95F4;&#xFF1A;
 2022-09-01 15:49:49
@@ -1447,7 +1460,7 @@ core_phylum_ID <span class="hljs-comment">#&#x95E8;&#x6C34;&#x5E73;&#x6838;&#x5F
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 6 核心微生物","level":"1.7","depth":1,"next":{"title":"6.1 data_filter模块","level":"1.7.1","depth":2,"anchor":"#61","path":"MD/06.核心过滤模块.md","ref":"MD/06.核心过滤模块.md#61","articles":[{"title":"6.1.1 参数介绍","level":"1.7.1.1","depth":3,"anchor":"#611","path":"MD/06.核心过滤模块.md","ref":"MD/06.核心过滤模块.md#611","articles":[]},{"title":"6.1.2 使用范例","level":"1.7.1.2","depth":3,"anchor":"#612","path":"MD/06.核心过滤模块.md","ref":"MD/06.核心过滤模块.md#612","articles":[]}]},"previous":{"title":"5.1.3 批量筛选用法","level":"1.6.1.3","depth":3,"anchor":"#513","path":"MD/05.便捷分析模式.md","ref":"MD/05.便捷分析模式.md#513","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/06.核心过滤模块.md","mtime":"2022-09-01T07:49:49.521Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 6 核心微生物","level":"1.7","depth":1,"next":{"title":"6.1 data_filter模块","level":"1.7.1","depth":2,"anchor":"#61","path":"MD/06.核心过滤模块.md","ref":"MD/06.核心过滤模块.md#61","articles":[{"title":"6.1.1 参数介绍","level":"1.7.1.1","depth":3,"anchor":"#611","path":"MD/06.核心过滤模块.md","ref":"MD/06.核心过滤模块.md#611","articles":[]},{"title":"6.1.2 使用范例","level":"1.7.1.2","depth":3,"anchor":"#612","path":"MD/06.核心过滤模块.md","ref":"MD/06.核心过滤模块.md#612","articles":[]}]},"previous":{"title":"5.1.3 批量筛选用法","level":"1.6.1.3","depth":3,"anchor":"#513","path":"MD/05.便捷分析模式.md","ref":"MD/05.便捷分析模式.md#513","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/06.核心过滤模块.md","mtime":"2022-09-01T07:49:49.521Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

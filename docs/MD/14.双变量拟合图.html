@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1351,27 +1364,27 @@
 <h4 id="1412">14.1.2 &#x4F7F;&#x7528;&#x8303;&#x4F8B;</h4>
 
 <p><strong>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x57FA;&#x672C;&#x4EE3;&#x7801;</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-<span class="hljs-comment"># &#x52A0;&#x8F7D;&#x8868;&#x578B;&#x6570;&#x636E;</span>
+<pre class="language-"><code class="lang-R"># &#x57FA;&#x672C;&#x4EE3;&#x7801;
+library(EasyMicroPlot) # &#x52A0;&#x8F7D;&#x5305;
+# &#x52A0;&#x8F7D;&#x8868;&#x578B;&#x6570;&#x636E;
 data(EMP)
-meta_data &lt;- EMP$iron <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6CE8;&#x610F;&#x6EE1;&#x8DB3;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;</span>
-core_data &lt;- data_filter(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                         min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>) 
-core_species &lt;- core_data$filter_data$species <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x6240;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;</span>
-<span class="hljs-comment"># &#x4E00;&#x5143;&#x4E00;&#x6B21;&#x62DF;&#x5408;&#x65B9;&#x7A0B;</span>
-fit_result &lt;- EMP_COR_FIT(data=core_species,meta = meta_data,var_select = c(<span class="hljs-string">&apos;V19&apos;</span>,<span class="hljs-string">&apos;SI_Iron.content&apos;</span>),
-                          formula = y~poly(x,<span class="hljs-number">1</span>,raw = <span class="hljs-literal">T</span>),width = <span class="hljs-number">5</span>,height = <span class="hljs-number">5</span>,se = <span class="hljs-literal">F</span>,group = <span class="hljs-literal">F</span>,eq_size = <span class="hljs-number">3</span>)
-fit_result$pic <span class="hljs-comment"># &#x57FA;&#x672C;&#x62DF;&#x5408;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
-fit_result$html <span class="hljs-comment"># &#x4EA4;&#x4E92;&#x5F0F;&#x62DF;&#x5408;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
+meta_data &lt;- EMP$iron # &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6CE8;&#x610F;&#x6EE1;&#x8DB3;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;
+core_data &lt;- data_filter(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                         min_relative = 0.001,min_ratio = 0.7) 
+core_species &lt;- core_data$filter_data$species # &#x8FD9;&#x91CC;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x6240;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;
+# &#x4E00;&#x5143;&#x4E00;&#x6B21;&#x62DF;&#x5408;&#x65B9;&#x7A0B;
+fit_result &lt;- EMP_COR_FIT(data=core_species,meta = meta_data,var_select = c(&apos;V19&apos;,&apos;SI_Iron.content&apos;),
+                          formula = y~poly(x,1,raw = T),width = 5,height = 5,se = F,group = F,eq_size = 3)
+fit_result$pic # &#x57FA;&#x672C;&#x62DF;&#x5408;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
+fit_result$html # &#x4EA4;&#x4E92;&#x5F0F;&#x62DF;&#x5408;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
 <p>Tips 1: &#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x91C7;&#x7528;&#x7684;&#x662F;&#x5FAE;&#x751F;&#x7269;&#x7684;&#x5355;&#x4E2A;&#x83CC;&#x4E0E;&#x8868;&#x578B;&#x6570;&#x636E;&#x7684;&#x5355;&#x4E2A;&#x7279;&#x5F81;&#x8FDB;&#x884C;&#x62DF;&#x5408;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x5FAE;&#x751F;&#x7269;&#x7684;&#x4E24;&#x4E2A;&#x83CC;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x62DF;&#x5408;&#x3002;</p>
 <p>Tips 2: &#x5F53;&#x4E0D;&#x9700;&#x8981;&#x8F93;&#x5165;&#x8868;&#x578B;&#x6570;&#x636E;&#x65F6;,&#x53EF;&#x4EE5;&#x5728;&#x53C2;&#x6570;&#x4E2D;&#x8BBE;&#x5B9A;<code>meta = NULL</code>&#x3002;</p>
-<pre><code class="lang-r"><span class="hljs-comment"># &#x4E00;&#x5143;&#x4E00;&#x6B21;&#x62DF;&#x5408;&#x65B9;&#x7A0B;</span>
-fit_result &lt;- EMP_COR_FIT(data=core_species,meta = meta_data,var_select = c(<span class="hljs-string">&apos;V19&apos;</span>,<span class="hljs-string">&apos;SI_Iron.content&apos;</span>),
-                          formula = y~poly(x,<span class="hljs-number">1</span>,raw = <span class="hljs-literal">T</span>),width = <span class="hljs-number">5</span>,height = <span class="hljs-number">5</span>,se = <span class="hljs-literal">F</span>,group = <span class="hljs-literal">F</span>,eq_size = <span class="hljs-number">3</span>)
-fit_result$pic
+<pre class="language-"><code class="lang-r"><span class="token comment"># &#x4E00;&#x5143;&#x4E00;&#x6B21;&#x62DF;&#x5408;&#x65B9;&#x7A0B;</span>
+fit_result <span class="token operator">&lt;-</span> EMP_COR_FIT<span class="token punctuation">(</span>data<span class="token operator">=</span>core_species<span class="token punctuation">,</span>meta <span class="token operator">=</span> meta_data<span class="token punctuation">,</span>var_select <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">&apos;V19&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;SI_Iron.content&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                          formula <span class="token operator">=</span> y<span class="token operator">~</span>poly<span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>raw <span class="token operator">=</span> T<span class="token punctuation">)</span><span class="token punctuation">,</span>width <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span>height <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span>se <span class="token operator">=</span> F<span class="token punctuation">,</span>group <span class="token operator">=</span> F<span class="token punctuation">,</span>eq_size <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span>
+fit_result<span class="token operator">$</span>pic
 </code></pre>
 <div align="center">
 <img src="../Image/EMP_COR_FIT1.png" style="zoom:30%;" alt="EMP_COR_FIT1">
@@ -1379,7 +1392,7 @@ fit_result$pic
 
 
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># &#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
 fit_result$html
 </code></pre>
 <div id="tab_1" align="center">
@@ -1387,27 +1400,27 @@ fit_result$html
 </div>
 
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x4E00;&#x5143;&#x4E8C;&#x6B21;&#x62DF;&#x5408;&#x65B9;&#x7A0B;</span>
-fit_result &lt;- EMP_COR_FIT(data=core_species,meta = meta_data,var_select = c(<span class="hljs-string">&apos;V19&apos;</span>,<span class="hljs-string">&apos;SI_Iron.content&apos;</span>),
-                          formula = y~poly(x,<span class="hljs-number">2</span>,raw = <span class="hljs-literal">T</span>),width = <span class="hljs-number">5</span>,height = <span class="hljs-number">5</span>,se = <span class="hljs-literal">F</span>,group = <span class="hljs-literal">F</span>,eq_size = <span class="hljs-number">3</span>)
+<pre class="language-"><code class="lang-R"># &#x4E00;&#x5143;&#x4E8C;&#x6B21;&#x62DF;&#x5408;&#x65B9;&#x7A0B;
+fit_result &lt;- EMP_COR_FIT(data=core_species,meta = meta_data,var_select = c(&apos;V19&apos;,&apos;SI_Iron.content&apos;),
+                          formula = y~poly(x,2,raw = T),width = 5,height = 5,se = F,group = F,eq_size = 3)
 fit_result$pic
 </code></pre>
 <div align="center">
 <img src="../Image/EMP_COR_FIT2.png" alt="EMP_COR_FIT2" style="zoom:30%;">
 </div>
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x589E;&#x52A0;&#x7F6E;&#x4FE1;&#x533A;&#x95F4;</span>
-fit_result &lt;- EMP_COR_FIT(data=core_species,meta = meta_data,var_select = c(<span class="hljs-string">&apos;V19&apos;</span>,<span class="hljs-string">&apos;SI_Iron.content&apos;</span>),
-                          formula = y~poly(x,<span class="hljs-number">2</span>,raw = <span class="hljs-literal">T</span>),width = <span class="hljs-number">5</span>,height = <span class="hljs-number">5</span>,se = <span class="hljs-literal">F</span>,group = <span class="hljs-literal">F</span>,eq_size = <span class="hljs-number">3</span>)
+<pre class="language-"><code class="lang-R"># &#x589E;&#x52A0;&#x7F6E;&#x4FE1;&#x533A;&#x95F4;
+fit_result &lt;- EMP_COR_FIT(data=core_species,meta = meta_data,var_select = c(&apos;V19&apos;,&apos;SI_Iron.content&apos;),
+                          formula = y~poly(x,2,raw = T),width = 5,height = 5,se = F,group = F,eq_size = 3)
 fit_result$pic
 </code></pre>
 <div align="center">
 <img src="../Image/EMP_COR_FIT3.png" alt="EMP_COR_FIT3" style="zoom:30%;">
 </div>
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x91C7;&#x7528;&#x5206;&#x7EC4;&#x6570;&#x636E;&#x62DF;&#x5408;&#x6A21;&#x578B;</span>
-fit_result &lt;- EMP_COR_FIT(data=core_species,meta = meta_data,var_select = c(<span class="hljs-string">&apos;V19&apos;</span>,<span class="hljs-string">&apos;SI_Iron.content&apos;</span>),
-                          formula = y~poly(x,<span class="hljs-number">2</span>,raw = <span class="hljs-literal">T</span>),width = <span class="hljs-number">5</span>,height = <span class="hljs-number">5</span>,se = <span class="hljs-literal">F</span>,group = <span class="hljs-literal">T</span>,eq_size = <span class="hljs-number">3</span>)
+<pre class="language-"><code class="lang-R"># &#x91C7;&#x7528;&#x5206;&#x7EC4;&#x6570;&#x636E;&#x62DF;&#x5408;&#x6A21;&#x578B;
+fit_result &lt;- EMP_COR_FIT(data=core_species,meta = meta_data,var_select = c(&apos;V19&apos;,&apos;SI_Iron.content&apos;),
+                          formula = y~poly(x,2,raw = T),width = 5,height = 5,se = F,group = T,eq_size = 3)
 fit_result$pic
 </code></pre>
 <div align="center">
@@ -1459,7 +1472,7 @@ fit_result$pic
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 14 双变量拟合图","level":"1.15","depth":1,"next":{"title":"14.1 EMP_COR_FIT模块","level":"1.15.1","depth":2,"anchor":"#141","path":"MD/14.双变量拟合图.md","ref":"MD/14.双变量拟合图.md#141","articles":[{"title":"14.1.1 参数介绍","level":"1.15.1.1","depth":3,"anchor":"#1411","path":"MD/14.双变量拟合图.md","ref":"MD/14.双变量拟合图.md#1411","articles":[]},{"title":"14.1.2 使用范例","level":"1.15.1.2","depth":3,"anchor":"#1412","path":"MD/14.双变量拟合图.md","ref":"MD/14.双变量拟合图.md#1412","articles":[]}]},"previous":{"title":"13.1.2 使用范例","level":"1.14.1.2","depth":3,"anchor":"#1312","path":"MD/13.相关性分析图.md","ref":"MD/13.相关性分析图.md#1312","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/14.双变量拟合图.md","mtime":"2022-09-01T09:18:23.170Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 14 双变量拟合图","level":"1.15","depth":1,"next":{"title":"14.1 EMP_COR_FIT模块","level":"1.15.1","depth":2,"anchor":"#141","path":"MD/14.双变量拟合图.md","ref":"MD/14.双变量拟合图.md#141","articles":[{"title":"14.1.1 参数介绍","level":"1.15.1.1","depth":3,"anchor":"#1411","path":"MD/14.双变量拟合图.md","ref":"MD/14.双变量拟合图.md#1411","articles":[]},{"title":"14.1.2 使用范例","level":"1.15.1.2","depth":3,"anchor":"#1412","path":"MD/14.双变量拟合图.md","ref":"MD/14.双变量拟合图.md#1412","articles":[]}]},"previous":{"title":"13.1.2 使用范例","level":"1.14.1.2","depth":3,"anchor":"#1312","path":"MD/13.相关性分析图.md","ref":"MD/13.相关性分析图.md#1312","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/14.双变量拟合图.md","mtime":"2022-09-01T09:18:23.170Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

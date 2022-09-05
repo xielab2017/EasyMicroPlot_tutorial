@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1382,115 +1395,115 @@
 <p></p><h4 id="812">8.1.2 &#x4F7F;&#x7528;&#x8303;&#x4F8B;</h4>
 Tips 2&#xFF1A;&#x4EE5;&#x4E0B;&#x5747;&#x5728;&#x79CD;&#x7EA7;&#x522B;&#x8FDB;&#x884C;&#x6F14;&#x793A;&#xFF0C;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x67E5;&#x770B;&#x5176;&#x4ED6;&#x7EA7;&#x522B;&#x7ED3;&#x679C;&#x3002;<p></p>
 <p><strong>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-keyword">library</span>(EasyMicroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-beta_re &lt;- beta_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                     min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,
-                     distance = <span class="hljs-string">&apos;bray&apos;</span>,method = <span class="hljs-string">&apos;LSD&apos;</span>)
-beta_re$result$filter_data <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x524D;&#x7F6E;data_filter&#x51FD;&#x6570;&#x8FC7;&#x6EE4;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x679C;</span>
-beta_re$plot <span class="hljs-comment">## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x5404;&#x4E2A;&#x7EA7;&#x522B;beta&#x591A;&#x6837;&#x6027;&#x7684;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R">library(EasyMicroPlot) # &#x52A0;&#x8F7D;&#x5305;
+beta_re &lt;- beta_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                     min_relative = 0.001,min_ratio = 0.7,
+                     distance = &apos;bray&apos;,method = &apos;LSD&apos;)
+beta_re$result$filter_data ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x524D;&#x7F6E;data_filter&#x51FD;&#x6570;&#x8FC7;&#x6EE4;&#x7684;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x7ED3;&#x679C;
+beta_re$plot ## &#x8FD9;&#x91CC;&#x5B58;&#x50A8;&#x4E86;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;&#x5404;&#x4E2A;&#x7EA7;&#x522B;beta&#x591A;&#x6837;&#x6027;&#x7684;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
 </code></pre>
 <p><strong>&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x79CD;&#x7EA7;&#x522B;&#x5404;&#x4E2A;&#x6837;&#x672C;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;beta&#x591A;&#x6837;&#x6027;&#x7684;&#x524D;&#x4E09;&#x4E2A;&#x7EF4;&#x5EA6;&#x7684;&#x5750;&#x6807;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># &#x79CD;&#x7EA7;&#x522B;&#x5404;&#x4E2A;&#x6837;&#x672C;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;beta&#x591A;&#x6837;&#x6027;&#x7684;&#x524D;&#x4E09;&#x4E2A;&#x7EF4;&#x5EA6;&#x7684;&#x5750;&#x6807;&#x7ED3;&#x679C;
 beta_re$plot$species$pc_data
 </code></pre>
-<pre><code class="lang-R">    sample         PC1          PC2          PC3 Group
-A01    A01  <span class="hljs-number">0.23325291</span>  <span class="hljs-number">0.035594497</span>  <span class="hljs-number">0.030648810</span>    CT
-A02    A02 -<span class="hljs-number">0.09285486</span> -<span class="hljs-number">0.103393814</span> -<span class="hljs-number">0.031886190</span>    CT
-A03    A03  <span class="hljs-number">0.04045387</span> -<span class="hljs-number">0.125091827</span> -<span class="hljs-number">0.085172668</span>    CT
-A04    A04  <span class="hljs-number">0.05209699</span>  <span class="hljs-number">0.002954595</span> -<span class="hljs-number">0.031074589</span>    CT
-A05    A05 -<span class="hljs-number">0.17985725</span> -<span class="hljs-number">0.042200037</span> -<span class="hljs-number">0.093639030</span>    CT
-A06    A06  <span class="hljs-number">0.14258227</span> -<span class="hljs-number">0.012533821</span> -<span class="hljs-number">0.051640448</span>    CT
-A07    A07  <span class="hljs-number">0.17424665</span> -<span class="hljs-number">0.081945583</span> -<span class="hljs-number">0.112918281</span>    CT
-A08    A08  <span class="hljs-number">0.11542759</span>  <span class="hljs-number">0.077427298</span>  <span class="hljs-number">0.046016115</span>    CT
-A09    A09  <span class="hljs-number">0.26532418</span> -<span class="hljs-number">0.058154301</span>  <span class="hljs-number">0.119570046</span>    CT
-B10    B10 -<span class="hljs-number">0.22348190</span> -<span class="hljs-number">0.095896824</span> -<span class="hljs-number">0.033245259</span>    ID
-B11    B11 -<span class="hljs-number">0.03644198</span>  <span class="hljs-number">0.290161251</span> -<span class="hljs-number">0.039450952</span>    ID
-B12    B12 -<span class="hljs-number">0.10341177</span>  <span class="hljs-number">0.241732219</span>  <span class="hljs-number">0.038140553</span>    ID
-B13    B13  <span class="hljs-number">0.03959259</span> -<span class="hljs-number">0.055961831</span> -<span class="hljs-number">0.126781260</span>    ID
-B14    B14 -<span class="hljs-number">0.07445329</span>  <span class="hljs-number">0.061620012</span>  <span class="hljs-number">0.128671704</span>    ID
-B15    B15 -<span class="hljs-number">0.02873585</span>  <span class="hljs-number">0.133737593</span> -<span class="hljs-number">0.007086424</span>    ID
-B16    B16 -<span class="hljs-number">0.04350455</span>  <span class="hljs-number">0.305562428</span> -<span class="hljs-number">0.052682899</span>    ID
-B17    B17 -<span class="hljs-number">0.23365667</span>  <span class="hljs-number">0.027446065</span>  <span class="hljs-number">0.120774234</span>    ID
-B18    B18 -<span class="hljs-number">0.12871343</span>  <span class="hljs-number">0.220700157</span> -<span class="hljs-number">0.011274409</span>    ID
-C19    C19  <span class="hljs-number">0.09098629</span> -<span class="hljs-number">0.011571871</span> -<span class="hljs-number">0.025207411</span>    IO
-C20    C20  <span class="hljs-number">0.25263686</span>  <span class="hljs-number">0.057607262</span> -<span class="hljs-number">0.021869906</span>    IO
-C21    C21  <span class="hljs-number">0.08242074</span> -<span class="hljs-number">0.104046547</span>  <span class="hljs-number">0.067203835</span>    IO
-C22    C22  <span class="hljs-number">0.12718637</span> -<span class="hljs-number">0.034803390</span>  <span class="hljs-number">0.024611743</span>    IO
-C23    C23  <span class="hljs-number">0.13368309</span> -<span class="hljs-number">0.116743577</span>  <span class="hljs-number">0.124434349</span>    IO
-C24    C24 -<span class="hljs-number">0.12367366</span> -<span class="hljs-number">0.156461584</span> -<span class="hljs-number">0.024632571</span>    IO
-C25    C25 -<span class="hljs-number">0.17801061</span> -<span class="hljs-number">0.185940261</span>  <span class="hljs-number">0.031275942</span>    IO
-C26    C26 -<span class="hljs-number">0.23549301</span> -<span class="hljs-number">0.114908182</span>  <span class="hljs-number">0.069901074</span>    IO
-C27    C27 -<span class="hljs-number">0.06760157</span> -<span class="hljs-number">0.154889926</span> -<span class="hljs-number">0.052686107</span>    IO
+<pre class="language-"><code class="lang-R">    sample         PC1          PC2          PC3 Group
+A01    A01  0.23325291  0.035594497  0.030648810    CT
+A02    A02 -0.09285486 -0.103393814 -0.031886190    CT
+A03    A03  0.04045387 -0.125091827 -0.085172668    CT
+A04    A04  0.05209699  0.002954595 -0.031074589    CT
+A05    A05 -0.17985725 -0.042200037 -0.093639030    CT
+A06    A06  0.14258227 -0.012533821 -0.051640448    CT
+A07    A07  0.17424665 -0.081945583 -0.112918281    CT
+A08    A08  0.11542759  0.077427298  0.046016115    CT
+A09    A09  0.26532418 -0.058154301  0.119570046    CT
+B10    B10 -0.22348190 -0.095896824 -0.033245259    ID
+B11    B11 -0.03644198  0.290161251 -0.039450952    ID
+B12    B12 -0.10341177  0.241732219  0.038140553    ID
+B13    B13  0.03959259 -0.055961831 -0.126781260    ID
+B14    B14 -0.07445329  0.061620012  0.128671704    ID
+B15    B15 -0.02873585  0.133737593 -0.007086424    ID
+B16    B16 -0.04350455  0.305562428 -0.052682899    ID
+B17    B17 -0.23365667  0.027446065  0.120774234    ID
+B18    B18 -0.12871343  0.220700157 -0.011274409    ID
+C19    C19  0.09098629 -0.011571871 -0.025207411    IO
+C20    C20  0.25263686  0.057607262 -0.021869906    IO
+C21    C21  0.08242074 -0.104046547  0.067203835    IO
+C22    C22  0.12718637 -0.034803390  0.024611743    IO
+C23    C23  0.13368309 -0.116743577  0.124434349    IO
+C24    C24 -0.12367366 -0.156461584 -0.024632571    IO
+C25    C25 -0.17801061 -0.185940261  0.031275942    IO
+C26    C26 -0.23549301 -0.114908182  0.069901074    IO
+C27    C27 -0.06760157 -0.154889926 -0.052686107    IO
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x79CD;&#x7EA7;&#x522B;&#x5404;&#x4E2A;&#x6837;&#x672C;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;beta&#x591A;&#x6837;&#x6027;&#x7684;&#x4E09;&#x4E2A;&#x8F74;&#x4E8B;&#x540E;&#x68C0;&#x9A8C;&#x7684;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;</span>
-<span class="hljs-comment"># &#x7B2C;&#x4E00;&#x8F74;</span>
+<pre class="language-"><code class="lang-R"># &#x79CD;&#x7EA7;&#x522B;&#x5404;&#x4E2A;&#x6837;&#x672C;&#x6838;&#x5FC3;&#x5FAE;&#x751F;&#x7269;beta&#x591A;&#x6837;&#x6027;&#x7684;&#x4E09;&#x4E2A;&#x8F74;&#x4E8B;&#x540E;&#x68C0;&#x9A8C;&#x7684;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;
+# &#x7B2C;&#x4E00;&#x8F74;
 beta_re$plot$species$test$PC1_test
 </code></pre>
-<pre><code class="lang-R">         difference pvalue signif.         LCL        UCL
-CT - ID  <span class="hljs-number">0.17594213</span> <span class="hljs-number">0.0123</span>       *  <span class="hljs-number">0.04174051</span> <span class="hljs-number">0.31014375</span>
-CT - IO  <span class="hljs-number">0.07428198</span> <span class="hljs-number">0.2646</span>         -<span class="hljs-number">0.05991964</span> <span class="hljs-number">0.20848360</span>
-ID - IO -<span class="hljs-number">0.10166015</span> <span class="hljs-number">0.1310</span>         -<span class="hljs-number">0.23586177</span> <span class="hljs-number">0.03254147</span>
+<pre class="language-"><code class="lang-R">         difference pvalue signif.         LCL        UCL
+CT - ID  0.17594213 0.0123       *  0.04174051 0.31014375
+CT - IO  0.07428198 0.2646         -0.05991964 0.20848360
+ID - IO -0.10166015 0.1310         -0.23586177 0.03254147
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7B2C;&#x4E8C;&#x8F74;</span>
+<pre class="language-"><code class="lang-R"># &#x7B2C;&#x4E8C;&#x8F74;
 beta_re$plot$species$test$PC2_test
 </code></pre>
-<pre><code class="lang-R">         difference pvalue signif.        LCL         UCL
-CT - ID -<span class="hljs-number">0.15960490</span> <span class="hljs-number">0.0036</span>      ** -<span class="hljs-number">0.2615115</span> -<span class="hljs-number">0.05769826</span>
-CT - IO  <span class="hljs-number">0.05715723</span> <span class="hljs-number">0.2584</span>         -<span class="hljs-number">0.0447494</span>  <span class="hljs-number">0.15906386</span>
-ID - IO  <span class="hljs-number">0.21676213</span> <span class="hljs-number">0.0002</span>     ***  <span class="hljs-number">0.1148555</span>  <span class="hljs-number">0.31866876</span>
+<pre class="language-"><code class="lang-R">         difference pvalue signif.        LCL         UCL
+CT - ID -0.15960490 0.0036      ** -0.2615115 -0.05769826
+CT - IO  0.05715723 0.2584         -0.0447494  0.15906386
+ID - IO  0.21676213 0.0002     ***  0.1148555  0.31866876
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7B2C;&#x4E09;&#x8F74;</span>
+<pre class="language-"><code class="lang-R"># &#x7B2C;&#x4E09;&#x8F74;
 beta_re$plot$species$test$PC3_test
 </code></pre>
-<pre><code class="lang-R">         difference pvalue signif.         LCL        UCL
-CT - ID -<span class="hljs-number">0.02524017</span> <span class="hljs-number">0.4688</span>         -<span class="hljs-number">0.09600133</span> <span class="hljs-number">0.04552099</span>
-CT - IO -<span class="hljs-number">0.04479191</span> <span class="hljs-number">0.2038</span>         -<span class="hljs-number">0.11555307</span> <span class="hljs-number">0.02596925</span>
-ID - IO -<span class="hljs-number">0.01955174</span> <span class="hljs-number">0.5738</span>         -<span class="hljs-number">0.09031290</span> <span class="hljs-number">0.05120942</span>
+<pre class="language-"><code class="lang-R">         difference pvalue signif.         LCL        UCL
+CT - ID -0.02524017 0.4688         -0.09600133 0.04552099
+CT - IO -0.04479191 0.2038         -0.11555307 0.02596925
+ID - IO -0.01955174 0.5738         -0.09031290 0.05120942
 </code></pre>
 <p>Tips 3: &#x8FD9;&#x91CC;&#x63D0;&#x53D6;&#x524D;&#x4E09;&#x4E2A;&#x7EF4;&#x5EA6;&#x7684;&#x5750;&#x6807;&#x7ED3;&#x679C;&#x4E5F;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x5176;&#x4ED6;&#x7EDF;&#x8BA1;&#x8BA1;&#x7B97;&#xFF0C;&#x4F8B;&#x5982;T&#x68C0;&#x9A8C;&#x6216;&#x8005;Kruskal-Wallis&#x68C0;&#x9A8C;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># Kruskal-Wallis Rank Sum Test</span>
+<pre class="language-"><code class="lang-R"># Kruskal-Wallis Rank Sum Test
 location_data &lt;-beta_re$plot$species$pc_data
-kruskal.test(PC1~Group,location_data) <span class="hljs-comment"># &#x7B2C;&#x4E00;&#x8F74;&#x7684;&#x8BA1;&#x7B97;</span>
+kruskal.test(PC1~Group,location_data) # &#x7B2C;&#x4E00;&#x8F74;&#x7684;&#x8BA1;&#x7B97;
 </code></pre>
-<pre><code class="lang-R">    Kruskal-Wallis rank sum test
+<pre class="language-"><code class="lang-R">    Kruskal-Wallis rank sum test
 
 data:  PC1 by Group
-Kruskal-Wallis chi-squared = <span class="hljs-number">5.9718</span>, df = <span class="hljs-number">2</span>, p-value = <span class="hljs-number">0.05049</span>
+Kruskal-Wallis chi-squared = 5.9718, df = 2, p-value = 0.05049
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># T test</span>
+<pre class="language-"><code class="lang-R"># T test
 location_data &lt;-beta_re$plot$species$pc_data
-t.test(PC1~Group,location_data[<span class="hljs-number">1</span>:<span class="hljs-number">18</span>,]) <span class="hljs-comment"># CT&#x7EC4;&#x548C;ID&#x7EC4;&#x5728;&#x7B2C;&#x4E00;&#x8F74;&#x7684;&#x8BA1;&#x7B97;</span>
+t.test(PC1~Group,location_data[1:18,]) # CT&#x7EC4;&#x548C;ID&#x7EC4;&#x5728;&#x7B2C;&#x4E00;&#x8F74;&#x7684;&#x8BA1;&#x7B97;
 </code></pre>
-<pre><code class="lang-R">Welch Two Sample t-test
+<pre class="language-"><code class="lang-R">Welch Two Sample t-test
 
 data:  PC1 by Group
-t = <span class="hljs-number">3.0639</span>, df = <span class="hljs-number">13.356</span>, p-value = <span class="hljs-number">0.008813</span>
-alternative hypothesis: true difference <span class="hljs-keyword">in</span> means between group CT and group ID is not equal to <span class="hljs-number">0</span>
-<span class="hljs-number">95</span> percent confidence interval:
- <span class="hljs-number">0.05222005</span> <span class="hljs-number">0.29966421</span>
+t = 3.0639, df = 13.356, p-value = 0.008813
+alternative hypothesis: true difference in means between group CT and group ID is not equal to 0
+95 percent confidence interval:
+ 0.05222005 0.29966421
 sample estimates:
-mean <span class="hljs-keyword">in</span> group CT mean <span class="hljs-keyword">in</span> group ID 
-      <span class="hljs-number">0.08340804</span>      -<span class="hljs-number">0.09253409</span>
+mean in group CT mean in group ID 
+      0.08340804      -0.09253409
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x79CD;&#x7EA7;&#x522B;beta&#x591A;&#x6837;&#x6027;&#x7ED3;&#x679C;</span>
-beta_re &lt;- beta_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                     min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,
-                     distance = <span class="hljs-string">&apos;bray&apos;</span>,method = <span class="hljs-string">&apos;LSD&apos;</span>)
-beta_re$plot$species$pic <span class="hljs-comment">#&#x8FD9;&#x91CC;&#x50A8;&#x5B58;&#x4E86;&#x4E09;&#x4E2A;&#x8F74;&#x6240;&#x7EC4;&#x6210;&#x7684;&#x4E09;&#x4E2A;&#x5E73;&#x9762;&#x7684;&#x56FE;&#x5F62;&#x7ED3;&#x679C;</span>
+<pre class="language-"><code class="lang-R"># &#x79CD;&#x7EA7;&#x522B;beta&#x591A;&#x6837;&#x6027;&#x7ED3;&#x679C;
+beta_re &lt;- beta_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                     min_relative = 0.001,min_ratio = 0.7,
+                     distance = &apos;bray&apos;,method = &apos;LSD&apos;)
+beta_re$plot$species$pic #&#x8FD9;&#x91CC;&#x50A8;&#x5B58;&#x4E86;&#x4E09;&#x4E2A;&#x8F74;&#x6240;&#x7EC4;&#x6210;&#x7684;&#x4E09;&#x4E2A;&#x5E73;&#x9762;&#x7684;&#x56FE;&#x5F62;&#x7ED3;&#x679C;
 </code></pre>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x6700;&#x5E38;&#x7528;&#x7684;&#x7B2C;&#x4E00;&#x548C;&#x7B2C;&#x4E8C;&#x8F74;&#x7EC4;&#x6210;&#x7684;&#x5E73;&#x9762;&#x7ED3;&#x679C;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x67E5;&#x770B;&#x5176;&#x4ED6;&#x4E24;&#x4E2A;&#x5E73;&#x9762;&#x7ED3;&#x679C;</span>
-<span class="hljs-comment"># &#x56FE;&#x5F62;&#x53F3;&#x4E0A;&#x89D2;&#x4E3A;Adonis&#x5206;&#x6790;&#x7684;&#x7ED3;&#x679C;</span>
-beta_re$plot$species$pic$p12 <span class="hljs-comment"># &#x7531;&#x4E8E;Rstudio&#x7A97;&#x53E3;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x7528;&#x6237;&#x9700;&#x8981;&#x8C03;&#x6574;&#x7A97;&#x4F53;&#x4EE5;&#x8FBE;&#x5230;&#x6700;&#x4F18;&#x7684;&#x7F8E;&#x5316;&#x7ED3;&#x679C;</span>
-<span class="hljs-comment"># &#x6216;&#x8005;&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x5408;&#x9002;&#x5C3A;&#x5BF8;&#x7684;pdf&#x7ED3;&#x679C;&#xFF0C;&#x5728;&#x5DE5;&#x4F5C;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x67E5;&#x770B;</span>
+<pre class="language-"><code class="lang-R"># &#x6700;&#x5E38;&#x7528;&#x7684;&#x7B2C;&#x4E00;&#x548C;&#x7B2C;&#x4E8C;&#x8F74;&#x7EC4;&#x6210;&#x7684;&#x5E73;&#x9762;&#x7ED3;&#x679C;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x67E5;&#x770B;&#x5176;&#x4ED6;&#x4E24;&#x4E2A;&#x5E73;&#x9762;&#x7ED3;&#x679C;
+# &#x56FE;&#x5F62;&#x53F3;&#x4E0A;&#x89D2;&#x4E3A;Adonis&#x5206;&#x6790;&#x7684;&#x7ED3;&#x679C;
+beta_re$plot$species$pic$p12 # &#x7531;&#x4E8E;Rstudio&#x7A97;&#x53E3;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x7528;&#x6237;&#x9700;&#x8981;&#x8C03;&#x6574;&#x7A97;&#x4F53;&#x4EE5;&#x8FBE;&#x5230;&#x6700;&#x4F18;&#x7684;&#x7F8E;&#x5316;&#x7ED3;&#x679C;
+# &#x6216;&#x8005;&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x5408;&#x9002;&#x5C3A;&#x5BF8;&#x7684;pdf&#x7ED3;&#x679C;&#xFF0C;&#x5728;&#x5DE5;&#x4F5C;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x67E5;&#x770B;
 ggplot2::ggsave(beta_re$plot$species$pic$p12,
-                filename = <span class="hljs-string">&apos;beta_p12.pdf&apos;</span>,width = <span class="hljs-number">15</span>,height = <span class="hljs-number">15</span>)
+                filename = &apos;beta_p12.pdf&apos;,width = 15,height = 15)
 </code></pre>
 <div align="center">
 <img src="../Image/beta_diversity1.png" style="zoom:40%;" align="center">
 </div>
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x7ED3;&#x679C;&#x4E5F;&#x652F;&#x6301;&#x8F93;&#x51FA;&#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#xFF0C;&#x4FBF;&#x4E8E;&#x53D1;&#x73B0;&#x6BCF;&#x4E2A;&#x6837;&#x672C;&#x7684;&#x5177;&#x4F53;&#x60C5;&#x51B5;</span>
+<pre class="language-"><code class="lang-R"># &#x7ED3;&#x679C;&#x4E5F;&#x652F;&#x6301;&#x8F93;&#x51FA;&#x4EA4;&#x4E92;&#x5F0F;&#x56FE;&#x5F62;&#xFF0C;&#x4FBF;&#x4E8E;&#x53D1;&#x73B0;&#x6BCF;&#x4E2A;&#x6837;&#x672C;&#x7684;&#x5177;&#x4F53;&#x60C5;&#x51B5;
 beta_re$plot$species$html$p12
 </code></pre>
 <div id="beta" align="center">
@@ -1499,16 +1512,16 @@ beta_re$plot$species$html$p12
 
 
 
-<pre><code class="lang-R"><span class="hljs-comment"># &#x56FE;&#x5F62;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x6574;group_level&#x53C2;&#x6570;&#x548C;palette&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8C03;&#x6574;&#x5206;&#x7EC4;&#x6392;&#x5E8F;&#x548C;&#x989C;&#x8272;&#x65B9;&#x6848;</span>
-group_order &lt;- c(<span class="hljs-string">&apos;ID&apos;</span>,<span class="hljs-string">&apos;CT&apos;</span>,<span class="hljs-string">&apos;IO&apos;</span>) <span class="hljs-comment">## &#x8BBE;&#x5B9A;&#x6392;&#x5E8F;&#xFF0C;&#x540D;&#x79F0;&#x9700;&#x8981;&#x7EDD;&#x5BF9;&#x4E00;&#x81F4;</span>
-cols &lt;- c(<span class="hljs-string">&apos;green&apos;</span>,<span class="hljs-string">&apos;yellow&apos;</span>,<span class="hljs-string">&apos;blue&apos;</span>) <span class="hljs-comment">## &#x8BBE;&#x5B9A;&#x989C;&#x8272;&#x65B9;&#x6848;</span>
-beta_re &lt;- beta_plot(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                     min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>,
-                     distance = <span class="hljs-string">&apos;bray&apos;</span>,method = <span class="hljs-string">&apos;LSD&apos;</span>,
+<pre class="language-"><code class="lang-R"># &#x56FE;&#x5F62;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x6574;group_level&#x53C2;&#x6570;&#x548C;palette&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8C03;&#x6574;&#x5206;&#x7EC4;&#x6392;&#x5E8F;&#x548C;&#x989C;&#x8272;&#x65B9;&#x6848;
+group_order &lt;- c(&apos;ID&apos;,&apos;CT&apos;,&apos;IO&apos;) ## &#x8BBE;&#x5B9A;&#x6392;&#x5E8F;&#xFF0C;&#x540D;&#x79F0;&#x9700;&#x8981;&#x7EDD;&#x5BF9;&#x4E00;&#x81F4;
+cols &lt;- c(&apos;green&apos;,&apos;yellow&apos;,&apos;blue&apos;) ## &#x8BBE;&#x5B9A;&#x989C;&#x8272;&#x65B9;&#x6848;
+beta_re &lt;- beta_plot(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                     min_relative = 0.001,min_ratio = 0.7,
+                     distance = &apos;bray&apos;,method = &apos;LSD&apos;,
                      group_level = group_order,palette = cols)
-<span class="hljs-comment"># &#x5EFA;&#x8BAE;&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x5408;&#x9002;&#x5C3A;&#x5BF8;&#x7684;pdf&#x7ED3;&#x679C;&#xFF0C;&#x5728;&#x5DE5;&#x4F5C;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x67E5;&#x770B;</span>
-ggplot2::ggsave(beta_re$plot$species$pic$p12,filename = <span class="hljs-string">&apos;beta_p12.pdf&apos;</span>,width = <span class="hljs-number">15</span>,height = <span class="hljs-number">15</span>)
-<span class="hljs-comment"># &#x6216;&#x8005;&#x76F4;&#x63A5;&#x67E5;&#x770B;&#x4EA4;&#x4E92;&#x5F0F;html&#x683C;&#x5F0F;</span>
+# &#x5EFA;&#x8BAE;&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x5408;&#x9002;&#x5C3A;&#x5BF8;&#x7684;pdf&#x7ED3;&#x679C;&#xFF0C;&#x5728;&#x5DE5;&#x4F5C;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x67E5;&#x770B;
+ggplot2::ggsave(beta_re$plot$species$pic$p12,filename = &apos;beta_p12.pdf&apos;,width = 15,height = 15)
+# &#x6216;&#x8005;&#x76F4;&#x63A5;&#x67E5;&#x770B;&#x4EA4;&#x4E92;&#x5F0F;html&#x683C;&#x5F0F;
 beta_re$plot$species$html$p12
 </code></pre>
 <div align="center">
@@ -1560,7 +1573,7 @@ beta_re$plot$species$html$p12
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 8 Beta多样性","level":"1.9","depth":1,"next":{"title":"8.1 beta_plot模块","level":"1.9.1","depth":2,"anchor":"#81","path":"MD/08.Beta多样性.md","ref":"MD/08.Beta多样性.md#81","articles":[{"title":"8.1.1 参数介绍","level":"1.9.1.1","depth":3,"anchor":"#811","path":"MD/08.Beta多样性.md","ref":"MD/08.Beta多样性.md#811","articles":[]},{"title":"8.1.2 使用范例","level":"1.9.1.2","depth":3,"anchor":"#812","path":"MD/08.Beta多样性.md","ref":"MD/08.Beta多样性.md#812","articles":[]}]},"previous":{"title":"7.1.2 使用范例","level":"1.8.1.2","depth":3,"anchor":"#712","path":"MD/07.Alpha多样性.md","ref":"MD/07.Alpha多样性.md#712","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/08.Beta多样性.md","mtime":"2022-09-01T08:52:12.553Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 8 Beta多样性","level":"1.9","depth":1,"next":{"title":"8.1 beta_plot模块","level":"1.9.1","depth":2,"anchor":"#81","path":"MD/08.Beta多样性.md","ref":"MD/08.Beta多样性.md#81","articles":[{"title":"8.1.1 参数介绍","level":"1.9.1.1","depth":3,"anchor":"#811","path":"MD/08.Beta多样性.md","ref":"MD/08.Beta多样性.md#811","articles":[]},{"title":"8.1.2 使用范例","level":"1.9.1.2","depth":3,"anchor":"#812","path":"MD/08.Beta多样性.md","ref":"MD/08.Beta多样性.md#812","articles":[]}]},"previous":{"title":"7.1.2 使用范例","level":"1.8.1.2","depth":3,"anchor":"#712","path":"MD/07.Alpha多样性.md","ref":"MD/07.Alpha多样性.md#712","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/08.Beta多样性.md","mtime":"2022-09-01T08:52:12.553Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

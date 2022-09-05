@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
@@ -50,10 +54,6 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -352,6 +352,19 @@
             
                     
                     3.3 分组数据mapping格式要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03.数据的基本格式.html">
+            
+                <a href="03.数据的基本格式.html#34">
+            
+                    
+                    3.4 示例数据的内置与下载
             
                 </a>
             
@@ -1349,51 +1362,51 @@
 
 <p><strong>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</strong></p>
 <p>Tips1&#xFF1A;&#x7531;&#x4E8E;&#x8868;&#x578B;&#x6570;&#x636E;&#x6837;&#x672C;&#x548C;&#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#x6837;&#x672C;&#x5F80;&#x5F80;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#xFF0C;&#x56E0;&#x6B64;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x5C06;&#x91C7;&#x53D6;&#x4E8C;&#x8005;&#x6837;&#x672C;&#x7684;&#x4EA4;&#x96C6;&#x8FDB;&#x884C;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x57FA;&#x672C;&#x4EE3;&#x7801;</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot) <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x5305;</span>
-<span class="hljs-comment"># &#x52A0;&#x8F7D;&#x8868;&#x578B;&#x6570;&#x636E;</span>
+<pre class="language-"><code class="lang-R"># &#x57FA;&#x672C;&#x4EE3;&#x7801;
+library(EasyMicroPlot) # &#x52A0;&#x8F7D;&#x5305;
+# &#x52A0;&#x8F7D;&#x8868;&#x578B;&#x6570;&#x636E;
 data(EMP)
-meta_data &lt;- EMP$iron <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6CE8;&#x610F;&#x6EE1;&#x8DB3;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;</span>
-core_data &lt;- data_filter(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                         min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>) 
-core_phylum &lt;- core_data$filter_data$phylum <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x6240;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;</span>
-<span class="hljs-comment"># &#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x76F8;&#x5173;&#x6027;&#x8BA1;&#x7B97;&#x65B9;&#x6848;</span>
-<span class="hljs-comment">## &#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#x548C;&#x8868;&#x578B;&#x6570;&#x636E;&#x5206;&#x5F00;&#x8FDB;&#x884C;&#x5173;&#x8054;&#x5206;&#x6790; &#xFF08;&#x70ED;&#x56FE;&#x5F62;&#x5F0F;&#xFF09;</span>
-cor_re &lt;- EMP_COR(data = core_phylum,meta=meta_data,cor_output = <span class="hljs-literal">F</span>,
-                  method = <span class="hljs-string">&apos;spearman&apos;</span>,aes_value = <span class="hljs-number">1</span>)
-<span class="hljs-comment">## &#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#x548C;&#x8868;&#x578B;&#x6570;&#x636E;&#x5408;&#x5E76;&#x8FDB;&#x884C;&#x5173;&#x8054;&#x5206;&#x6790; &#xFF08;&#x4E09;&#x89D2;&#x56FE;&#x5F62;&#x5F0F;&#xFF09;</span>
-cor_re &lt;- EMP_COR(data = core_phylum,meta=meta_data,cor_output = <span class="hljs-literal">F</span>,
-                  method = <span class="hljs-string">&apos;spearman&apos;</span>,aes_value = <span class="hljs-number">2</span>)
-cor_re$r <span class="hljs-comment">## &#x76F8;&#x5173;&#x6027;&#x7CFB;&#x6570;&#x7ED3;&#x679C;</span>
-cor_re$p <span class="hljs-comment">## &#x76F8;&#x5173;&#x6027;&#x68C0;&#x9A8C;&#x7ED3;&#x679C;</span>
+meta_data &lt;- EMP$iron # &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6CE8;&#x610F;&#x6EE1;&#x8DB3;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;
+core_data &lt;- data_filter(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                         min_relative = 0.001,min_ratio = 0.7) 
+core_phylum &lt;- core_data$filter_data$phylum # &#x8FD9;&#x91CC;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x6240;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;
+# &#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x76F8;&#x5173;&#x6027;&#x8BA1;&#x7B97;&#x65B9;&#x6848;
+## &#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#x548C;&#x8868;&#x578B;&#x6570;&#x636E;&#x5206;&#x5F00;&#x8FDB;&#x884C;&#x5173;&#x8054;&#x5206;&#x6790; &#xFF08;&#x70ED;&#x56FE;&#x5F62;&#x5F0F;&#xFF09;
+cor_re &lt;- EMP_COR(data = core_phylum,meta=meta_data,cor_output = F,
+                  method = &apos;spearman&apos;,aes_value = 1)
+## &#x5FAE;&#x751F;&#x7269;&#x6570;&#x636E;&#x548C;&#x8868;&#x578B;&#x6570;&#x636E;&#x5408;&#x5E76;&#x8FDB;&#x884C;&#x5173;&#x8054;&#x5206;&#x6790; &#xFF08;&#x4E09;&#x89D2;&#x56FE;&#x5F62;&#x5F0F;&#xFF09;
+cor_re &lt;- EMP_COR(data = core_phylum,meta=meta_data,cor_output = F,
+                  method = &apos;spearman&apos;,aes_value = 2)
+cor_re$r ## &#x76F8;&#x5173;&#x6027;&#x7CFB;&#x6570;&#x7ED3;&#x679C;
+cor_re$p ## &#x76F8;&#x5173;&#x6027;&#x68C0;&#x9A8C;&#x7ED3;&#x679C;
 </code></pre>
 <p><strong>&#x56FE;&#x5F62;&#x7ED3;&#x679C;&#x5C55;&#x793A;&#xFF1A;</strong></p>
 <p>Tips 1: &#x8FD9;&#x91CC;&#x7684;&#x76F8;&#x5173;&#x6027;&#x56FE;&#x5F62;&#x4EC5;&#x4FDD;&#x7559;&#x901A;&#x8FC7;&#x76F8;&#x5173;&#x6027;&#x68C0;&#x9A8C;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5982;1&#x4E2A;&#x7269;&#x79CD;&#x6216;&#x8005;&#x8868;&#x578B;&#x6570;&#x636E;&#x4E0E;&#x5BF9;&#x9762;&#x77E9;&#x9635;&#x6240;&#x6709;&#x6570;&#x636E;&#x5747;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x76F8;&#x5173;&#x6027;&#x68C0;&#x9A8C;&#xFF0C;&#x5219;&#x4F1A;&#x88AB;&#x7701;&#x7565;&#x3002;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x5728;<code>cor_re$p</code> &#x67E5;&#x770B;&#x3002;</p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x751F;&#x7269;&#x6570;&#x636E;&#x548C;&#x8868;&#x578B;&#x6570;&#x636E;&#x5206;&#x5F00;&#x8FDB;&#x884C;&#x5173;&#x8054;&#x5206;&#x6790; &#xFF08;&#x70ED;&#x56FE;&#x5F62;&#x5F0F;&#xFF09;</span>
-<span class="hljs-comment"># &#x57FA;&#x672C;&#x4EE3;&#x7801;</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot)
+<pre class="language-"><code class="lang-R"># &#x751F;&#x7269;&#x6570;&#x636E;&#x548C;&#x8868;&#x578B;&#x6570;&#x636E;&#x5206;&#x5F00;&#x8FDB;&#x884C;&#x5173;&#x8054;&#x5206;&#x6790; &#xFF08;&#x70ED;&#x56FE;&#x5F62;&#x5F0F;&#xFF09;
+# &#x57FA;&#x672C;&#x4EE3;&#x7801;
+library(EasyMicroPlot)
 data(EMP)
-meta_data &lt;- EMP$iron <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6CE8;&#x610F;&#x6EE1;&#x8DB3;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;</span>
-core_data &lt;- data_filter(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                         min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>) 
+meta_data &lt;- EMP$iron # &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6CE8;&#x610F;&#x6EE1;&#x8DB3;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;
+core_data &lt;- data_filter(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                         min_relative = 0.001,min_ratio = 0.7) 
 
-core_species &lt;- core_data$filter_data$species <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x6240;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;</span>
-cor_re &lt;- EMP_COR(data = core_species,meta=meta_data,cor_output = <span class="hljs-literal">F</span>,
-                  method = <span class="hljs-string">&apos;spearman&apos;</span>,aes_value = <span class="hljs-number">1</span>)
+core_species &lt;- core_data$filter_data$species # &#x8FD9;&#x91CC;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x6240;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;
+cor_re &lt;- EMP_COR(data = core_species,meta=meta_data,cor_output = F,
+                  method = &apos;spearman&apos;,aes_value = 1)
 </code></pre>
 <p><img src="../Image/EMP_COR1.png" alt="EMP_COR1" style="zoom:40%;"></p>
-<pre><code class="lang-R"><span class="hljs-comment"># &#x751F;&#x7269;&#x6570;&#x636E;&#x548C;&#x8868;&#x578B;&#x6570;&#x636E;&#x5206;&#x5F00;&#x8FDB;&#x884C;&#x5173;&#x8054;&#x5206;&#x6790; &#xFF08;&#x4E09;&#x89D2;&#x56FE;&#x5F62;&#x5F0F;&#xFF09;</span>
-<span class="hljs-comment"># &#x57FA;&#x672C;&#x4EE3;&#x7801;</span>
-<span class="hljs-keyword">library</span>(EasyMicroPlot)
+<pre class="language-"><code class="lang-R"># &#x751F;&#x7269;&#x6570;&#x636E;&#x548C;&#x8868;&#x578B;&#x6570;&#x636E;&#x5206;&#x5F00;&#x8FDB;&#x884C;&#x5173;&#x8054;&#x5206;&#x6790; &#xFF08;&#x4E09;&#x89D2;&#x56FE;&#x5F62;&#x5F0F;&#xFF09;
+# &#x57FA;&#x672C;&#x4EE3;&#x7801;
+library(EasyMicroPlot)
 data(EMP)
-meta_data &lt;- EMP$iron <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6CE8;&#x610F;&#x6EE1;&#x8DB3;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;</span>
-core_data &lt;- data_filter(dir  = <span class="hljs-string">&apos;16s_data/&apos;</span>,design = <span class="hljs-string">&apos;mapping/mapping.txt&apos;</span>,
-                         min_relative = <span class="hljs-number">0.001</span>,min_ratio = <span class="hljs-number">0.7</span>) 
+meta_data &lt;- EMP$iron # &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x8868;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8BFB;&#x53D6;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6CE8;&#x610F;&#x6EE1;&#x8DB3;3.2&#x683C;&#x5F0F;&#x8981;&#x6C42;
+core_data &lt;- data_filter(dir  = &apos;16s_data/&apos;,design = &apos;mapping/mapping.txt&apos;,
+                         min_relative = 0.001,min_ratio = 0.7) 
 
-core_species &lt;- core_data$filter_data$species <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x6240;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;</span>
-key_species &lt;- subset(core_species,select = c(<span class="hljs-string">&apos;SampleID&apos;</span>,<span class="hljs-string">&apos;V15&apos;</span>,<span class="hljs-string">&apos;V19&apos;</span>,<span class="hljs-string">&apos;V121&apos;</span>)) <span class="hljs-comment"># &#x4E5F;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x9700;&#x8981;&#x7684;&#x7269;&#x79CD;</span>
-cor_re &lt;- EMP_COR(data = key_species,meta=meta_data,cor_output = <span class="hljs-literal">F</span>,
-                  method = <span class="hljs-string">&apos;spearman&apos;</span>,aes_value = <span class="hljs-number">2</span>)
+core_species &lt;- core_data$filter_data$species # &#x8FD9;&#x91CC;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x6240;&#x9700;&#x8981;&#x7684;&#x5FAE;&#x751F;&#x7269;&#x7269;&#x79CD;&#x7EA7;&#x522B;
+key_species &lt;- subset(core_species,select = c(&apos;SampleID&apos;,&apos;V15&apos;,&apos;V19&apos;,&apos;V121&apos;)) # &#x4E5F;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x9700;&#x8981;&#x7684;&#x7269;&#x79CD;
+cor_re &lt;- EMP_COR(data = key_species,meta=meta_data,cor_output = F,
+                  method = &apos;spearman&apos;,aes_value = 2)
 </code></pre>
 <p><img src="../Image/EMP_COR2.png" alt="EMP_COR2" style="zoom:40%;"> </p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; 382983280@qq.com 2022 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x66F4;&#x65B0;&#x65F6;&#x95F4;&#xFF1A;
@@ -1441,7 +1454,7 @@ cor_re &lt;- EMP_COR(data = key_species,meta=meta_data,cor_output = <span class=
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Charpter 13 相关性分析图","level":"1.14","depth":1,"next":{"title":"13.1 RFCV模块","level":"1.14.1","depth":2,"anchor":"#131","path":"MD/13.相关性分析图.md","ref":"MD/13.相关性分析图.md#131","articles":[{"title":"13.1.1 参数介绍","level":"1.14.1.1","depth":3,"anchor":"#1311","path":"MD/13.相关性分析图.md","ref":"MD/13.相关性分析图.md#1311","articles":[]},{"title":"13.1.2 使用范例","level":"1.14.1.2","depth":3,"anchor":"#1312","path":"MD/13.相关性分析图.md","ref":"MD/13.相关性分析图.md#1312","articles":[]}]},"previous":{"title":"12.1.2 使用范例","level":"1.13.1.2","depth":3,"anchor":"#1212","path":"MD/12.随机森林交叉验证模型.md","ref":"MD/12.随机森林交叉验证模型.md#1212","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/13.相关性分析图.md","mtime":"2022-09-01T06:56:12.452Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-02T05:32:07.090Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Charpter 13 相关性分析图","level":"1.14","depth":1,"next":{"title":"13.1 RFCV模块","level":"1.14.1","depth":2,"anchor":"#131","path":"MD/13.相关性分析图.md","ref":"MD/13.相关性分析图.md#131","articles":[{"title":"13.1.1 参数介绍","level":"1.14.1.1","depth":3,"anchor":"#1311","path":"MD/13.相关性分析图.md","ref":"MD/13.相关性分析图.md#1311","articles":[]},{"title":"13.1.2 使用范例","level":"1.14.1.2","depth":3,"anchor":"#1312","path":"MD/13.相关性分析图.md","ref":"MD/13.相关性分析图.md#1312","articles":[]}]},"previous":{"title":"12.1.2 使用范例","level":"1.13.1.2","depth":3,"anchor":"#1212","path":"MD/12.随机森林交叉验证模型.md","ref":"MD/12.随机森林交叉验证模型.md#1212","articles":[]},"dir":"ltr"},"config":{"plugins":["code","pageview-count","tbfed-pagefooter","favicon","-highlight","prism","search-pro","expandable-chapters","hide-element","back-to-top-button","splitter","auto-scroll-table","-lunr","-search","sharing","chapter-fold","livereload"],"styles":{"website":"assets/styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 382983280@qq.com 2022","modify_label":"更新时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"splitter":{},"search-pro":{},"auto-scroll-table":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/favicon.ico","bookmark":"assets/favicon.ico","appleTouch":"assets/favicon.ico","appleTouchMore":{"120x120":"assets/favicon.ico","180x180":"assets/favicon.ico"}},"back-to-top-button":{},"pageview-count":{},"sharing":{"all":["facebook","google","linkedin","twitter","weibo","qq"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Bingdong Liu","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Bingdong Liu","language":"zh-hans","links":{"sharing":{"all":true,"facebook":true,"google":true,"twitter":true,"weibo":true},"sidebar":{"EasyMicroPlot":"https://github.com/xielab2017/EasyMicroPlot"}},"gitbook":"*","description":"EasyMicroPlot.","extension":null},"file":{"path":"MD/13.相关性分析图.md","mtime":"2022-09-01T06:56:12.452Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-05T08:54:19.810Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
